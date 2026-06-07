@@ -38,20 +38,20 @@
     </div>
   </div>
 
-  <div id="observer-message" class="observer-message" hidden></div>
-
   <main class="vrc-main" id="main-content" hidden>
     <div class="vrc-profile-card">
       <div class="vrc-banner"></div>
       <div class="vrc-profile-head">
         <div class="vrc-avatar-wrap">
-          <img
-            class="vrc-avatar"
-            src="https://github.com/den3606.png"
-            alt="Den"
-            width="104"
-            height="104"
-          >
+          <button type="button" class="vrc-avatar-btn" id="avatar-pet-btn" aria-label="Pet avatar">
+            <img
+              class="vrc-avatar"
+              src="https://github.com/den3606.png"
+              alt="Den"
+              width="104"
+              height="104"
+            >
+          </button>
         </div>
         <div class="vrc-profile-meta">
           <div class="vrc-name-row">
@@ -78,6 +78,7 @@
         <div class="vrc-about-text">
           <p>開いてくれてありがとう。den です。</p>
           <p>下にゲームを乗せています。ソロゲーが多いですが、昔はマルチゲーもよく遊んでました。今もたまに遊びます。スペシャルフォースとか、MHF とか BattleField3 とか。さらに昔は任天堂のゲームをよく遊んでいました。</p>
+          <p>The code "already_know"</p>
         </div>
         <div class="vrc-lang-tags">
           <span class="vrc-lang-tag">日本語</span>
@@ -114,60 +115,88 @@
           <p class="achievements-progress"><span id="achievement-count">0</span> / <span id="achievement-total">8</span> unlocked</p>
         </div>
         <div class="achievement-grid" id="achievement-list">
-          <article class="achievement-card" data-achievement="first-contact">
+          <article class="achievement-card" data-achievement="first-contact" data-title="first-contact">
             <div class="achievement-emoji" aria-hidden="true">👋</div>
             <div class="achievement-body">
               <h3 class="achievement-title">First Contact</h3>
               <p class="achievement-desc">まずは挨拶から。挨拶は大事ですね。</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="observer">
+          <article class="achievement-card" data-achievement="observer" data-title="observer">
             <div class="achievement-emoji" aria-hidden="true">👁️</div>
             <div class="achievement-body">
               <h3 class="achievement-title">Observer</h3>
               <p class="achievement-desc">物事は最初から最後まで、ちゃんと見てから考えましょう。</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="observed">
-            <div class="achievement-emoji" aria-hidden="true">⏱️</div>
+          <article class="achievement-card" data-achievement="pet-pet-pet" data-title="pet-pet-pet">
+            <div class="achievement-emoji" aria-hidden="true">🐕</div>
             <div class="achievement-body">
-              <h3 class="achievement-title">Observed</h3>
-              <p class="achievement-desc">あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。</p>
+              <h3 class="achievement-title">Pet, Pet, Pet</h3>
+              <p class="achievement-desc">撫でるのが上手ですね。もしかして、普段から撫でてます？</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="vrc-engineer">
+          <article class="achievement-card" data-achievement="vrc-engineer" data-title="vrc-engineer">
             <div class="achievement-emoji" aria-hidden="true">🔧</div>
             <div class="achievement-body">
               <h3 class="achievement-title">VRC Engineer</h3>
               <p class="achievement-desc">これを入れるとは… 謎解きとか好きなんですか？</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="your-friend-name" data-secret="true" data-emoji="🤝" data-title="Your Friend Name" data-desc="実はこれ、僕の名前なんです。知ってましたか？">
+          <article class="achievement-card" data-achievement="observed" data-secret="true" data-emoji="⏱️" data-title="observed" data-desc="あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。">
+            <div class="achievement-emoji" aria-hidden="true">⏱️</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Observed</h3>
+              <p class="achievement-desc">あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="escape-from-friend" data-secret="true" data-emoji="🏃" data-title="escape-from-friend" data-desc="臆病なので、そんなに接近されると逃げちゃいます。">
+            <div class="achievement-emoji" aria-hidden="true">🏃</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Escape From Friend</h3>
+              <p class="achievement-desc">臆病なので、そんなに接近されると逃げちゃいます。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="honester" data-secret="true" data-emoji="🫡" data-title="honester" data-desc="書いてあることをそのまま入れるのは正直でいいですね。">
+            <div class="achievement-emoji" aria-hidden="true">🫡</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Honester</h3>
+              <p class="achievement-desc">書いてあることをそのまま入れるのは正直でいいですね。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="your-friend-name" data-secret="true" data-emoji="🤝" data-title="your-friend-name" data-desc="実はこれ、僕の名前なんです。知ってましたか？">
             <div class="achievement-emoji" aria-hidden="true">🤝</div>
             <div class="achievement-body">
               <h3 class="achievement-title">Your Friend Name</h3>
               <p class="achievement-desc">実はこれ、僕の名前なんです。知ってましたか？</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="mirror-mirror" data-secret="true" data-emoji="🪞" data-title="Mirror, Mirror" data-desc="鏡文字まで知っているとは、VRCにお詳しそうですね。">
+          <article class="achievement-card" data-achievement="mirror-mirror" data-secret="true" data-emoji="🪞" data-title="mirror-mirror" data-desc="鏡文字まで知っているとは、VRCにお詳しそうですね。">
             <div class="achievement-emoji" aria-hidden="true">🪞</div>
             <div class="achievement-body">
               <h3 class="achievement-title">Mirror, Mirror</h3>
               <p class="achievement-desc">鏡文字まで知っているとは、VRCにお詳しそうですね。</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="deep-diver" data-secret="true" data-emoji="🤿" data-title="Deep Diver" data-desc="改めてこんにちは。僕のプロフィールをよく見てくれたということですね。ありがとう。">
+          <article class="achievement-card" data-achievement="deep-diver" data-secret="true" data-emoji="🤿" data-title="deep-diver" data-desc="改めてこんにちは。僕のプロフィールをよく見てくれたということですね。ありがとう。">
             <div class="achievement-emoji" aria-hidden="true">🤿</div>
             <div class="achievement-body">
               <h3 class="achievement-title">Deep Diver</h3>
               <p class="achievement-desc">改めてこんにちは。僕のプロフィールをよく見てくれたということですね。ありがとう。</p>
             </div>
           </article>
-          <article class="achievement-card" data-achievement="full-signal" data-secret="true" data-emoji="✨" data-title="Full Signal" data-desc="全解除したんですか？！<br>本当に、本当にありがとう 🙏">
+          <article class="achievement-card" data-achievement="science-and-magic-intersect" data-secret="true" data-emoji="🔮" data-title="science-and-magic-intersect" data-desc="科学と魔術が交差しなくても、ブラウザとVRCが交差すると物語は生まれるんだって。">
+            <div class="achievement-emoji" aria-hidden="true">🔮</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Science And Magic Intersect</h3>
+              <p class="achievement-desc">科学と魔術が交差しなくても、ブラウザとVRCが交差すると物語は生まれるんだって。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="full-signal" data-secret="true" data-emoji="✨" data-title="full-signal" data-desc="全解除したんですか？！<br>本当に、本当にありがとう 🙏<br>code: thank_you_vrc">
             <div class="achievement-emoji" aria-hidden="true">✨</div>
             <div class="achievement-body">
               <h3 class="achievement-title">Full Signal</h3>
-              <p class="achievement-desc">全解除したんですか？！<br>本当に、本当にありがとう 🙏</p>
+              <p class="achievement-desc">全解除したんですか？！<br>本当に、本当にありがとう 🙏<br>code: thank_you_vrc</p>
             </div>
           </article>
         </div>
@@ -227,6 +256,19 @@
       </section>
 
       <button type="button" id="close-hidden" class="close-hidden-btn vrc-btn vrc-btn-outline">&lt; Return to profile</button>
+    </div>
+  </div>
+
+  <div id="thank-you-vrc" class="thank-you-vrc" hidden>
+    <div class="thank-you-vrc-inner">
+      <img
+        class="thank-you-vrc-image"
+        src="images/thank_you_vrc.png"
+        alt="Thank you"
+        width="960"
+        height="540"
+      >
+      <button type="button" id="close-thank-you-vrc" class="close-hidden-btn vrc-btn vrc-btn-outline">&lt; Return to profile</button>
     </div>
   </div>
 

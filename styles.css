@@ -233,6 +233,34 @@ a:hover {
   animation: fadeIn 0.6s ease;
 }
 
+.thank-you-vrc {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow-y: auto;
+  background: var(--color-hidden-bg);
+  animation: fadeIn 0.6s ease;
+}
+
+.thank-you-vrc-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 100%;
+  padding: 2rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.thank-you-vrc-image {
+  display: block;
+  width: min(100%, 56rem);
+  height: auto;
+  border-radius: var(--radius-panel);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -283,7 +311,6 @@ a:hover {
 /* ── Floating messages ── */
 
 .return-message,
-.observer-message,
 .achievement-toast {
   position: fixed;
   top: 1.25rem;
@@ -301,8 +328,7 @@ a:hover {
   transition: top 0.25s ease;
 }
 
-.return-message,
-.observer-message {
+.return-message {
   font-family: var(--font-mono);
   font-size: 0.85em;
   color: var(--color-accent);
@@ -496,8 +522,40 @@ a:hover {
   opacity: 0.85;
 }
 
-.terminal-hint .hint-details {
+.terminal-hint .hint-list {
   margin-top: 0.25rem;
+}
+
+.terminal-hint .hint-item + .hint-item {
+  margin-top: 0.15rem;
+}
+
+.terminal-hint .hint-item-trigger {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.terminal-hint .hint-item-trigger:hover:not(:disabled) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terminal-hint .hint-item-trigger.is-revealed {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.terminal-hint .hint-item-text {
+  margin: 0.2rem 0 0.35rem 0.75rem;
+  line-height: 1.45;
+  color: var(--color-muted);
 }
 
 /* ── Theme: minimal (default) ── */
@@ -731,7 +789,7 @@ a:hover {
 [data-theme="vrc"] .vrc-profile-card {
   background: var(--color-surface);
   border-radius: var(--radius-panel);
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 1rem;
   border: 1px solid var(--color-border);
 }
@@ -751,6 +809,80 @@ a:hover {
 
 [data-theme="vrc"] .vrc-avatar-wrap {
   flex-shrink: 0;
+  overflow: visible;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 0;
+  transition: transform 0.6s ease-in, opacity 0.6s ease-in;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn:disabled {
+  cursor: default;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn.is-petting .vrc-avatar {
+  animation: avatarPet 0.35s ease;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn.is-uncomfortable .vrc-avatar {
+  filter: saturate(0.75) brightness(0.92);
+  transform: rotate(-4deg) scale(0.96);
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn.is-reacting .vrc-avatar {
+  animation: avatarUncomfortable 0.45s ease;
+}
+
+[data-theme="vrc"] .vrc-avatar-btn.is-escaping {
+  animation: avatarEscape 0.85s ease-in forwards;
+  pointer-events: none;
+  transition: none;
+}
+
+[data-theme="vrc"] .vrc-avatar-wrap.is-escaped .vrc-avatar-btn {
+  transform: translateX(calc(100vw + 8rem));
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+  transition: none;
+}
+
+@keyframes avatarPet {
+  0% { transform: scale(1); }
+  35% { transform: scale(0.9); }
+  65% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes avatarUncomfortable {
+  0%, 100% { transform: rotate(-4deg) scale(0.96) translateX(0); }
+  20% { transform: rotate(-7deg) scale(0.93) translateX(-10px); }
+  45% { transform: rotate(-2deg) scale(0.95) translateX(6px); }
+  70% { transform: rotate(-8deg) scale(0.92) translateX(-14px); }
+}
+
+@keyframes avatarEscape {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 8rem));
+    opacity: 0;
+  }
 }
 
 [data-theme="vrc"] .vrc-avatar {
@@ -1223,8 +1355,7 @@ a:hover {
 
 /* ── Overlays in VRC theme ── */
 
-[data-theme="vrc"] .return-message,
-[data-theme="vrc"] .observer-message {
+[data-theme="vrc"] .return-message {
   font-family: var(--font-body);
   border-color: var(--color-accent);
 }

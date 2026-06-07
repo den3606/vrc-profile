@@ -7,6 +7,18 @@
   const CODES_FRIEND_NAME = ["den3606", "den"];
   const CODES_MIRROR = ["6063ned", "ned"];
   const CODE_VRC_USER = "usr_aac1b0fa-a840-4408-bea8-38a010120d03";
+  const CODE_ALREADY_KNOW = "already_know";
+  const CODE_THANK_YOU_VRC = "thank_you_vrc";
+  const CODE_MAGIC = "magic";
+  const CODES_KUD = [
+    "kud",
+    "kudryavka",
+    "くど",
+    "くどりゃふか",
+    "クドリャフカ",
+    "クド",
+    "能美クドリャフカ",
+  ];
 
   const BOOT_LINES = [
     "Connection established.",
@@ -18,20 +30,23 @@
     "first-contact": { title: "First Contact", emoji: "👋" },
     observer: { title: "Observer", emoji: "👁️" },
     observed: { title: "Observed", emoji: "⏱️" },
+    "pet-pet-pet": { title: "Pet, Pet, Pet", emoji: "🐕" },
+    "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
     "vrc-engineer": { title: "VRC Engineer", emoji: "🔧" },
+    honester: { title: "Honester", emoji: "🫡" },
     "your-friend-name": { title: "Your Friend Name", emoji: "🤝" },
     "mirror-mirror": { title: "Mirror, Mirror", emoji: "🪞" },
     "deep-diver": { title: "Deep Diver", emoji: "🤿" },
+    "science-and-magic-intersect": { title: "Science And Magic Intersect", emoji: "🔮" },
     "full-signal": { title: "Full Signal", emoji: "✨" },
   };
 
   const COMPLETION_ID = "full-signal";
 
-  // この3つが揃うと your-friend-name / mirror-mirror / deep-diver / full-signal の条件が表示される
-  const SECRET_PREREQS = ["first-contact", "observer", "observed"];
-
   const SESSION_KEY = "vrc-profile-session";
   const OBSERVED_MS = 180000;
+  const PET_CLICKS_REQUIRED = 10;
+  const PET_ESCAPE_CLICKS = 20;
 
   const RETURN_MESSAGES = {
     2: "Welcome back.",
@@ -52,7 +67,6 @@
     returnMessage: document.getElementById("return-message"),
     achievementToast: document.getElementById("achievement-toast"),
     toastTitle: document.getElementById("toast-title"),
-    observerMessage: document.getElementById("observer-message"),
     achievementList: document.getElementById("achievement-list"),
     achievementCount: document.getElementById("achievement-count"),
     achievementTotal: document.getElementById("achievement-total"),
@@ -61,6 +75,8 @@
     tabProfile: document.getElementById("tab-profile"),
     tabAchievements: document.getElementById("tab-achievements"),
     hiddenProfile: document.getElementById("hidden-profile"),
+    thankYouVrc: document.getElementById("thank-you-vrc"),
+    closeThankYouVrc: document.getElementById("close-thank-you-vrc"),
     terminalToggle: document.getElementById("terminal-toggle"),
     accessTerminal: document.getElementById("access-terminal"),
     terminalClose: document.getElementById("terminal-close"),
@@ -69,6 +85,8 @@
     terminalOutput: document.getElementById("terminal-output"),
     closeHidden: document.getElementById("close-hidden"),
     endReaderBtn: document.getElementById("end-reader-btn"),
+    avatarPetBtn: document.getElementById("avatar-pet-btn"),
+    avatarWrap: document.querySelector(".vrc-avatar-wrap"),
   };
 
   init();
@@ -76,10 +94,11 @@
   function init() {
     runBootSequence();
     setupEndReaderButton();
-    setupObserverTimer();
+    setupAvatarPet();
     setupObservedTimer();
     setupTerminal();
     setupHiddenProfile();
+    setupThankYouVrc();
     setupTabs();
     loadSteamGames();
     renderAchievements();
@@ -93,9 +112,9 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       return raw
         ? migrateState(JSON.parse(raw))
-        : { visits: 0, achievements: [], observerShown: false };
+        : { visits: 0, achievements: [] };
     } catch {
-      return { visits: 0, achievements: [], observerShown: false };
+      return { visits: 0, achievements: [] };
     }
   }
 
@@ -344,34 +363,95 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
 
       if (!state.achievements.includes("observer")) {
-        showObserverSequence();
+        unlockAchievement("observer");
       }
     });
   }
 
-  function showObserverSequence() {
-    showFloatingMessage(els.observerMessage, "Interesting.", 2500);
-    unlockAchievement("observer");
-  }
+  function setupAvatarPet() {
+    if (!els.avatarPetBtn) return;
 
-  function setupObserverTimer() {
-    if (state.observerShown) return;
+    applyAvatarEscapeState();
 
-    const IDLE_MS = 45000;
+    els.avatarPetBtn.addEventListener("click", () => {
+      if (hasAvatarEscaped()) return;
 
-    const timer = setTimeout(() => {
-      if (state.observerShown) return;
-      state.observerShown = true;
+      state.petClicks = (state.petClicks || 0) + 1;
       saveState();
 
-      showFloatingMessage(els.observerMessage, "Interesting.", 2500);
-    }, IDLE_MS);
+      const count = state.petClicks;
 
-    window.addEventListener(
-      "beforeunload",
-      () => clearTimeout(timer),
-      { once: true }
+      if (count <= PET_CLICKS_REQUIRED) {
+        playAvatarPetAnimation("petting");
+        if (count === PET_CLICKS_REQUIRED) {
+          unlockAchievement("pet-pet-pet");
+        }
+        return;
+      }
+
+      if (count < PET_ESCAPE_CLICKS) {
+        els.avatarPetBtn.classList.add("is-uncomfortable");
+        playAvatarPetAnimation("uncomfortable");
+        return;
+      }
+
+      els.avatarPetBtn.classList.remove("is-uncomfortable");
+      els.avatarPetBtn.classList.add("is-escaping");
+      unlockAchievement("escape-from-friend");
+    });
+
+    els.avatarPetBtn.addEventListener("animationend", (e) => {
+      if (e.target === els.avatarPetBtn && els.avatarPetBtn.classList.contains("is-escaping")) {
+        els.avatarPetBtn.classList.remove("is-escaping");
+        setAvatarEscaped();
+        return;
+      }
+
+      if (e.target.classList.contains("vrc-avatar")) {
+        els.avatarPetBtn.classList.remove("is-petting", "is-reacting");
+      }
+    });
+  }
+
+  function hasAvatarEscaped() {
+    return (
+      state.achievements.includes("escape-from-friend") ||
+      (state.petClicks || 0) >= PET_ESCAPE_CLICKS
     );
+  }
+
+  function setAvatarEscaped() {
+    if (els.avatarWrap) els.avatarWrap.classList.add("is-escaped");
+    if (els.avatarPetBtn) {
+      els.avatarPetBtn.disabled = true;
+      els.avatarPetBtn.classList.remove("is-uncomfortable", "is-petting", "is-reacting", "is-escaping");
+    }
+  }
+
+  function applyAvatarEscapeState() {
+    if (!els.avatarPetBtn) return;
+
+    if (hasAvatarEscaped()) {
+      setAvatarEscaped();
+      return;
+    }
+
+    if ((state.petClicks || 0) > PET_CLICKS_REQUIRED) {
+      els.avatarPetBtn.classList.add("is-uncomfortable");
+    }
+  }
+
+  function playAvatarPetAnimation(mode) {
+    const btn = els.avatarPetBtn;
+    btn.classList.remove("is-petting", "is-reacting");
+    void btn.offsetWidth;
+
+    if (mode === "uncomfortable") {
+      btn.classList.add("is-reacting");
+      return;
+    }
+
+    btn.classList.add("is-petting");
   }
 
   function setupTerminal() {
@@ -395,8 +475,17 @@
     });
   }
 
+  function normalizeCode(input) {
+    return input.trim().toLowerCase().replace(/[\s_]+/g, "_");
+  }
+
+  function matchesAnyCode(input, codes) {
+    const normalized = normalizeCode(input);
+    return codes.some((code) => normalizeCode(code) === normalized);
+  }
+
   function tryCode() {
-    const value = els.passwordInput.value.trim().toLowerCase();
+    const value = normalizeCode(els.passwordInput.value);
 
     if (value === CODE_RESET) {
       resetAchievements();
@@ -422,6 +511,19 @@
         "",
         "Achievement Unlocked",
         "VRC Engineer",
+      ]);
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_ALREADY_KNOW) {
+      unlockAchievement("honester");
+      writeTerminal([
+        "Achievement Unlocked",
+        "Honester",
+        "",
+        "これは意味のないコードですが、文章の意味はあってますよ",
+        "困ったときは「????」ですよね。(英語)"
       ]);
       els.passwordInput.value = "";
       return;
@@ -459,6 +561,29 @@
       return;
     }
 
+    if (value === CODE_MAGIC) {
+      unlockAchievement("science-and-magic-intersect");
+      writeTerminal([
+        "Achievement Unlocked",
+        "Science And Magic Intersect",
+      ]);
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (matchesAnyCode(els.passwordInput.value, CODES_KUD)) {
+      writeTerminal("わふー >ω<");
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_THANK_YOU_VRC) {
+      els.passwordInput.value = "";
+      els.accessTerminal.hidden = true;
+      showThankYouVrc();
+      return;
+    }
+
     if (value) {
       writeTerminal("ACCESS DENIED", { error: true });
     }
@@ -470,10 +595,17 @@
   }
 
   const HINT_DETAILS = [
-    "VRC Engineer: VRCで僕を特定するなにかです",
-    "Your Friend Name: あなたの友だちの名前は…？",
-    "Mirror, Mirror: VRCで鏡ですよ鏡。",
-    "Deep Diver: 裏側の世界って、なんかちょっといいですよね。",
+    "このページを見ているということは、もう私にあってますよね？",
+    "プロフィールは最後まで見てくださいね。そして完了報告も！",
+    "マウスカーソルって手の役割にもなるんですよ",
+    "VRCって個人のプロフィールを特定するためのIDが振られてたりするんですよ。知ってましたか？",
+    "ムスカ大佐でも、そのぐらいは待ってくれたんですよ。",
+    "急に撫でられすぎたりすると、怖いよね。",
+    "正直者ってことです。",
+    "あなたの友だちの名前は…？",
+    "VRCで鏡ですよ鏡。",
+    "裏側の世界って、なんかちょっといいですよね。",
+    "プロフィールは1つではない",
   ];
 
   function showHintTerminal() {
@@ -488,30 +620,50 @@
     trigger.className = "hint-reveal-trigger";
     trigger.textContent = "しょうがないにゃあ・・";
 
-    const details = document.createElement("div");
-    details.className = "hint-details";
-    details.hidden = true;
-    HINT_DETAILS.forEach((line) => {
-      const row = document.createElement("div");
-      row.textContent = line;
-      details.appendChild(row);
+    const list = document.createElement("div");
+    list.className = "hint-list";
+    list.hidden = true;
+
+    HINT_DETAILS.forEach((text, index) => {
+      const item = document.createElement("div");
+      item.className = "hint-item";
+
+      const itemTrigger = document.createElement("button");
+      itemTrigger.type = "button";
+      itemTrigger.className = "hint-item-trigger";
+      itemTrigger.textContent = `実績${index + 1}のヒント`;
+
+      const itemText = document.createElement("div");
+      itemText.className = "hint-item-text";
+      itemText.hidden = true;
+      itemText.textContent = text;
+
+      itemTrigger.addEventListener("click", () => {
+        itemText.hidden = false;
+        itemTrigger.disabled = true;
+        itemTrigger.classList.add("is-revealed");
+      });
+
+      item.appendChild(itemTrigger);
+      item.appendChild(itemText);
+      list.appendChild(item);
     });
 
     trigger.addEventListener("click", () => {
-      details.hidden = false;
+      list.hidden = false;
       trigger.disabled = true;
       trigger.classList.add("is-revealed");
     });
 
     wrap.appendChild(trigger);
-    wrap.appendChild(details);
+    wrap.appendChild(list);
     els.terminalOutput.appendChild(wrap);
   }
 
   function resetAchievements() {
     state.achievements = [];
     state.visits = 0;
-    state.observerShown = false;
+    delete state.petClicks;
     delete state.lastVisitAt;
     saveState();
     sessionStorage.removeItem(SESSION_KEY);
@@ -520,6 +672,12 @@
 
     if (els.endReaderBtn) {
       els.endReaderBtn.disabled = false;
+    }
+
+    if (els.avatarWrap) els.avatarWrap.classList.remove("is-escaped");
+    if (els.avatarPetBtn) {
+      els.avatarPetBtn.disabled = false;
+      els.avatarPetBtn.classList.remove("is-uncomfortable", "is-petting", "is-reacting", "is-escaping");
     }
   }
 
@@ -530,11 +688,28 @@
     });
   }
 
+  function setupThankYouVrc() {
+    if (!els.closeThankYouVrc) return;
+
+    els.closeThankYouVrc.addEventListener("click", () => {
+      els.thankYouVrc.hidden = true;
+      document.body.style.overflow = "";
+    });
+  }
+
   function showHiddenProfile() {
     els.hiddenProfile.hidden = false;
     document.body.style.overflow = "hidden";
     unlockAchievement("deep-diver");
     els.hiddenProfile.scrollTop = 0;
+  }
+
+  function showThankYouVrc() {
+    if (!els.thankYouVrc) return;
+
+    els.thankYouVrc.hidden = false;
+    document.body.style.overflow = "hidden";
+    els.thankYouVrc.scrollTop = 0;
   }
 
   function unlockAchievement(id, { silent = false } = {}) {
@@ -564,10 +739,6 @@
     const total = Object.keys(ACHIEVEMENTS).length;
     let unlockedCount = 0;
 
-    const prereqsMet = SECRET_PREREQS.every((id) =>
-      state.achievements.includes(id)
-    );
-
     els.achievementList.querySelectorAll("[data-achievement]").forEach((card) => {
       const id = card.dataset.achievement;
       const unlocked = state.achievements.includes(id);
@@ -575,7 +746,7 @@
       if (unlocked) unlockedCount += 1;
 
       if (card.dataset.secret === "true") {
-        const concealed = !prereqsMet && !unlocked;
+        const concealed = !unlocked;
         card.classList.toggle("concealed", concealed);
 
         const emojiEl = card.querySelector(".achievement-emoji");
@@ -588,7 +759,7 @@
           descEl.textContent = "条件は隠されている";
         } else {
           emojiEl.textContent = card.dataset.emoji;
-          titleEl.textContent = card.dataset.title;
+          titleEl.textContent = ACHIEVEMENTS[id].title;
           descEl.innerHTML = card.dataset.desc;
         }
       }
@@ -599,7 +770,7 @@
   }
 
   function getToastElements() {
-    return [els.returnMessage, els.observerMessage, els.achievementToast].filter(Boolean);
+    return [els.returnMessage, els.achievementToast].filter(Boolean);
   }
 
   function layoutToasts() {
