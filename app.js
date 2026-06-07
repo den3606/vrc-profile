@@ -537,7 +537,8 @@
         terminalUnlockMessage("mirror-mirror", [
           "SIGNAL IDENTIFIED",
           "",
-          "Mirror, Mirror accepted.",
+          "鏡よ鏡、世界で一番可愛いのはだあれ...?",
+          "それ以上はいけない。戦争になるぞ。",
         ])
       );
       els.passwordInput.value = "";
