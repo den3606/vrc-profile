@@ -1,0 +1,581 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+/* ── Base (theme-independent layout) ── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.main-content,
+.hidden-profile-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-page);
+}
+
+/* ── Boot overlay ── */
+
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-boot-bg);
+  transition: opacity 0.5s ease;
+}
+
+.boot-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-terminal {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-boot);
+  color: var(--color-boot-text);
+  padding: 2rem;
+  min-width: min(90vw, 24rem);
+}
+
+.boot-line {
+  min-height: 1.5em;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.boot-line.visible {
+  opacity: 1;
+}
+
+.boot-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Profile layout ── */
+
+.profile-header {
+  margin-bottom: var(--space-section);
+}
+
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.prompt-symbol {
+  color: var(--color-accent);
+  margin-right: 0.35em;
+}
+
+.profile-name {
+  margin: 0 0 0.25rem;
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  letter-spacing: var(--letter-spacing-title);
+}
+
+.profile-tagline {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95em;
+}
+
+.profile-section {
+  margin-bottom: var(--space-section);
+}
+
+.section-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-transform: var(--section-label-transform);
+  letter-spacing: 0.04em;
+}
+
+.profile-list,
+.profile-links {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.profile-list li,
+.profile-links li {
+  margin-bottom: 0.25rem;
+}
+
+/* ── Achievements ── */
+
+.achievements-panel {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+}
+
+.achievement-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.achievement-list li {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  padding: 0.35rem 0;
+  color: var(--color-muted);
+  transition: color 0.3s;
+}
+
+.achievement-list li.unlocked {
+  color: var(--color-text);
+}
+
+.achievement-icon {
+  display: inline-block;
+  width: 1.2em;
+  color: var(--color-accent);
+}
+
+/* ── Footer / hidden hints ── */
+
+.profile-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+.end-marker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  color: var(--color-muted);
+}
+
+.mirror-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  font-size: 0.55rem;
+  color: var(--color-mirror-hint);
+  opacity: 0.35;
+  letter-spacing: 0.15em;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Hidden profile ── */
+
+.hidden-profile {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  overflow-y: auto;
+  background: var(--color-hidden-bg);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hidden-intro-en,
+.hidden-intro-ja {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--color-muted);
+}
+
+.hidden-intro-last {
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+.hidden-intro-ja {
+  font-family: var(--font-body);
+  font-size: 0.9em;
+}
+
+.hidden-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+.close-hidden-btn {
+  margin-top: 2rem;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.close-hidden-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ── Floating messages ── */
+
+.return-message,
+.observer-message {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 800;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-accent);
+  padding: 0.6rem 1.2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  animation: slideDown 0.4s ease;
+  pointer-events: none;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.achievement-toast {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 800;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-panel);
+  animation: toastIn 0.4s ease;
+  box-shadow: var(--shadow-toast);
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-label {
+  font-family: var(--font-mono);
+  font-size: 0.7em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.toast-title {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* ── Access terminal ── */
+
+.terminal-toggle {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 700;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-terminal-icon);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.terminal-toggle:hover {
+  opacity: 1;
+  border-color: var(--color-accent);
+}
+
+.access-terminal {
+  position: fixed;
+  bottom: 4rem;
+  right: 1.25rem;
+  z-index: 750;
+  width: min(90vw, 20rem);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  background: var(--color-terminal-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-terminal);
+  animation: toastIn 0.25s ease;
+}
+
+.access-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-accent);
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+}
+
+.terminal-close {
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  font-size: 1.2em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.terminal-close:hover {
+  color: var(--color-text);
+}
+
+.access-terminal-body {
+  padding: 0.75rem;
+}
+
+.access-terminal-body label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--color-muted);
+}
+
+.password-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.password-input {
+  flex: 1;
+  padding: 0.4rem 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  outline: none;
+}
+
+.password-input:focus {
+  border-color: var(--color-accent);
+}
+
+.password-submit {
+  padding: 0.4rem 0.6rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+}
+
+.password-submit:hover {
+  opacity: 0.9;
+}
+
+.terminal-output {
+  margin-top: 0.75rem;
+  min-height: 1.2em;
+  color: var(--color-accent);
+  white-space: pre-wrap;
+}
+
+.terminal-output.error {
+  color: var(--color-error);
+}
+
+/* ── Theme: minimal (default) ── */
+/* シンプルなプロフィールサイト。演出は控えめ。 */
+
+[data-theme="minimal"] {
+  --font-body: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Consolas", monospace;
+  --font-size-base: 1rem;
+  --font-size-title: 1.75rem;
+  --font-size-boot: 0.9rem;
+  --font-weight-title: 600;
+  --letter-spacing-title: -0.02em;
+  --section-label-transform: none;
+
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-accent: #2563eb;
+  --color-border: #e5e7eb;
+  --color-error: #dc2626;
+  --color-boot-bg: #f4f4f5;
+  --color-boot-text: #374151;
+  --color-hidden-bg: #f8fafc;
+  --color-mirror-hint: #9ca3af;
+  --color-terminal-bg: #ffffff;
+  --color-terminal-icon: #6b7280;
+
+  --content-width: 36rem;
+  --space-page: 2.5rem 1.5rem 4rem;
+  --space-section: 1.75rem;
+  --radius-panel: 0.5rem;
+  --radius-button: 0.375rem;
+  --shadow-toast: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-terminal: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ── Theme: terminal ── */
+/* 仕様書の Observer Terminal 案 */
+
+[data-theme="terminal"] {
+  --font-body: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-size-base: 0.95rem;
+  --font-size-title: 1.5rem;
+  --font-size-boot: 0.95rem;
+  --font-weight-title: 500;
+  --letter-spacing-title: 0.02em;
+  --section-label-transform: uppercase;
+
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-text: #e8e8e8;
+  --color-muted: #6a6a6a;
+  --color-accent: #5eead4;
+  --color-border: #2a2a2a;
+  --color-error: #f87171;
+  --color-boot-bg: #000000;
+  --color-boot-text: #5eead4;
+  --color-hidden-bg: #050505;
+  --color-mirror-hint: #333333;
+  --color-terminal-bg: #0d0d0d;
+  --color-terminal-icon: #5eead4;
+
+  --content-width: 40rem;
+  --space-page: 3rem 1.5rem 5rem;
+  --space-section: 2rem;
+  --radius-panel: 0;
+  --radius-button: 0;
+  --shadow-toast: 0 0 20px rgba(94, 234, 212, 0.15);
+  --shadow-terminal: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="terminal"] body {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
+}
+
+/* ── Theme: soft ── */
+/* VRChatっぽい柔らかいダーク。ホラー寄りにしない */
+
+[data-theme="soft"] {
+  --font-body: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", monospace;
+  --font-size-base: 1rem;
+  --font-size-title: 1.85rem;
+  --font-size-boot: 0.9rem;
+  --font-weight-title: 500;
+  --letter-spacing-title: 0;
+  --section-label-transform: none;
+
+  --color-bg: #1a1625;
+  --color-surface: #231e30;
+  --color-text: #e8e4f0;
+  --color-muted: #9b93ad;
+  --color-accent: #a78bfa;
+  --color-border: #3d3555;
+  --color-error: #f472b6;
+  --color-boot-bg: #14101c;
+  --color-boot-text: #c4b5fd;
+  --color-hidden-bg: #120f1a;
+  --color-mirror-hint: #4a4060;
+  --color-terminal-bg: #1e1930;
+  --color-terminal-icon: #a78bfa;
+
+  --content-width: 38rem;
+  --space-page: 2.5rem 1.5rem 4rem;
+  --space-section: 1.75rem;
+  --radius-panel: 0.75rem;
+  --radius-button: 0.5rem;
+  --shadow-toast: 0 4px 20px rgba(167, 139, 250, 0.15);
+  --shadow-terminal: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="soft"] body {
+  background: linear-gradient(160deg, #1a1625 0%, #1f1a2e 50%, #16122a 100%);
+}

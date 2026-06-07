@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!-- data-theme: "minimal" | "terminal" | "soft" — styles.css で切り替え -->
+<html lang="ja" data-theme="minimal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Den — VRChat Profile">
+  <title>Den // Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Boot sequence overlay -->
+  <div id="boot-overlay" class="boot-overlay" aria-hidden="true">
+    <div class="boot-terminal">
+      <div id="boot-line-1" class="boot-line"></div>
+      <div id="boot-line-2" class="boot-line"></div>
+      <div id="boot-line-3" class="boot-line"></div>
+      <span class="boot-cursor">_</span>
+    </div>
+  </div>
+
+  <!-- Return visitor message -->
+  <div id="return-message" class="return-message" hidden></div>
+
+  <!-- Achievement toast -->
+  <div id="achievement-toast" class="achievement-toast" hidden>
+    <div class="toast-label">Achievement Unlocked</div>
+    <div id="toast-title" class="toast-title"></div>
+  </div>
+
+  <!-- Observer messages -->
+  <div id="observer-message" class="observer-message" hidden></div>
+
+  <main id="main-content" class="main-content" hidden>
+    <header class="profile-header">
+      <div class="terminal-prompt">
+        <span class="prompt-symbol">&gt;</span>
+        <span class="prompt-text">profile.load()</span>
+      </div>
+      <h1 class="profile-name" data-field="name">Den</h1>
+      <p class="profile-tagline">den3606</p>
+    </header>
+
+    <section class="profile-section">
+      <h2 class="section-label">// VRChat</h2>
+      <p>
+        <a href="https://vrchat.com/home/user/usr_aac1b0fa-a840-4408-bea8-38a010120d03" target="_blank" rel="noopener noreferrer" data-field="vrchat-url">
+          <span data-field="vrchat-name">den3606</span>
+        </a>
+      </p>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// 好きなゲーム</h2>
+      <ul class="profile-list" data-field="games">
+        <li>全ジャンル</li>
+        <li>特に好き: FPS、2Dアクション</li>
+      </ul>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// 趣味</h2>
+      <ul class="profile-list" data-field="hobbies">
+        <li>温泉</li>
+        <li>お酒</li>
+      </ul>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// SNS</h2>
+      <ul class="profile-links">
+        <li><a href="#" target="_blank" rel="noopener noreferrer" data-field="twitter">Twitter / X</a></li>
+      </ul>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// Discord</h2>
+      <p data-field="discord">username#0000</p>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// GitHub</h2>
+      <p>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" data-field="github">
+          github.com/yourusername
+        </a>
+      </p>
+    </section>
+
+    <section class="profile-section">
+      <h2 class="section-label">// その他</h2>
+      <p data-field="other">自由記載欄。ここに好きなことを書いてください。</p>
+    </section>
+
+    <!-- Achievements panel -->
+    <section class="achievements-panel" id="achievements-panel">
+      <h2 class="section-label">// Achievements</h2>
+      <ul class="achievement-list" id="achievement-list">
+        <li data-achievement="first-contact"><span class="achievement-icon">□</span> First Contact</li>
+        <li data-achievement="curious-visitor"><span class="achievement-icon">□</span> Curious Visitor</li>
+        <li data-achievement="observer"><span class="achievement-icon">□</span> Observer</li>
+        <li data-achievement="mirror-walker"><span class="achievement-icon">□</span> Mirror Walker</li>
+        <li data-achievement="deep-diver"><span class="achievement-icon">□</span> Deep Diver</li>
+      </ul>
+    </section>
+
+  <!--
+  Most visitors stop here.
+
+  Some don't.
+
+  mirror
+  -->
+    <footer class="profile-footer">
+      <p class="end-marker">End of profile.</p>
+      <p class="mirror-hint" aria-hidden="true">rorrim</p>
+    </footer>
+  </main>
+
+  <!-- Hidden profile (revealed after password) -->
+  <div id="hidden-profile" class="hidden-profile" hidden>
+    <div class="hidden-profile-inner">
+      <div class="terminal-prompt">
+        <span class="prompt-symbol">&gt;</span>
+        <span class="prompt-text">hidden_profile.decrypt()</span>
+      </div>
+
+      <p class="hidden-intro-en">Most people read profiles.</p>
+      <p class="hidden-intro-en">A few explore them.</p>
+      <p class="hidden-intro-en hidden-intro-last">You explored.</p>
+
+      <p class="hidden-intro-ja">多くの人はプロフィールを読む。</p>
+      <p class="hidden-intro-ja">少数の人は探索する。</p>
+      <p class="hidden-intro-ja hidden-intro-last">あなたは後者だった。</p>
+
+      <hr class="hidden-divider">
+
+      <section class="profile-section">
+        <h2 class="section-label">// なぜVRChatを始めたか</h2>
+        <p data-field="hidden-why-vrc">友達に呼ばれたのがきっかけで、ずっとゲームワールドで遊んでいました。最近はお話するために来てる気がします。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// 好きなゲームジャンル</h2>
+        <p data-field="hidden-genre">ジャンルを記載してください。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// 制作しているもの</h2>
+        <p data-field="hidden-works">制作物を記載してください。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// 技術スタック</h2>
+        <p data-field="hidden-stack">使用技術を記載してください。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// 旅行・温泉</h2>
+        <p data-field="hidden-travel">旅行や温泉の話を記載してください。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// 今後作りたいもの</h2>
+        <p data-field="hidden-future">今後の目標を記載してください。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// Discord</h2>
+        <p data-field="hidden-discord">username#0000</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 class="section-label">// GitHub</h2>
+        <p>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" data-field="hidden-github">
+            github.com/yourusername
+          </a>
+        </p>
+      </section>
+
+      <button type="button" id="close-hidden" class="close-hidden-btn">&lt; return to surface</button>
+    </div>
+  </div>
+
+  <!-- Access terminal toggle -->
+  <button type="button" id="terminal-toggle" class="terminal-toggle" aria-label="Open access terminal" title="Terminal">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <rect x="1" y="2" width="14" height="11" rx="1" stroke="currentColor" stroke-width="1" fill="none"/>
+      <path d="M3 5 L5 7 L3 9" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <line x1="6" y1="9" x2="11" y2="9" stroke="currentColor" stroke-width="1.2"/>
+    </svg>
+  </button>
+
+  <!-- Access terminal panel -->
+  <div id="access-terminal" class="access-terminal" hidden>
+    <div class="access-terminal-header">
+      <span>ACCESS TERMINAL</span>
+      <button type="button" id="terminal-close" class="terminal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="access-terminal-body">
+      <label for="password-input">Password:</label>
+      <div class="password-row">
+        <input type="text" id="password-input" class="password-input" autocomplete="off" spellcheck="false" placeholder="">
+        <button type="button" id="password-submit" class="password-submit">ENTER</button>
+      </div>
+      <div id="terminal-output" class="terminal-output"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
