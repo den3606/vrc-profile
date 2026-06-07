@@ -12,7 +12,7 @@
   const CODE_MAGIC = "magic";
   const CODE_HELP = "help";
   const CODE_DEEP_DIVER = "deep_diver";
-  const CODE_HIMAWARI = "#ffa500";
+  const CODES_HIMAWARI = ["#fcc800", "fcc800"];
   const CODES_KUD = [
     "kud",
     "kudryavka",
@@ -571,7 +571,7 @@
       return;
     }
 
-    if (value === CODE_HIMAWARI) {
+    if (matchesAnyCode(els.passwordInput.value, CODES_HIMAWARI)) {
       unlockAchievement("himawari");
       writeTerminal(terminalUnlockMessage("himawari"));
       els.passwordInput.value = "";
