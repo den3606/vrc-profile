@@ -6,6 +6,7 @@
   const CODE_HINT = "hint";
   const CODES_FRIEND_NAME = ["den3606", "den"];
   const CODES_MIRROR = ["6063ned", "ned"];
+  const CODE_MIRROR_HINT = "mirror";
   const CODE_VRC_USER = "usr_aac1b0fa-a840-4408-bea8-38a010120d03";
   const CODE_ALREADY_KNOW = "already_knows";
   const CODE_THANK_YOU_VRC = "thank_you_vrc";
@@ -517,10 +518,15 @@
         terminalUnlockMessage("your-friend-name", [
           "SIGNAL IDENTIFIED",
           "",
-          "Mirror, Mirror:",
-          "Read the friend name from the other side.",
+          "VRCの住人ってどうして皆、あっちの世界を見てるのかな。",
         ])
       );
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_MIRROR_HINT) {
+      writeTerminal("鏡自体ではないよ！何かを反転させてね。");
       els.passwordInput.value = "";
       return;
     }
