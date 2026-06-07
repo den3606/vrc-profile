@@ -36,8 +36,8 @@
     "pet-pet-pet": { title: "Pet, Pet, Pet", emoji: "🐕" },
     himawari: { title: "Himawari", emoji: "🌻" },
     "vrc-engineer": { title: "VRC Engineer", emoji: "🔧" },
-    "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
     honester: { title: "Honester", emoji: "🫡" },
+    "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
     "your-friend-name": { title: "Your Friend Name", emoji: "🤝" },
     "mirror-mirror": { title: "Mirror, Mirror", emoji: "🪞" },
     "science-and-magic-intersect": { title: "Science And Magic", emoji: "🔮" },
@@ -502,8 +502,9 @@
       unlockAchievement("honester");
       writeTerminal(
         terminalUnlockMessage("honester", [
-          "これは意味のないコードですが、文章の意味はあってますよ",
-          "困ったときは「????」ですよね。(英語)",
+          "文章の意味としても機能しています。なぜならあなたがもう知っているワードなのだから。",
+          "",
+          "分からなかったら「????」もいいですよ。(英語)",
         ])
       );
       els.passwordInput.value = "";
@@ -562,7 +563,7 @@
       unlockAchievement("help-me-dennnnnn");
       writeTerminal(
         terminalUnlockMessage("help-me-dennnnnn", [
-          "なぞなぞで困ったときに使う言葉は help ではありません。",
+          "なぞなぞで困ったときに使う言葉は help じゃなくない?",
           "プログラマーなら知っている整数型が付いてるやつ。"
         ])
       );
@@ -613,9 +614,9 @@
     "pet-pet-pet",
     "himawari",
     "vrc-engineer",
+    "honester",
     "observed",
     "escape-from-friend",
-    "honester",
     "your-friend-name",
     "mirror-mirror",
     "science-and-magic-intersect",
@@ -629,9 +630,9 @@
     "マウスカーソルって手の役割にもなるんですよ",
     "カラーコードもコードだよね。",
     "VRCって個人のプロフィールを特定するためのIDが振られてたりするんですよ。知ってましたか？",
+    "正直者ってことです。",
     "ムスカ大佐でも、そのぐらいは待ってくれたんですよ。",
     "急に撫でられすぎたりすると、怖いよね。",
-    "正直者ってことです。",
     "あなたの友だちの名前は…？",
     "VRCで鏡ですよ鏡。",
     "プロフィールは1つではない",
