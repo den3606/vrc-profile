@@ -1,15 +1,24 @@
+<!--
+(>ω<)
+
+わふー！ずるしちゃだめなのです！
+フェアプレーは大事なのですよ！
+
+ここを開ける知識はすごいのです！
+その頭脳があれば、きっと問題も解決できると思うのです！
+-->
+
 <!DOCTYPE html>
-<!-- data-theme: "minimal" | "terminal" | "soft" — styles.css で切り替え -->
-<html lang="ja" data-theme="minimal">
+<!-- data-theme: "vrc" | "minimal" | "terminal" | "soft" -->
+<html lang="ja" data-theme="vrc">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Den — VRChat Profile">
-  <title>Den // Profile</title>
+  <title>den3606 — VRChat</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Boot sequence overlay -->
   <div id="boot-overlay" class="boot-overlay" aria-hidden="true">
     <div class="boot-terminal">
       <div id="boot-line-1" class="boot-line"></div>
@@ -19,171 +28,208 @@
     </div>
   </div>
 
-  <!-- Return visitor message -->
   <div id="return-message" class="return-message" hidden></div>
 
-  <!-- Achievement toast -->
   <div id="achievement-toast" class="achievement-toast" hidden>
     <div class="toast-label">Achievement Unlocked</div>
-    <div id="toast-title" class="toast-title"></div>
-  </div>
-
-  <!-- Observer messages -->
-  <div id="observer-message" class="observer-message" hidden></div>
-
-  <main id="main-content" class="main-content" hidden>
-    <header class="profile-header">
-      <div class="terminal-prompt">
-        <span class="prompt-symbol">&gt;</span>
-        <span class="prompt-text">profile.load()</span>
-      </div>
-      <h1 class="profile-name" data-field="name">Den</h1>
-      <p class="profile-tagline">den3606</p>
-    </header>
-
-    <section class="profile-section">
-      <h2 class="section-label">// VRChat</h2>
-      <p>
-        <a href="https://vrchat.com/home/user/usr_aac1b0fa-a840-4408-bea8-38a010120d03" target="_blank" rel="noopener noreferrer" data-field="vrchat-url">
-          <span data-field="vrchat-name">den3606</span>
-        </a>
-      </p>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// 好きなゲーム</h2>
-      <ul class="profile-list" data-field="games">
-        <li>全ジャンル</li>
-        <li>特に好き: FPS、2Dアクション</li>
-      </ul>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// 趣味</h2>
-      <ul class="profile-list" data-field="hobbies">
-        <li>温泉</li>
-        <li>お酒</li>
-      </ul>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// SNS</h2>
-      <ul class="profile-links">
-        <li><a href="#" target="_blank" rel="noopener noreferrer" data-field="twitter">Twitter / X</a></li>
-      </ul>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// Discord</h2>
-      <p data-field="discord">username#0000</p>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// GitHub</h2>
-      <p>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" data-field="github">
-          github.com/yourusername
-        </a>
-      </p>
-    </section>
-
-    <section class="profile-section">
-      <h2 class="section-label">// その他</h2>
-      <p data-field="other">自由記載欄。ここに好きなことを書いてください。</p>
-    </section>
-
-    <!-- Achievements panel -->
-    <section class="achievements-panel" id="achievements-panel">
-      <h2 class="section-label">// Achievements</h2>
-      <ul class="achievement-list" id="achievement-list">
-        <li data-achievement="first-contact"><span class="achievement-icon">□</span> First Contact</li>
-        <li data-achievement="curious-visitor"><span class="achievement-icon">□</span> Curious Visitor</li>
-        <li data-achievement="observer"><span class="achievement-icon">□</span> Observer</li>
-        <li data-achievement="mirror-walker"><span class="achievement-icon">□</span> Mirror Walker</li>
-        <li data-achievement="deep-diver"><span class="achievement-icon">□</span> Deep Diver</li>
-      </ul>
-    </section>
-
-  <!--
-  Most visitors stop here.
-
-  Some don't.
-
-  mirror
-  -->
-    <footer class="profile-footer">
-      <p class="end-marker">End of profile.</p>
-      <p class="mirror-hint" aria-hidden="true">rorrim</p>
-    </footer>
-  </main>
-
-  <!-- Hidden profile (revealed after password) -->
-  <div id="hidden-profile" class="hidden-profile" hidden>
-    <div class="hidden-profile-inner">
-      <div class="terminal-prompt">
-        <span class="prompt-symbol">&gt;</span>
-        <span class="prompt-text">hidden_profile.decrypt()</span>
-      </div>
-
-      <p class="hidden-intro-en">Most people read profiles.</p>
-      <p class="hidden-intro-en">A few explore them.</p>
-      <p class="hidden-intro-en hidden-intro-last">You explored.</p>
-
-      <p class="hidden-intro-ja">多くの人はプロフィールを読む。</p>
-      <p class="hidden-intro-ja">少数の人は探索する。</p>
-      <p class="hidden-intro-ja hidden-intro-last">あなたは後者だった。</p>
-
-      <hr class="hidden-divider">
-
-      <section class="profile-section">
-        <h2 class="section-label">// なぜVRChatを始めたか</h2>
-        <p data-field="hidden-why-vrc">友達に呼ばれたのがきっかけで、ずっとゲームワールドで遊んでいました。最近はお話するために来てる気がします。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// 好きなゲームジャンル</h2>
-        <p data-field="hidden-genre">ジャンルを記載してください。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// 制作しているもの</h2>
-        <p data-field="hidden-works">制作物を記載してください。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// 技術スタック</h2>
-        <p data-field="hidden-stack">使用技術を記載してください。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// 旅行・温泉</h2>
-        <p data-field="hidden-travel">旅行や温泉の話を記載してください。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// 今後作りたいもの</h2>
-        <p data-field="hidden-future">今後の目標を記載してください。</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// Discord</h2>
-        <p data-field="hidden-discord">username#0000</p>
-      </section>
-
-      <section class="profile-section">
-        <h2 class="section-label">// GitHub</h2>
-        <p>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" data-field="hidden-github">
-            github.com/yourusername
-          </a>
-        </p>
-      </section>
-
-      <button type="button" id="close-hidden" class="close-hidden-btn">&lt; return to surface</button>
+    <div class="toast-body">
+      <span id="toast-emoji" class="toast-emoji"></span>
+      <span id="toast-title" class="toast-title"></span>
     </div>
   </div>
 
-  <!-- Access terminal toggle -->
+  <div id="observer-message" class="observer-message" hidden></div>
+
+  <main class="vrc-main" id="main-content" hidden>
+    <div class="vrc-profile-card">
+      <div class="vrc-banner"></div>
+      <div class="vrc-profile-head">
+        <div class="vrc-avatar-wrap">
+          <img
+            class="vrc-avatar"
+            src="https://github.com/den3606.png"
+            alt="Den"
+            width="104"
+            height="104"
+          >
+        </div>
+        <div class="vrc-profile-meta">
+          <div class="vrc-name-row">
+            <h1 class="profile-name" data-field="name">Den</h1>
+          </div>
+          <p class="profile-tagline vrc-display-name">den3606</p>
+          <div class="vrc-actions">
+            <a class="vrc-btn vrc-btn-primary" href="https://vrchat.com/home/user/usr_aac1b0fa-a840-4408-bea8-38a010120d03" target="_blank" rel="noopener noreferrer" data-field="vrchat-url">
+              View on VRChat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="vrc-tabs" aria-label="Profile sections">
+      <button type="button" class="vrc-tab vrc-tab-active" data-tab="profile" aria-selected="true">Profile</button>
+      <button type="button" class="vrc-tab" data-tab="achievements" aria-selected="false">Achievements</button>
+    </nav>
+
+    <div id="tab-profile" class="vrc-tab-panel">
+      <section class="vrc-card profile-section">
+        <h2 class="section-label">About Me</h2>
+        <div class="vrc-about-text">
+          <p>開いてくれてありがとう。den です。</p>
+          <p>下にゲームを乗せています。ソロゲーが多いですが、昔はマルチゲーもよく遊んでました。今もたまに遊びます。スペシャルフォースとか、MHF とか BattleField3 とか。さらに昔は任天堂のゲームをよく遊んでいました。</p>
+        </div>
+        <div class="vrc-lang-tags">
+          <span class="vrc-lang-tag">日本語</span>
+          <span class="vrc-lang-tag">English (a little)</span>
+        </div>
+      </section>
+
+      <section class="vrc-card profile-section" data-field="featured">
+        <h2 class="section-label">おすすめのゲーム</h2>
+        <ul class="steam-featured" id="steam-featured" hidden></ul>
+      </section>
+
+      <section class="vrc-card profile-section" data-field="games">
+        <h2 class="section-label">最近プレイしたゲーム</h2>
+        <ul class="steam-games" id="steam-games" aria-live="polite">
+          <li class="steam-state">Loading...</li>
+        </ul>
+        <p class="steam-updated" id="steam-updated" hidden></p>
+      </section>
+
+      <div class="profile-spacer" aria-hidden="true"></div>
+
+      <footer class="profile-footer vrc-card vrc-card-flat">
+        <button type="button" id="end-reader-btn" class="end-marker end-reader-btn">
+          End of profile.
+        </button>
+      </footer>
+    </div>
+
+    <div id="tab-achievements" class="vrc-tab-panel" hidden>
+      <section class="vrc-card achievements-panel" id="achievements-panel">
+        <div class="achievements-header">
+          <h2 class="section-label">Achievements</h2>
+          <p class="achievements-progress"><span id="achievement-count">0</span> / <span id="achievement-total">8</span> unlocked</p>
+        </div>
+        <div class="achievement-grid" id="achievement-list">
+          <article class="achievement-card" data-achievement="first-contact">
+            <div class="achievement-emoji" aria-hidden="true">👋</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">First Contact</h3>
+              <p class="achievement-desc">まずは挨拶から。挨拶は大事ですね。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="observer">
+            <div class="achievement-emoji" aria-hidden="true">👁️</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Observer</h3>
+              <p class="achievement-desc">物事は最初から最後まで、ちゃんと見てから考えましょう。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="observed">
+            <div class="achievement-emoji" aria-hidden="true">⏱️</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Observed</h3>
+              <p class="achievement-desc">あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="vrc-engineer">
+            <div class="achievement-emoji" aria-hidden="true">🔧</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">VRC Engineer</h3>
+              <p class="achievement-desc">これを入れるとは… 謎解きとか好きなんですか？</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="your-friend-name" data-secret="true" data-emoji="🤝" data-title="Your Friend Name" data-desc="実はこれ、僕の名前なんです。知ってましたか？">
+            <div class="achievement-emoji" aria-hidden="true">🤝</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Your Friend Name</h3>
+              <p class="achievement-desc">実はこれ、僕の名前なんです。知ってましたか？</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="mirror-mirror" data-secret="true" data-emoji="🪞" data-title="Mirror, Mirror" data-desc="鏡文字まで知っているとは、VRCにお詳しそうですね。">
+            <div class="achievement-emoji" aria-hidden="true">🪞</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Mirror, Mirror</h3>
+              <p class="achievement-desc">鏡文字まで知っているとは、VRCにお詳しそうですね。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="deep-diver" data-secret="true" data-emoji="🤿" data-title="Deep Diver" data-desc="改めてこんにちは。僕のプロフィールをよく見てくれたということですね。ありがとう。">
+            <div class="achievement-emoji" aria-hidden="true">🤿</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Deep Diver</h3>
+              <p class="achievement-desc">改めてこんにちは。僕のプロフィールをよく見てくれたということですね。ありがとう。</p>
+            </div>
+          </article>
+          <article class="achievement-card" data-achievement="full-signal" data-secret="true" data-emoji="✨" data-title="Full Signal" data-desc="全解除したんですか？！<br>本当に、本当にありがとう 🙏">
+            <div class="achievement-emoji" aria-hidden="true">✨</div>
+            <div class="achievement-body">
+              <h3 class="achievement-title">Full Signal</h3>
+              <p class="achievement-desc">全解除したんですか？！<br>本当に、本当にありがとう 🙏</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="hidden-profile" class="hidden-profile" hidden>
+    <div class="hidden-profile-inner vrc-hidden-inner">
+      <div class="vrc-card">
+        <p class="hidden-intro-en">You made it all the way here.</p>
+        <p class="hidden-intro-en">You really seem to enjoy reading profiles.</p>
+        <p class="hidden-intro-en">I hope you enjoyed it.</p>
+        <p class="hidden-intro-en hidden-intro-last">If you made it this far, I'd be happy if you let me know.</p>
+
+        <p class="hidden-intro-ja">よくここまでたどり着きましたね。</p>
+        <p class="hidden-intro-ja">あなたは相当プロフィールを見るのが好きなようです。</p>
+        <p class="hidden-intro-ja">楽しんでいただけたら幸いです。</p>
+        <p class="hidden-intro-ja hidden-intro-last">もしここまで見たなら、教えてくれると喜びます。</p>
+      </div>
+
+      <section class="vrc-card profile-section">
+        <h2 class="section-label">Why VRChat</h2>
+        <p data-field="hidden-why-vrc">実はVRC自体は2018年ぐらいにログインだけしたことがあります。ログインしてデフォルトのホームワールドを開いたところで怖くなって閉じちゃったんですよね。実はビビリなのですよ。</p>
+        <p>Oculus riftも持っていましたが、その時はビートセイバーだけ遊んでいました。当時はPUBGがまだ流行っていて、FallGuysが出たあたりだったかな。懐かしいです。</p>
+        <p>その後、数年経ち2024年ぐらいに友達に呼ばれたのが最初のきっかけで、再開してからはぼちぼち遊んでます。</p>
+        <p>最初の半年間ぐらいはずっとゲームワールドで遊んでいました。最近はお話するために来てる気がします。</p>
+        <p>実は寂しがりやな一面もあるので、書き置きやワールドに入ってきてくれると内心で喜んでます。言わないですけどね。</p>
+        <p>恥ずかしくなってきたのでこのあたりで終わります。そんな感じです。</p>
+      </section>
+
+      <section class="vrc-card profile-section">
+        <h2 class="section-label">Travel & Onsen</h2>
+        <p data-field="hidden-travel">趣味はゲーム、温泉とお酒です。温泉は色んなところに行きましたが、あまり名称は覚えてないです…。</p>
+        <p>楽しさと気持ちよさがある砂風呂が一番好きで、鹿児島の指宿で入れます。少し高いですが、指宿白水館がおすすめです。よかったら行ってみてね。</p>
+        <p>普通の温泉だと、大川荘ってとこがおすすめです。一時期「鬼滅の刃」の無限城に似ていると言われていたところです。秋に行くと山の紅葉と橋、川を一望できるので、とてもきれいです。</p>
+      </section>
+
+      <section class="vrc-card profile-section">
+        <h2 class="section-label">Drinks</h2>
+        <p data-field="hidden-drinks">お酒は一時期、週5くらいでバーに一人で通ってました。</p>
+        <p>カクテルをメニューの左上から順番に頼んでいく遊びをしていましたが、あまり覚えてません…。パッソアというリキュールのパイン割が一番好きになったので、それだけ覚えています。</p>
+      </section>
+
+      <section class="vrc-card profile-section">
+        <h2 class="section-label">Favorite Songs</h2>
+        <ul class="profile-list">
+          <li><a href="https://www.nicovideo.jp/watch/sm1714828" target="_blank" rel="noopener noreferrer">RAINBOW GIRL</a>（非公式）</li>
+          <li><a href="https://www.nicovideo.jp/watch/sm13352001" target="_blank" rel="noopener noreferrer">Artemis Blue</a></li>
+          <li><a href="https://www.youtube.com/watch?v=9kuqtGfKQz4" target="_blank" rel="noopener noreferrer">Call to me, Call for you</a></li>
+          <li><a href="https://www.youtube.com/watch?v=YzW8OCXiS6U" target="_blank" rel="noopener noreferrer">Harenohi Step</a></li>
+          <li><a href="https://www.youtube.com/watch?v=udEYmO-wFXA" target="_blank" rel="noopener noreferrer">Everlasting Blue</a></li>
+          <li><a href="https://www.youtube.com/watch?v=JhoxcSJosb0" target="_blank" rel="noopener noreferrer">Sign</a>（非公式）</li>
+          <li><a href="https://www.youtube.com/watch?v=NVeS4MBE1uM" target="_blank" rel="noopener noreferrer">IMMORAL</a></li>
+        </ul>
+        <p>とかとか… 基本Spotifyとかになくて悲しい。</p>
+      </section>
+
+      <button type="button" id="close-hidden" class="close-hidden-btn vrc-btn vrc-btn-outline">&lt; Return to profile</button>
+    </div>
+  </div>
+
   <button type="button" id="terminal-toggle" class="terminal-toggle" aria-label="Open access terminal" title="Terminal">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
       <rect x="1" y="2" width="14" height="11" rx="1" stroke="currentColor" stroke-width="1" fill="none"/>
@@ -192,14 +238,13 @@
     </svg>
   </button>
 
-  <!-- Access terminal panel -->
   <div id="access-terminal" class="access-terminal" hidden>
     <div class="access-terminal-header">
       <span>ACCESS TERMINAL</span>
       <button type="button" id="terminal-close" class="terminal-close" aria-label="Close">&times;</button>
     </div>
     <div class="access-terminal-body">
-      <label for="password-input">Password:</label>
+      <label for="password-input">Code:</label>
       <div class="password-row">
         <input type="text" id="password-input" class="password-input" autocomplete="off" spellcheck="false" placeholder="">
         <button type="button" id="password-submit" class="password-submit">ENTER</button>
@@ -207,6 +252,36 @@
       <div id="terminal-output" class="terminal-output"></div>
     </div>
   </div>
+
+  <!-- Steam の初期データ（fetch 失敗時のフォールバック / file:// でも表示用）。steam.json と内容を揃える -->
+  <script type="application/json" id="steam-data">
+  {
+    "updatedAt": "2026-06-08T00:00:00.000Z",
+    "profileUrl": "https://steamcommunity.com/id/dedendendedenpunn/",
+    "featured": [
+      { "appId": "554290", "storeUrl": "https://store.steampowered.com/app/554290/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/554290/b85791b1c3f052b5263eb41c490d114b37b823c8/capsule_184x69.jpg" },
+      { "appId": "635940", "storeUrl": "https://store.steampowered.com/app/635940/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/635940/capsule_184x69.jpg" },
+      { "appId": "427520", "storeUrl": "https://store.steampowered.com/app/427520/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427520/capsule_184x69.jpg" },
+      { "appId": "2868840", "storeUrl": "https://store.steampowered.com/app/2868840/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/fb0ad136e9eaa4297a1ab3440d88ecb7209f44a2/capsule_184x69.jpg" },
+      { "appId": "881100", "storeUrl": "https://store.steampowered.com/app/881100/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg" },
+      { "appId": "2399830", "storeUrl": "https://store.steampowered.com/app/2399830/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2399830/dce348bb9faef2c1973d04aa8a87bff18e29699b/capsule_184x69.jpg" },
+      { "appId": "242920", "storeUrl": "https://store.steampowered.com/app/242920/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/242920/capsule_184x69.jpg" },
+      { "appId": "1149550", "storeUrl": "https://store.steampowered.com/app/1149550/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1149550/capsule_184x69.jpg" },
+      { "appId": "1783360", "storeUrl": "https://store.steampowered.com/app/1783360/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1783360/capsule_184x69.jpg" },
+      { "appId": "688130", "storeUrl": "https://store.steampowered.com/app/688130/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/688130/capsule_184x69.jpg" },
+      { "appId": "504230", "storeUrl": "https://store.steampowered.com/app/504230/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/capsule_184x69.jpg" },
+      { "appId": "1557740", "storeUrl": "https://store.steampowered.com/app/1557740/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1557740/capsule_184x69.jpg" }
+    ],
+    "games": [
+      { "appId": "250820", "name": "SteamVR", "storeUrl": "https://store.steampowered.com/app/250820/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg", "hoursTwoWeeks": 115.9, "hoursTotal": 3276 },
+      { "appId": "438100", "name": "VRChat", "storeUrl": "https://store.steampowered.com/app/438100/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg", "hoursTwoWeeks": 110.8, "hoursTotal": 2742 },
+      { "appId": "2538150", "name": "OyasumiVR", "storeUrl": "https://store.steampowered.com/app/2538150/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538150/capsule_184x69.jpg", "hoursTwoWeeks": 95.0, "hoursTotal": 499 },
+      { "appId": "1113560", "name": "NieR Replicant ver.1.22474487139...", "storeUrl": "https://store.steampowered.com/app/1113560/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1113560/capsule_184x69.jpg", "hoursTwoWeeks": 31.6, "hoursTotal": 49 },
+      { "appId": "2868840", "name": "Slay the Spire 2", "storeUrl": "https://store.steampowered.com/app/2868840/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/fb0ad136e9eaa4297a1ab3440d88ecb7209f44a2/capsule_184x69.jpg", "hoursTwoWeeks": 17.6, "hoursTotal": 75 },
+      { "appId": "2313700", "name": "Constance", "storeUrl": "https://store.steampowered.com/app/2313700/", "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2313700/ac42928e47184144e9928c0834935ee94924b02b/capsule_184x69.jpg", "hoursTwoWeeks": 3.1, "hoursTotal": 3.1 }
+    ]
+  }
+  </script>
 
   <script src="app.js"></script>
 </body>
