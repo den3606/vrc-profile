@@ -7,9 +7,12 @@
   const CODES_FRIEND_NAME = ["den3606", "den"];
   const CODES_MIRROR = ["6063ned", "ned"];
   const CODE_VRC_USER = "usr_aac1b0fa-a840-4408-bea8-38a010120d03";
-  const CODE_ALREADY_KNOW = "already_know";
+  const CODE_ALREADY_KNOW = "already_knows";
   const CODE_THANK_YOU_VRC = "thank_you_vrc";
   const CODE_MAGIC = "magic";
+  const CODE_HELP = "help";
+  const CODE_DEEP_DIVER = "deep_diver";
+  const CODE_HIMAWARI = "#ffa500";
   const CODES_KUD = [
     "kud",
     "kudryavka",
@@ -31,17 +34,22 @@
     observer: { title: "Observer", emoji: "👁️" },
     observed: { title: "Observed", emoji: "⏱️" },
     "pet-pet-pet": { title: "Pet, Pet, Pet", emoji: "🐕" },
-    "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
+    himawari: { title: "Himawari", emoji: "🌻" },
     "vrc-engineer": { title: "VRC Engineer", emoji: "🔧" },
+    "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
     honester: { title: "Honester", emoji: "🫡" },
     "your-friend-name": { title: "Your Friend Name", emoji: "🤝" },
     "mirror-mirror": { title: "Mirror, Mirror", emoji: "🪞" },
-    "deep-diver": { title: "Deep Diver", emoji: "🤿" },
-    "science-and-magic-intersect": { title: "Science And Magic Intersect", emoji: "🔮" },
+    "science-and-magic-intersect": { title: "Science And Magic", emoji: "🔮" },
+    "help-me-dennnnnn": { title: "Help me, DENNNNNN!!", emoji: "🆘" },
     "full-signal": { title: "Full Signal", emoji: "✨" },
+    "deep-diver": { title: "Deep Diver", emoji: "🤿" },
+    wafu: { title: "Wafu!", emoji: "🚀" },
   };
 
   const COMPLETION_ID = "full-signal";
+  const POST_COMPLETION_IDS = ["deep-diver", "wafu"];
+  const GHOST_ACHIEVEMENT_IDS = ["wafu"];
 
   const SESSION_KEY = "vrc-profile-session";
   const OBSERVED_MS = 180000;
@@ -55,6 +63,8 @@
   };
 
   const state = loadState();
+  let petClicksSession = 0;
+  let avatarEscapedSession = false;
 
   const els = {
     bootOverlay: document.getElementById("boot-overlay"),
@@ -371,15 +381,11 @@
   function setupAvatarPet() {
     if (!els.avatarPetBtn) return;
 
-    applyAvatarEscapeState();
-
     els.avatarPetBtn.addEventListener("click", () => {
-      if (hasAvatarEscaped()) return;
+      if (avatarEscapedSession) return;
 
-      state.petClicks = (state.petClicks || 0) + 1;
-      saveState();
-
-      const count = state.petClicks;
+      petClicksSession += 1;
+      const count = petClicksSession;
 
       if (count <= PET_CLICKS_REQUIRED) {
         playAvatarPetAnimation("petting");
@@ -413,31 +419,12 @@
     });
   }
 
-  function hasAvatarEscaped() {
-    return (
-      state.achievements.includes("escape-from-friend") ||
-      (state.petClicks || 0) >= PET_ESCAPE_CLICKS
-    );
-  }
-
   function setAvatarEscaped() {
+    avatarEscapedSession = true;
     if (els.avatarWrap) els.avatarWrap.classList.add("is-escaped");
     if (els.avatarPetBtn) {
       els.avatarPetBtn.disabled = true;
       els.avatarPetBtn.classList.remove("is-uncomfortable", "is-petting", "is-reacting", "is-escaping");
-    }
-  }
-
-  function applyAvatarEscapeState() {
-    if (!els.avatarPetBtn) return;
-
-    if (hasAvatarEscaped()) {
-      setAvatarEscaped();
-      return;
-    }
-
-    if ((state.petClicks || 0) > PET_CLICKS_REQUIRED) {
-      els.avatarPetBtn.classList.add("is-uncomfortable");
     }
   }
 
@@ -506,53 +493,56 @@
 
     if (value === CODE_VRC_USER) {
       unlockAchievement("vrc-engineer");
-      writeTerminal([
-        "USER ID VERIFIED",
-        "",
-        "Achievement Unlocked",
-        "VRC Engineer",
-      ]);
+      writeTerminal(terminalUnlockMessage("vrc-engineer", ["USER ID VERIFIED"]));
       els.passwordInput.value = "";
       return;
     }
 
     if (value === CODE_ALREADY_KNOW) {
       unlockAchievement("honester");
-      writeTerminal([
-        "Achievement Unlocked",
-        "Honester",
-        "",
-        "これは意味のないコードですが、文章の意味はあってますよ",
-        "困ったときは「????」ですよね。(英語)"
-      ]);
+      writeTerminal(
+        terminalUnlockMessage("honester", [
+          "これは意味のないコードですが、文章の意味はあってますよ",
+          "困ったときは「????」ですよね。(英語)",
+        ])
+      );
       els.passwordInput.value = "";
       return;
     }
 
     if (CODES_FRIEND_NAME.includes(value)) {
       unlockAchievement("your-friend-name");
-      writeTerminal([
-        "SIGNAL IDENTIFIED",
-        "",
-        "Achievement Unlocked",
-        "Your Friend Name",
-        "",
-        "Mirror, Mirror:",
-        "Read the friend name from the other side.",
-      ]);
+      writeTerminal(
+        terminalUnlockMessage("your-friend-name", [
+          "SIGNAL IDENTIFIED",
+          "",
+          "Mirror, Mirror:",
+          "Read the friend name from the other side.",
+        ])
+      );
       els.passwordInput.value = "";
       return;
     }
 
     if (CODES_MIRROR.includes(value)) {
+      unlockAchievement("mirror-mirror");
+      writeTerminal(
+        terminalUnlockMessage("mirror-mirror", [
+          "SIGNAL IDENTIFIED",
+          "",
+          "Mirror, Mirror accepted.",
+        ])
+      );
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_DEEP_DIVER) {
       writeTerminal([
         "ACCESS GRANTED",
         "",
-        "Mirror, Mirror accepted.",
         "裏側のプロフィールへ移動します。",
       ]);
-      unlockAchievement("mirror-mirror");
-
       els.passwordInput.value = "";
       setTimeout(() => {
         els.accessTerminal.hidden = true;
@@ -563,16 +553,33 @@
 
     if (value === CODE_MAGIC) {
       unlockAchievement("science-and-magic-intersect");
-      writeTerminal([
-        "Achievement Unlocked",
-        "Science And Magic Intersect",
-      ]);
+      writeTerminal(terminalUnlockMessage("science-and-magic-intersect"));
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_HELP) {
+      unlockAchievement("help-me-dennnnnn");
+      writeTerminal(
+        terminalUnlockMessage("help-me-dennnnnn", [
+          "なぞなぞで困ったときに使う言葉は help ではありません。",
+          "プログラマーなら知っている整数型が付いてるやつ。"
+        ])
+      );
+      els.passwordInput.value = "";
+      return;
+    }
+
+    if (value === CODE_HIMAWARI) {
+      unlockAchievement("himawari");
+      writeTerminal(terminalUnlockMessage("himawari"));
       els.passwordInput.value = "";
       return;
     }
 
     if (matchesAnyCode(els.passwordInput.value, CODES_KUD)) {
-      writeTerminal("わふー >ω<");
+      unlockAchievement("wafu");
+      writeTerminal(terminalUnlockMessage("wafu", ["わふー >ω<"]));
       els.passwordInput.value = "";
       return;
     }
@@ -594,18 +601,42 @@
     els.terminalOutput.textContent = Array.isArray(lines) ? lines.join("\n") : lines;
   }
 
+  function terminalUnlockMessage(id, prefixLines = []) {
+    const footer = ["Achievement Unlocked", ACHIEVEMENTS[id].title];
+    if (!prefixLines.length) return footer;
+    return [...prefixLines, "", ...footer];
+  }
+
+  const HINT_ACHIEVEMENT_IDS = [
+    "first-contact",
+    "observer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "observed",
+    "escape-from-friend",
+    "honester",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "deep-diver",
+  ];
+
   const HINT_DETAILS = [
-    "このページを見ているということは、もう私にあってますよね？",
+    "このページを見ているということは、もう私と挨拶してますよね？",
     "プロフィールは最後まで見てくださいね。そして完了報告も！",
     "マウスカーソルって手の役割にもなるんですよ",
+    "カラーコードもコードだよね。",
     "VRCって個人のプロフィールを特定するためのIDが振られてたりするんですよ。知ってましたか？",
     "ムスカ大佐でも、そのぐらいは待ってくれたんですよ。",
     "急に撫でられすぎたりすると、怖いよね。",
     "正直者ってことです。",
     "あなたの友だちの名前は…？",
     "VRCで鏡ですよ鏡。",
-    "裏側の世界って、なんかちょっといいですよね。",
     "プロフィールは1つではない",
+    "hint以外にも困ったときに使う言葉ってありますよね。そう、h??? me!",
+    "裏側の世界って、なんかちょっといいですよね。",
   ];
 
   function showHintTerminal() {
@@ -628,10 +659,16 @@
       const item = document.createElement("div");
       item.className = "hint-item";
 
+      const achievementId = HINT_ACHIEVEMENT_IDS[index];
+      const unlocked = state.achievements.includes(achievementId);
+      const label = unlocked
+        ? `${ACHIEVEMENTS[achievementId].title}のヒント`
+        : `実績${index + 1}のヒント`;
+
       const itemTrigger = document.createElement("button");
       itemTrigger.type = "button";
       itemTrigger.className = "hint-item-trigger";
-      itemTrigger.textContent = `実績${index + 1}のヒント`;
+      itemTrigger.textContent = label;
 
       const itemText = document.createElement("div");
       itemText.className = "hint-item-text";
@@ -663,8 +700,9 @@
   function resetAchievements() {
     state.achievements = [];
     state.visits = 0;
-    delete state.petClicks;
     delete state.lastVisitAt;
+    petClicksSession = 0;
+    avatarEscapedSession = false;
     saveState();
     sessionStorage.removeItem(SESSION_KEY);
     renderAchievements();
@@ -729,19 +767,30 @@
   function checkAllAchievementsUnlocked() {
     if (state.achievements.includes(COMPLETION_ID)) return;
 
-    const required = Object.keys(ACHIEVEMENTS).filter((key) => key !== COMPLETION_ID);
+    const required = Object.keys(ACHIEVEMENTS).filter(
+      (key) => key !== COMPLETION_ID && !POST_COMPLETION_IDS.includes(key)
+    );
     if (!required.every((key) => state.achievements.includes(key))) return;
 
     unlockAchievement(COMPLETION_ID);
   }
 
   function renderAchievements() {
-    const total = Object.keys(ACHIEVEMENTS).length;
+    let total = 0;
     let unlockedCount = 0;
 
     els.achievementList.querySelectorAll("[data-achievement]").forEach((card) => {
       const id = card.dataset.achievement;
       const unlocked = state.achievements.includes(id);
+      const isGhost = GHOST_ACHIEVEMENT_IDS.includes(id);
+
+      if (isGhost && !unlocked) {
+        card.hidden = true;
+        return;
+      }
+
+      card.hidden = false;
+      total += 1;
       card.classList.toggle("unlocked", unlocked);
       if (unlocked) unlockedCount += 1;
 
