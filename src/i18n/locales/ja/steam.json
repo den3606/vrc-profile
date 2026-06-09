@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "featured": "おすすめのゲーム",
+    "recent": "最近プレイしたゲーム",
+    "top": "プレイ時間の長いゲーム"
+  },
+  "loading": "Loading...",
+  "updatedPrefix": "Updated ",
+  "fallbackLink": "Steam で見る",
+  "unknownGame": "Unknown",
+  "hours": {
+    "recentPrefix": "直近2週 ",
+    "totalPrefix": "累計 ",
+    "separator": " ・ ",
+    "suffix": "h"
+  }
+}

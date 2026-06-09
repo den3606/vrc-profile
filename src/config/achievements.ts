@@ -1,28 +1,41 @@
-export const ACHIEVEMENTS = {
-  "first-contact": { title: "First Contact", emoji: "👋" },
-  explorer: { title: "Explorer", emoji: "🧭" },
-  observer: { title: "Observer", emoji: "👁️" },
-  "pet-pet-pet": { title: "Pet, Pet, Pet", emoji: "🐕" },
-  himawari: { title: "Himawari", emoji: "🌻" },
-  "vrc-engineer": { title: "VRC Engineer", emoji: "🔧" },
-  honester: { title: "Honester", emoji: "🫡" },
-  "escape-from-friend": { title: "Escape From Friend", emoji: "🏃" },
-  "your-friend-name": { title: "Your Friend Name", emoji: "🤝" },
-  "mirror-mirror": { title: "Mirror, Mirror", emoji: "🪞" },
-  "science-and-magic-intersect": { title: "Science And Magic", emoji: "🔮" },
-  "help-me-dennnnnn": { title: "Help me, DENNNNNN!!", emoji: "🆘" },
-  "full-signal": { title: "Full Signal", emoji: "✨" },
-  "deep-diver": { title: "Deep Diver", emoji: "🤿" },
-  wafu: { title: "Wafu!", emoji: "🚀" },
-} as const;
+import { getMessages } from "../i18n";
+import type { AchievementId } from "../i18n/types";
 
-export type AchievementId = keyof typeof ACHIEVEMENTS;
-export type AchievementMeta = (typeof ACHIEVEMENTS)[AchievementId];
+export type { AchievementId };
 
-export const COMPLETION_ID: AchievementId = "full-signal";
-export const POST_COMPLETION_IDS: AchievementId[] = ["deep-diver", "wafu"];
-export const GHOST_ACHIEVEMENT_IDS: AchievementId[] = ["wafu"];
+export const COMPLETION_ID = "full-signal" as const satisfies AchievementId;
+export const POST_COMPLETION_IDS = ["deep-diver", "wafu"] as const satisfies readonly AchievementId[];
+export const GHOST_ACHIEVEMENT_IDS = ["wafu"] as const satisfies readonly AchievementId[];
+
+export type AchievementMeta = {
+  title: string;
+  emoji: string;
+};
+
+export function getAchievementMeta(id: AchievementId): AchievementMeta {
+  const { title, emoji } = getMessages().achievements.entries[id];
+  return { title, emoji };
+}
+
+export function getAchievementDesc(id: AchievementId): string {
+  return getMessages().achievements.entries[id].desc;
+}
 
 export function isAchievementId(value: string): value is AchievementId {
-  return value in ACHIEVEMENTS;
+  return Object.prototype.hasOwnProperty.call(getMessages().achievements.entries, value);
 }
+
+/** @deprecated Use getAchievementMeta() for locale-aware access */
+export const ACHIEVEMENTS = new Proxy({} as Record<AchievementId, AchievementMeta>, {
+  get(_target, prop: string) {
+    if (!isAchievementId(prop)) return undefined;
+    return getAchievementMeta(prop);
+  },
+  ownKeys() {
+    return getMessages().achievements.order;
+  },
+  getOwnPropertyDescriptor(_target, prop) {
+    if (typeof prop !== "string" || !isAchievementId(prop)) return undefined;
+    return { configurable: true, enumerable: true, value: getAchievementMeta(prop) };
+  },
+});

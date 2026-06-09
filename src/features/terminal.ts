@@ -1,4 +1,3 @@
-import { ACHIEVEMENTS, type AchievementId } from "../config/achievements";
 import {
   CODE_RESET,
   CODE_HINT,
@@ -14,7 +13,9 @@ import {
   CODES_HIMAWARI,
   CODES_KUD,
 } from "../config/codes";
-import { HINT_ACHIEVEMENT_IDS, HINT_DETAILS } from "../config/hints";
+import { getAchievementMeta, type AchievementId } from "../config/achievements";
+import { getHintAchievementIds, getHintDetails } from "../config/hints";
+import { getMessages } from "../i18n";
 import { includesNormalizedCode, matchesAnyCode, normalizeCode } from "../lib/normalize-code";
 import type { AppContext } from "../lib/app-context";
 import type { AchievementApi } from "./achievements";
@@ -55,7 +56,7 @@ function writeTerminal(
 }
 
 function codeVerified(value: string) {
-  return `${value.toUpperCase()} VERIFIED`;
+  return `${value.toUpperCase()} ${getMessages().terminal.verifiedSuffix}`;
 }
 
 function terminalUnlockMessage(
@@ -64,11 +65,16 @@ function terminalUnlockMessage(
   prefixLines: string[] = [],
   verifiedLine?: string
 ) {
-  const footer = ["Achievement Unlocked", ACHIEVEMENTS[id].title];
+  const { terminal } = getMessages();
+  const footer = [terminal.achievementUnlocked, getAchievementMeta(id).title];
   return [verifiedLine ?? codeVerified(value), ...prefixLines, "", ...footer];
 }
 
 function showHintTerminal(ctx: AppContext, verifiedLine?: string) {
+  const { hints } = getMessages();
+  const hintAchievementIds = getHintAchievementIds();
+  const hintDetails = getHintDetails();
+
   ctx.els.terminalOutput.classList.remove("error");
   ctx.els.terminalOutput.innerHTML = "";
 
@@ -85,21 +91,21 @@ function showHintTerminal(ctx: AppContext, verifiedLine?: string) {
   const trigger = document.createElement("button");
   trigger.type = "button";
   trigger.className = "hint-reveal-trigger";
-  trigger.textContent = "しょうがないにゃあ・・";
+  trigger.textContent = hints.trigger;
 
   const list = document.createElement("div");
   list.className = "hint-list";
   list.hidden = true;
 
-  HINT_DETAILS.forEach((text, index) => {
+  hintDetails.forEach((text, index) => {
     const item = document.createElement("div");
     item.className = "hint-item";
 
-    const achievementId = HINT_ACHIEVEMENT_IDS[index];
+    const achievementId = hintAchievementIds[index];
     const unlocked = ctx.state.achievements.includes(achievementId);
     const label = unlocked
-      ? `${ACHIEVEMENTS[achievementId].title}のヒント`
-      : `実績${index + 1}のヒント`;
+      ? hints.itemLabelUnlocked.replace("{title}", getAchievementMeta(achievementId).title)
+      : hints.itemLabelLocked.replace("{n}", String(index + 1));
 
     const itemTrigger = document.createElement("button");
     itemTrigger.type = "button";
@@ -134,6 +140,7 @@ function showHintTerminal(ctx: AppContext, verifiedLine?: string) {
 }
 
 function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: OverlayApi) {
+  const { terminal, ui } = getMessages();
   const value = normalizeCode(ctx.els.passwordInput.value);
 
   if (value === CODE_RESET) {
@@ -141,10 +148,10 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     writeTerminal(ctx, [
       codeVerified(value),
       "",
-      "RESET COMPLETE",
+      terminal.reset.complete,
       "",
-      "Achievements cleared.",
-      "ページを再度開き直してください。",
+      terminal.reset.cleared,
+      terminal.reset.reload,
     ]);
     return;
   }
@@ -159,7 +166,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     achievements.unlockAchievement("vrc-engineer");
     writeTerminal(
       ctx,
-      terminalUnlockMessage("vrc-engineer", value, [], "USER ID VERIFIED")
+      terminalUnlockMessage("vrc-engineer", value, [], terminal.vrcEngineerVerified)
     );
     ctx.els.passwordInput.value = "";
     return;
@@ -170,9 +177,8 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     writeTerminal(
       ctx,
       terminalUnlockMessage("honester", value, [
-        "[next code hint]",
-        "文章の意味としても機能しています。なぜならあなたはもう他のcodeも知っているのだから。",
-        "分からなかったら「h???」もあります。",
+        terminal.nextCodeHint,
+        ...terminal.codeResponses.honester,
       ])
     );
     ctx.els.passwordInput.value = "";
@@ -184,9 +190,8 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     writeTerminal(
       ctx,
       terminalUnlockMessage("your-friend-name", value, [
-        "[next code hint]",
-        "自分は相手の方を向いて話すほうが好きなんですけど、",
-        "VRCの人はよく、別の世界の人を見て話しているよね",
+        terminal.nextCodeHint,
+        ...terminal.codeResponses["your-friend-name"],
       ])
     );
     ctx.els.passwordInput.value = "";
@@ -194,7 +199,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
   }
 
   if (value === CODE_MIRROR_HINT) {
-    writeTerminal(ctx, [codeVerified(value), "", "鏡自体ではないよ！何かの順番を変える感じ。"]);
+    writeTerminal(ctx, [codeVerified(value), "", terminal.mirrorHint]);
     ctx.els.passwordInput.value = "";
     return;
   }
@@ -210,9 +215,9 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     writeTerminal(ctx, [
       codeVerified(value),
       "",
-      "ACCESS GRANTED",
+      terminal.accessGranted,
       "",
-      "裏側のプロフィールへ移動します。",
+      terminal.deepDiver.redirect,
     ]);
     ctx.els.passwordInput.value = "";
     window.setTimeout(() => {
@@ -234,8 +239,8 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
     writeTerminal(
       ctx,
       terminalUnlockMessage("help-me-dennnnnn", value, [
-        "[next code hint]",
-        "なぞなぞで困ったときは help よりもまず、 h??? だよね。",
+        terminal.nextCodeHint,
+        ...terminal.codeResponses["help-me-dennnnnn"],
       ])
     );
     ctx.els.passwordInput.value = "";
@@ -251,13 +256,16 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
 
   if (matchesAnyCode(ctx.els.passwordInput.value, CODES_KUD)) {
     achievements.unlockAchievement("wafu");
-    writeTerminal(ctx, terminalUnlockMessage("wafu", value, ["わふー >ω<"]));
+    writeTerminal(
+      ctx,
+      terminalUnlockMessage("wafu", value, [...terminal.codeResponses.wafu])
+    );
     ctx.els.passwordInput.value = "";
     return;
   }
 
   if (value === CODE_THANK_YOU_VRC) {
-    writeTerminal(ctx, [codeVerified(value), "", "Have Fun VRC!"]);
+    writeTerminal(ctx, [codeVerified(value), "", ui.thankYouVrc.message]);
     ctx.els.passwordInput.value = "";
     window.setTimeout(() => {
       ctx.els.accessTerminal.hidden = true;
@@ -267,6 +275,6 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
   }
 
   if (value) {
-    writeTerminal(ctx, "ACCESS DENIED", { error: true });
+    writeTerminal(ctx, terminal.accessDenied, { error: true });
   }
 }

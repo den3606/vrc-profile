@@ -11,17 +11,28 @@ import {
   setupEndReaderButton,
   setupObserverTimer,
 } from "./features/visitor";
+import { applyI18n } from "./i18n/apply";
+import { initLocale, onLocaleChange } from "./i18n";
 import { createAppContext } from "./lib/app-context";
 import { getElements } from "./lib/elements";
 import { loadState } from "./lib/state";
 
 export function initApp() {
+  initLocale();
   const els = getElements();
+  applyI18n(els);
+
   const state = loadState();
   const ctx = createAppContext(els, state);
   const toast = setupToast(els);
   const achievements = createAchievementApi(ctx, toast);
   const overlays = setupOverlays(ctx, achievements);
+
+  onLocaleChange(() => {
+    applyI18n(els);
+    achievements.renderAchievements();
+    loadSteamGames();
+  });
 
   runBootSequence(els);
   setupEndReaderButton(ctx, achievements);

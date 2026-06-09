@@ -262,6 +262,16 @@ a:hover {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
+.spotify-embed {
+  margin: 0 0 1.25rem;
+}
+
+.spotify-embed iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+
 .hidden-profile-outro {
   text-align: center;
 }

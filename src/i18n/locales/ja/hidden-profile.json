@@ -1,0 +1,60 @@
+{
+  "intro": {
+    "en": [
+      "You made it all the way here.",
+      "You really seem to enjoy reading profiles.",
+      "I hope you enjoyed it.",
+      "If you made it this far, I'd be happy if you let me know."
+    ],
+    "ja": [
+      "よくここまでたどり着きましたね。",
+      "あなたは相当プロフィールを見るのが好きなようです。",
+      "楽しんでいただけたら幸いです。",
+      "もしここまで見たなら、教えてくれると喜びます。"
+    ]
+  },
+  "sections": [
+    {
+      "title": "Why VRChat",
+      "paragraphs": [
+        "実はVRC自体は2018年ぐらいにログインだけしたことがあります。ログインしてデフォルトのホームワールドを開いたところで怖くなって閉じちゃったんですよね。実はビビリなのですよ。",
+        "Oculus riftも持っていましたが、その時はビートセイバーだけ遊んでいました。当時はPUBGがまだ流行っていて、FallGuysが出たあたりだったかな。懐かしいです。",
+        "その後、数年経ち2024年ぐらいに友達に呼ばれたのが最初のきっかけで、再開してからはぼちぼち遊んでます。",
+        "最初の半年間ぐらいはずっとゲームワールドで遊んでいました。最近はお話するために来てる気がします。",
+        "実は寂しがりやな一面もあるので、書き置きやワールドに入ってきてくれると内心で喜んでます。言わないですけどね。",
+        "恥ずかしくなってきたのでこのあたりで終わります。そんな感じです。"
+      ]
+    },
+    {
+      "title": "Travel & Onsen",
+      "paragraphs": [
+        "趣味はゲーム、温泉とお酒です。温泉は色んなところに行きましたが、あまり名称は覚えてないです…。",
+        "楽しさと気持ちよさがある砂風呂が一番好きで、鹿児島の指宿で入れます。少し高いですが、指宿白水館がおすすめです。よかったら行ってみてね。",
+        "普通の温泉だと、大川荘ってとこがおすすめです。一時期「鬼滅の刃」の無限城に似ていると言われていたところです。秋に行くと山の紅葉と橋、川を一望できるので、とてもきれいです。"
+      ]
+    },
+    {
+      "title": "Drinks",
+      "paragraphs": [
+        "お酒は一時期、週5くらいでバーに一人で通ってました。",
+        "カクテルをメニューの左上から順番に頼んでいく遊びをしていましたが、あまり覚えてません…。パッソアというリキュールのパイン割が一番好きになったので、それだけ覚えています。",
+        "最近はたまに行くぐらいで、家でビールか梅酒かハイボールを飲んでます。"
+      ]
+    }
+  ],
+  "favoriteSongs": {
+    "title": "Favorite Songs",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/5q5YsbPTfLy7rUPgv8nBk2?utm_source=generator",
+    "items": [
+      { "label": "RAINBOW GIRL", "url": "https://www.nicovideo.jp/watch/sm1714828" },
+      { "label": "Artemis Blue", "url": "https://www.nicovideo.jp/watch/sm13352001" },
+      { "label": "Call to me, Call for you", "url": "https://www.youtube.com/watch?v=9kuqtGfKQz4" },
+      { "label": "Harenohi Step", "url": "https://www.youtube.com/watch?v=YzW8OCXiS6U" },
+      { "label": "Everlasting Blue", "url": "https://www.youtube.com/watch?v=udEYmO-wFXA" },
+      { "label": "Sign", "url": "https://www.youtube.com/watch?v=JhoxcSJosb0" },
+      { "label": "IMMORAL", "url": "https://www.youtube.com/watch?v=NVeS4MBE1uM" }
+    ],
+    "footer": "とかとか… オタクソングばっかりだ＾＾ 基本Spotifyとかになくて悲しい。"
+  },
+  "outro": "お疲れ様！ Have Fun VRC！"
+}

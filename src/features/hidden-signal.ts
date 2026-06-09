@@ -1,3 +1,4 @@
+import { getMessages } from "../i18n";
 import type { Elements } from "../lib/elements";
 
 const API_PATH = "/api/signal";
@@ -58,16 +59,17 @@ export function setupHiddenSignal(_els: Elements) {
     event.preventDefault();
     if (sendLocked) return;
 
+    const { errors, success } = getMessages().signal;
     const name = signalEls.nameInput.value.trim();
     const message = signalEls.messageInput.value.trim();
 
     if (!name) {
-      showError(signalEls, "Enter a name.");
+      showError(signalEls, errors.nameRequired);
       return;
     }
 
     if (!message) {
-      showError(signalEls, "Enter a message.");
+      showError(signalEls, errors.messageRequired);
       return;
     }
 
@@ -83,13 +85,13 @@ export function setupHiddenSignal(_els: Elements) {
 
       if (response.ok) {
         sendLocked = true;
-        showSuccess(signalEls, "SIGNAL RECEIVED.");
+        showSuccess(signalEls, success);
         return;
       }
 
       if (response.status === 429) {
         sendLocked = true;
-        showError(signalEls, "Send limit exceeded.");
+        showError(signalEls, errors.rateLimit);
         return;
       }
 
@@ -97,15 +99,15 @@ export function setupHiddenSignal(_els: Elements) {
 
       const data = (await response.json().catch(() => null)) as { error?: string } | null;
       if (data?.error === "invalid_name") {
-        showError(signalEls, "Name must be 1–32 characters.");
+        showError(signalEls, errors.invalidName);
       } else if (data?.error === "invalid_message") {
-        showError(signalEls, "Message must be 1–500 characters.");
+        showError(signalEls, errors.invalidMessage);
       } else {
-        showError(signalEls, "Send failed. Try again later.");
+        showError(signalEls, errors.sendFailed);
       }
     } catch {
       unlockSendButton(signalEls);
-      showError(signalEls, "Send failed. Try again later.");
+      showError(signalEls, errors.sendFailed);
     }
   });
 }

@@ -1,0 +1,47 @@
+{
+  "tabs": {
+    "navLabel": "Profile sections",
+    "profile": "Profile",
+    "achievements": "Achievements"
+  },
+  "profile": {
+    "name": "Den",
+    "displayName": "den3606",
+    "avatarAlt": "Den",
+    "avatarPetLabel": "Pet avatar",
+    "vrchatButton": "View on VRChat"
+  },
+  "about": {
+    "title": "About Me"
+  },
+  "achievements": {
+    "header": "Achievements(PC推奨)",
+    "progressUnlocked": "unlocked",
+    "concealed": {
+      "emoji": "❓",
+      "title": "???",
+      "desc": "条件は隠されている"
+    }
+  },
+  "toast": {
+    "label": "Achievement Unlocked"
+  },
+  "footer": {
+    "endMarker": "End of profile."
+  },
+  "hidden": {
+    "returnButton": "< Return to profile",
+    "thankYouAlt": "Thank you"
+  },
+  "terminal": {
+    "toggleLabel": "Open access terminal",
+    "toggleTitle": "Terminal",
+    "header": "ACCESS TERMINAL",
+    "closeLabel": "Close",
+    "codeLabel": "Code:",
+    "submit": "ENTER"
+  },
+  "thankYouVrc": {
+    "message": "Have Fun VRC!"
+  }
+}

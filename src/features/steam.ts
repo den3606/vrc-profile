@@ -1,3 +1,5 @@
+import { getMessages } from "../i18n";
+
 export interface SteamGame {
   appId?: string;
   name?: string;
@@ -70,7 +72,7 @@ function formatUpdatedAt(updatedAt: string) {
   const d = new Date(updatedAt);
   if (Number.isNaN(d.getTime())) return null;
   return (
-    "Updated " +
+    getMessages().steam.updatedPrefix +
     d.getFullYear() +
     "/" +
     String(d.getMonth() + 1).padStart(2, "0") +
@@ -157,8 +159,8 @@ function renderFeatured(games: SteamGame[], updatedAt?: string) {
 function renderSteamFallback() {
   const list = document.getElementById("steam-games");
   if (!list) return;
-  list.innerHTML =
-    '<li class="steam-state"><a href="https://steamcommunity.com/id/den3606/" target="_blank" rel="noopener noreferrer">Steam で見る</a></li>';
+  const link = getMessages().steam.fallbackLink;
+  list.innerHTML = `<li class="steam-state"><a href="https://steamcommunity.com/id/den3606/" target="_blank" rel="noopener noreferrer">${link}</a></li>`;
 }
 
 function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
@@ -185,7 +187,7 @@ function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
 
   const name = document.createElement("span");
   name.className = "steam-game-name";
-  name.textContent = g.name || "Unknown";
+  name.textContent = g.name || getMessages().steam.unknownGame;
   info.appendChild(name);
 
   const hours = document.createElement("span");
@@ -199,19 +201,21 @@ function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
 }
 
 function formatTotalHours(g: SteamGame) {
+  const { hours } = getMessages().steam;
   if (typeof g.hoursTotal === "number" && g.hoursTotal > 0) {
-    return "累計 " + g.hoursTotal.toLocaleString() + "h";
+    return hours.totalPrefix + g.hoursTotal.toLocaleString() + hours.suffix;
   }
   return "";
 }
 
 function formatHours(g: SteamGame) {
+  const { hours } = getMessages().steam;
   const parts: string[] = [];
   if (typeof g.hoursTwoWeeks === "number" && g.hoursTwoWeeks > 0) {
-    parts.push("直近2週 " + g.hoursTwoWeeks.toLocaleString() + "h");
+    parts.push(hours.recentPrefix + g.hoursTwoWeeks.toLocaleString() + hours.suffix);
   }
   if (typeof g.hoursTotal === "number" && g.hoursTotal > 0) {
-    parts.push("累計 " + g.hoursTotal.toLocaleString() + "h");
+    parts.push(hours.totalPrefix + g.hoursTotal.toLocaleString() + hours.suffix);
   }
-  return parts.join(" ・ ");
+  return parts.join(hours.separator);
 }

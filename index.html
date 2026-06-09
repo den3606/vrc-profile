@@ -14,8 +14,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Den — VRChat Profile">
-  <title>den3606 — VRChat</title>
+  <meta name="description" content="">
+  <title></title>
   <link rel="icon" href="/images/icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -32,7 +32,7 @@
   <div id="return-message" class="return-message" hidden></div>
 
   <div id="achievement-toast" class="achievement-toast" hidden>
-    <div class="toast-label">Achievement Unlocked</div>
+    <div class="toast-label" id="toast-label"></div>
     <div class="toast-body">
       <span id="toast-emoji" class="toast-emoji"></span>
       <span id="toast-title" class="toast-title"></span>
@@ -56,54 +56,44 @@
         </div>
         <div class="vrc-profile-meta">
           <div class="vrc-name-row">
-            <h1 class="profile-name" data-field="name">Den</h1>
+            <h1 class="profile-name" id="profile-name" data-field="name"></h1>
           </div>
-          <p class="profile-tagline vrc-display-name">den3606</p>
+          <p class="profile-tagline vrc-display-name" id="profile-tagline"></p>
           <div class="vrc-actions">
-            <a class="vrc-btn vrc-btn-primary" href="https://vrchat.com/home/user/usr_aac1b0fa-a840-4408-bea8-38a010120d03" target="_blank" rel="noopener noreferrer" data-field="vrchat-url">
-              View on VRChat
-            </a>
+            <a class="vrc-btn vrc-btn-primary" href="https://vrchat.com/home/user/usr_aac1b0fa-a840-4408-bea8-38a010120d03" target="_blank" rel="noopener noreferrer" data-field="vrchat-url"></a>
           </div>
         </div>
       </div>
     </div>
 
     <nav class="vrc-tabs" aria-label="Profile sections">
-      <button type="button" class="vrc-tab vrc-tab-active" data-tab="profile" aria-selected="true">Profile</button>
-      <button type="button" class="vrc-tab" data-tab="achievements" aria-selected="false">Achievements</button>
+      <button type="button" class="vrc-tab vrc-tab-active" data-tab="profile" aria-selected="true"></button>
+      <button type="button" class="vrc-tab" data-tab="achievements" aria-selected="false"></button>
     </nav>
 
     <div id="tab-profile" class="vrc-tab-panel">
       <section class="vrc-card profile-section">
-        <h2 class="section-label">About Me</h2>
-        <div class="vrc-about-text">
-          <p>開いてくれてありがとう。den です。</p>
-          <p>下にゲームを乗せています。ソロゲーが多いですが、昔はマルチゲーもよく遊んでました。今もたまに遊びます。スペシャルフォースとか、MHF とか BattleField3 とか。さらに昔は任天堂のゲームをよく遊んでいました。</p>
-          <p>好きな色はオレンジ (#FCC800) です。</p>
-          <p>The code "already_knows"</p>
-        </div>
-        <div class="vrc-lang-tags">
-          <span class="vrc-lang-tag">日本語</span>
-          <span class="vrc-lang-tag">English (a little)</span>
-        </div>
+        <h2 class="section-label" id="about-title"></h2>
+        <div class="vrc-about-text" id="about-paragraphs"></div>
+        <div class="vrc-lang-tags" id="language-tags"></div>
       </section>
 
       <section class="vrc-card profile-section" data-field="featured">
-        <h2 class="section-label">おすすめのゲーム</h2>
+        <h2 class="section-label" id="steam-featured-title"></h2>
         <ul class="steam-featured" id="steam-featured" hidden></ul>
         <p class="steam-updated" id="steam-featured-updated" hidden></p>
       </section>
 
       <section class="vrc-card profile-section" data-field="games">
-        <h2 class="section-label">最近プレイしたゲーム</h2>
+        <h2 class="section-label" id="steam-recent-title"></h2>
         <ul class="steam-games" id="steam-games" aria-live="polite">
-          <li class="steam-state">Loading...</li>
+          <li class="steam-state"></li>
         </ul>
         <p class="steam-updated" id="steam-updated" hidden></p>
       </section>
 
       <section class="vrc-card profile-section" data-field="top-games">
-        <h2 class="section-label">プレイ時間の長いゲーム</h2>
+        <h2 class="section-label" id="steam-top-title"></h2>
         <ul class="steam-games" id="steam-top-games" aria-live="polite" hidden></ul>
         <p class="steam-updated" id="steam-top-updated" hidden></p>
       </section>
@@ -111,196 +101,29 @@
       <div class="profile-spacer" aria-hidden="true"></div>
 
       <footer class="profile-footer vrc-card vrc-card-flat">
-        <button type="button" id="end-reader-btn" class="end-marker end-reader-btn">
-          End of profile.
-        </button>
+        <button type="button" id="end-reader-btn" class="end-marker end-reader-btn"></button>
       </footer>
     </div>
 
     <div id="tab-achievements" class="vrc-tab-panel" hidden>
       <section class="vrc-card achievements-panel" id="achievements-panel">
         <div class="achievements-header">
-          <h2 class="section-label">Achievements(PC推奨)</h2>
-          <p class="achievements-progress"><span id="achievement-count">0</span> / <span id="achievement-total">8</span> unlocked</p>
+          <h2 class="section-label" id="achievements-header"></h2>
+          <p class="achievements-progress"><span id="achievement-count">0</span> / <span id="achievement-total">0</span> <span id="achievement-progress-label"></span></p>
         </div>
-        <div class="achievement-grid" id="achievement-list">
-          <article class="achievement-card" data-achievement="first-contact" data-title="first-contact">
-            <div class="achievement-emoji" aria-hidden="true">👋</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">First Contact</h3>
-              <p class="achievement-desc">まずは挨拶から。挨拶は大事ですね。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="explorer" data-title="explorer">
-            <div class="achievement-emoji" aria-hidden="true">🧭</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Explorer</h3>
-              <p class="achievement-desc">物事は最初から最後まで、ちゃんと見てから考えましょう。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="pet-pet-pet" data-title="pet-pet-pet">
-            <div class="achievement-emoji" aria-hidden="true">🐕</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Pet, Pet, Pet</h3>
-              <p class="achievement-desc">撫でるのが上手ですね。もしかして、普段から撫でてます？</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="himawari">
-            <div class="achievement-emoji" aria-hidden="true">🌻</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Himawari</h3>
-              <p class="achievement-desc">この色、オレンジじゃなくて向日葵色なんだって。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="vrc-engineer" data-title="vrc-engineer">
-            <div class="achievement-emoji" aria-hidden="true">🔧</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">VRC Engineer</h3>
-              <p class="achievement-desc">これを入れるとは… 謎解きとか好きなんですか？</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="honester">
-            <div class="achievement-emoji" aria-hidden="true">🫡</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Honester</h3>
-              <p class="achievement-desc">書いてあることをそのまま入れるのは正直でいいですね。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="observer" data-secret="true" data-emoji="👁️" data-title="observer" data-desc="あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。">
-            <div class="achievement-emoji" aria-hidden="true">👁️</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Observer</h3>
-              <p class="achievement-desc">あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="escape-from-friend" data-secret="true" data-emoji="🏃" data-title="escape-from-friend" data-desc="臆病なので、そんなに接近されると逃げちゃいます。">
-            <div class="achievement-emoji" aria-hidden="true">🏃</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Escape From Friend</h3>
-              <p class="achievement-desc">臆病なので、そんなに接近されると逃げちゃいます。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="your-friend-name" data-secret="true" data-emoji="🤝" data-title="your-friend-name" data-desc="実はこれ、僕の名前なんです。知ってましたか？">
-            <div class="achievement-emoji" aria-hidden="true">🤝</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Your Friend Name</h3>
-              <p class="achievement-desc">実はこれ、僕の名前なんです。知ってましたか？</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="mirror-mirror" data-secret="true" data-emoji="🪞" data-title="mirror-mirror" data-desc="鏡文字まで知っているとは、VRCにお詳しそうですね。これは逆さ言葉だけどね。倒語っていうらしい。">
-            <div class="achievement-emoji" aria-hidden="true">🪞</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Mirror, Mirror</h3>
-              <p class="achievement-desc">鏡文字まで知っているとは、VRCにお詳しそうですね。これは逆さ言葉だけどね。倒語っていうらしい。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="science-and-magic-intersect" data-secret="true" data-emoji="🔮" data-title="science-and-magic-intersect" data-desc="科学と魔術が交差しなくても、ブラウザとVRCが交差すると物語は生まれるんだって。">
-            <div class="achievement-emoji" aria-hidden="true">🔮</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Science And Magic</h3>
-              <p class="achievement-desc">科学と魔術が交差しなくても、ブラウザとVRCが交差すると物語は生まれるんだって。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="help-me-dennnnnn" data-secret="true" data-emoji="🆘" data-title="help-me-dennnnnn" data-desc="(ﾟ∀ﾟ)o彡゜ 誠心誠意　まごころ込めて　助けに行きます">
-            <div class="achievement-emoji" aria-hidden="true">🆘</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Help me, DENNNNNN!!</h3>
-              <p class="achievement-desc">(ﾟ∀ﾟ)o彡゜Den!Den!<br>誠心誠意 まごころ込めて 助けに行きます</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="full-signal" data-secret="true" data-emoji="✨" data-title="full-signal" data-desc="全解除したんですか？！<br>本当に、本当にありがとう 🙏<br>code: deep_diver">
-            <div class="achievement-emoji" aria-hidden="true">✨</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Full Signal</h3>
-              <p class="achievement-desc">全解除したんですか？！<br>本当に、本当にありがとう 🙏<br>code: deep_diver</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="deep-diver" data-secret="true" data-emoji="🤿" data-title="deep-diver" data-desc="改めてこんにちは。僕のプロフィールをよく見てくれたということですね。君はもうDenマスターだ。">
-            <div class="achievement-emoji" aria-hidden="true">🤿</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Deep Diver</h3>
-              <p class="achievement-desc">改めてこんにちは。僕のプロフィールをよく見てくれたということですね。君はもうDenマスターだ。</p>
-            </div>
-          </article>
-          <article class="achievement-card" data-achievement="wafu" data-secret="true" data-emoji="🚀" data-title="wafu" data-desc="おかしいです。ヒントとして用意していないのに、どうして判ったのかふしぎなのです(>ω&lt;)" hidden>
-            <div class="achievement-emoji" aria-hidden="true">🚀</div>
-            <div class="achievement-body">
-              <h3 class="achievement-title">Wafu!</h3>
-              <p class="achievement-desc">おかしいです。ヒントとして用意していないのに、どうして判ったのかふしぎなのです(>ω&lt;)</p>
-            </div>
-          </article>
-        </div>
+        <div class="achievement-grid" id="achievement-list"></div>
       </section>
     </div>
   </main>
 
   <div id="hidden-profile" class="hidden-profile" hidden>
     <div class="hidden-profile-inner vrc-hidden-inner">
-      <div class="vrc-card">
-        <p class="hidden-intro-en">You made it all the way here.</p>
-        <p class="hidden-intro-en">You really seem to enjoy reading profiles.</p>
-        <p class="hidden-intro-en">I hope you enjoyed it.</p>
-        <p class="hidden-intro-en hidden-intro-last">If you made it this far, I'd be happy if you let me know.</p>
-
-        <p class="hidden-intro-ja">よくここまでたどり着きましたね。</p>
-        <p class="hidden-intro-ja">あなたは相当プロフィールを見るのが好きなようです。</p>
-        <p class="hidden-intro-ja">楽しんでいただけたら幸いです。</p>
-        <p class="hidden-intro-ja hidden-intro-last">もしここまで見たなら、教えてくれると喜びます。</p>
-      </div>
-
-      <section class="vrc-card profile-section">
-        <h2 class="section-label">Why VRChat</h2>
-        <p data-field="hidden-why-vrc">実はVRC自体は2018年ぐらいにログインだけしたことがあります。ログインしてデフォルトのホームワールドを開いたところで怖くなって閉じちゃったんですよね。実はビビリなのですよ。</p>
-        <p>Oculus riftも持っていましたが、その時はビートセイバーだけ遊んでいました。当時はPUBGがまだ流行っていて、FallGuysが出たあたりだったかな。懐かしいです。</p>
-        <p>その後、数年経ち2024年ぐらいに友達に呼ばれたのが最初のきっかけで、再開してからはぼちぼち遊んでます。</p>
-        <p>最初の半年間ぐらいはずっとゲームワールドで遊んでいました。最近はお話するために来てる気がします。</p>
-        <p>実は寂しがりやな一面もあるので、書き置きやワールドに入ってきてくれると内心で喜んでます。言わないですけどね。</p>
-        <p>恥ずかしくなってきたのでこのあたりで終わります。そんな感じです。</p>
-      </section>
-
-      <section class="vrc-card profile-section">
-        <h2 class="section-label">Travel & Onsen</h2>
-        <p data-field="hidden-travel">趣味はゲーム、温泉とお酒です。温泉は色んなところに行きましたが、あまり名称は覚えてないです…。</p>
-        <p>楽しさと気持ちよさがある砂風呂が一番好きで、鹿児島の指宿で入れます。少し高いですが、指宿白水館がおすすめです。よかったら行ってみてね。</p>
-        <p>普通の温泉だと、大川荘ってとこがおすすめです。一時期「鬼滅の刃」の無限城に似ていると言われていたところです。秋に行くと山の紅葉と橋、川を一望できるので、とてもきれいです。</p>
-      </section>
-
-      <section class="vrc-card profile-section">
-        <h2 class="section-label">Drinks</h2>
-        <p data-field="hidden-drinks">お酒は一時期、週5くらいでバーに一人で通ってました。</p>
-        <p>カクテルをメニューの左上から順番に頼んでいく遊びをしていましたが、あまり覚えてません…。パッソアというリキュールのパイン割が一番好きになったので、それだけ覚えています。</p>
-        <p>最近はたまに行くぐらいで、家でビールか梅酒かハイボールを飲んでます。</p>
-      </section>
-
-      <section class="vrc-card profile-section">
-        <h2 class="section-label">Favorite Songs</h2>
-        <ul class="profile-list">
-          <li><a href="https://www.nicovideo.jp/watch/sm1714828" target="_blank" rel="noopener noreferrer">RAINBOW GIRL</a></li>
-          <li><a href="https://www.nicovideo.jp/watch/sm13352001" target="_blank" rel="noopener noreferrer">Artemis Blue</a></li>
-          <li><a href="https://www.youtube.com/watch?v=9kuqtGfKQz4" target="_blank" rel="noopener noreferrer">Call to me, Call for you</a></li>
-          <li><a href="https://www.youtube.com/watch?v=YzW8OCXiS6U" target="_blank" rel="noopener noreferrer">Harenohi Step</a></li>
-          <li><a href="https://www.youtube.com/watch?v=udEYmO-wFXA" target="_blank" rel="noopener noreferrer">Everlasting Blue</a></li>
-          <li><a href="https://www.youtube.com/watch?v=JhoxcSJosb0" target="_blank" rel="noopener noreferrer">Sign</a></li>
-          <li><a href="https://www.youtube.com/watch?v=NVeS4MBE1uM" target="_blank" rel="noopener noreferrer">IMMORAL</a></li>
-        </ul>
-        <p>とかとか… オタクソングばっかりだ＾＾ 基本Spotifyとかになくて悲しい。</p>
-      </section>
-
-      <section class="vrc-card profile-section hidden-profile-outro">
-        <p class="hidden-profile-outro-text">お疲れ様！ Have Fun VRC！</p>
-        <img
-          class="thank-you-vrc-image"
-          src="images/thank_you_vrc.png"
-          alt="Thank you"
-          width="960"
-          height="540"
-        >
-      </section>
+      <div id="hidden-profile-sections"></div>
 
       <section class="vrc-card profile-section hidden-signal-panel">
-        <h2 class="section-label">Send a Signal</h2>
+        <h2 class="section-label" id="hidden-signal-title"></h2>
         <form id="hidden-signal-form" class="hidden-signal-form" autocomplete="off">
-          <label class="hidden-signal-label" for="hidden-signal-name">Name</label>
+          <label class="hidden-signal-label" id="hidden-signal-name-label" for="hidden-signal-name"></label>
           <input
             type="text"
             id="hidden-signal-name"
@@ -310,25 +133,22 @@
             required
           >
 
-          <label class="hidden-signal-label" for="hidden-signal-message">Message</label>
+          <label class="hidden-signal-label" id="hidden-signal-message-label" for="hidden-signal-message"></label>
           <textarea
             id="hidden-signal-message"
             class="hidden-signal-textarea"
             name="message"
             maxlength="500"
             rows="4"
-            placeholder="なんでもいいよ"
             required
           ></textarea>
 
-          <button type="submit" id="hidden-signal-submit" class="hidden-signal-submit vrc-btn vrc-btn-primary">
-            Send
-          </button>
+          <button type="submit" id="hidden-signal-submit" class="hidden-signal-submit vrc-btn vrc-btn-primary"></button>
           <p id="hidden-signal-status" class="hidden-signal-status" hidden></p>
         </form>
       </section>
 
-      <button type="button" id="close-hidden" class="close-hidden-btn vrc-btn vrc-btn-outline">&lt; Return to profile</button>
+      <button type="button" id="close-hidden" class="close-hidden-btn vrc-btn vrc-btn-outline"></button>
     </div>
   </div>
 
@@ -341,11 +161,11 @@
         width="960"
         height="540"
       >
-      <button type="button" id="close-thank-you-vrc" class="close-hidden-btn vrc-btn vrc-btn-outline">&lt; Return to profile</button>
+      <button type="button" id="close-thank-you-vrc" class="close-hidden-btn vrc-btn vrc-btn-outline"></button>
     </div>
   </div>
 
-  <button type="button" id="terminal-toggle" class="terminal-toggle" aria-label="Open access terminal" title="Terminal">
+  <button type="button" id="terminal-toggle" class="terminal-toggle">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
       <rect x="1" y="2" width="14" height="11" rx="1" stroke="currentColor" stroke-width="1" fill="none"/>
       <path d="M3 5 L5 7 L3 9" stroke="currentColor" stroke-width="1.2" fill="none"/>
@@ -355,14 +175,14 @@
 
   <div id="access-terminal" class="access-terminal" hidden>
     <div class="access-terminal-header">
-      <span>ACCESS TERMINAL</span>
-      <button type="button" id="terminal-close" class="terminal-close" aria-label="Close">&times;</button>
+      <span id="terminal-header"></span>
+      <button type="button" id="terminal-close" class="terminal-close">&times;</button>
     </div>
     <div class="access-terminal-body">
-      <label for="password-input">Code:</label>
+      <label id="terminal-code-label" for="password-input"></label>
       <div class="password-row">
         <input type="text" id="password-input" class="password-input" autocomplete="off" spellcheck="false" placeholder="">
-        <button type="button" id="password-submit" class="password-submit">ENTER</button>
+        <button type="button" id="password-submit" class="password-submit"></button>
       </div>
       <div id="terminal-output" class="terminal-output"></div>
     </div>

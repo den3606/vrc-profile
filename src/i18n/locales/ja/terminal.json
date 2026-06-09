@@ -1,0 +1,31 @@
+{
+  "verifiedSuffix": "VERIFIED",
+  "vrcEngineerVerified": "USER ID VERIFIED",
+  "accessDenied": "ACCESS DENIED",
+  "accessGranted": "ACCESS GRANTED",
+  "achievementUnlocked": "Achievement Unlocked",
+  "nextCodeHint": "[next code hint]",
+  "reset": {
+    "complete": "RESET COMPLETE",
+    "cleared": "Achievements cleared.",
+    "reload": "ページを再度開き直してください。"
+  },
+  "mirrorHint": "鏡自体ではないよ！何かの順番を変える感じ。",
+  "deepDiver": {
+    "redirect": "裏側のプロフィールへ移動します。"
+  },
+  "codeResponses": {
+    "honester": [
+      "文章の意味としても機能しています。なぜならあなたはもう他のcodeも知っているのだから。",
+      "分からなかったら「h???」もあります。"
+    ],
+    "your-friend-name": [
+      "自分は相手の方を向いて話すほうが好きなんですけど、",
+      "VRCの人はよく、別の世界の人を見て話しているよね"
+    ],
+    "help-me-dennnnnn": [
+      "なぞなぞで困ったときは help よりもまず、 h??? だよね。"
+    ],
+    "wafu": ["わふー >ω<"]
+  }
+}

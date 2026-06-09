@@ -1,4 +1,5 @@
-import { SESSION_KEY, RETURN_MESSAGES, OBSERVED_MS } from "../config/constants";
+import { SESSION_KEY, OBSERVED_MS } from "../config/constants";
+import { getMessages } from "../i18n";
 import { saveState } from "../lib/state";
 import type { AppContext } from "../lib/app-context";
 import type { AchievementApi } from "./achievements";
@@ -13,7 +14,11 @@ export function handleReturnVisitor(ctx: AppContext, toast: ToastApi) {
   ctx.state.lastVisitAt = Date.now();
   saveState(ctx.state);
 
-  const msg = RETURN_MESSAGES[ctx.state.visits];
+  const visits = ctx.state.visits;
+  const msg =
+    visits === 2 || visits === 3 || visits === 5
+      ? getMessages().visitor.returnMessages[String(visits) as "2" | "3" | "5"]
+      : undefined;
   if (!msg) return;
 
   window.setTimeout(() => {

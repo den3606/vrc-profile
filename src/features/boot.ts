@@ -1,11 +1,12 @@
-import { BOOT_LINES } from "../config/constants";
+import { getMessages } from "../i18n";
 import type { Elements } from "../lib/elements";
 
 export function runBootSequence(els: Elements) {
   const delays = [400, 900, 1400];
   const revealAt = 2200;
+  const lines = getMessages().boot.lines;
 
-  BOOT_LINES.forEach((text, i) => {
+  lines.forEach((text, i) => {
     window.setTimeout(() => {
       els.bootLines[i].textContent = text;
       els.bootLines[i].classList.add("visible");

@@ -1,0 +1,112 @@
+{
+  "order": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "full-signal",
+    "deep-diver",
+    "wafu"
+  ],
+  "entries": {
+    "first-contact": {
+      "title": "First Contact",
+      "emoji": "👋",
+      "desc": "まずは挨拶から。挨拶は大事ですね。",
+      "secret": false
+    },
+    "explorer": {
+      "title": "Explorer",
+      "emoji": "🧭",
+      "desc": "物事は最初から最後まで、ちゃんと見てから考えましょう。",
+      "secret": false
+    },
+    "pet-pet-pet": {
+      "title": "Pet, Pet, Pet",
+      "emoji": "🐕",
+      "desc": "撫でるのが上手ですね。もしかして、普段から撫でてます？",
+      "secret": false
+    },
+    "himawari": {
+      "title": "Himawari",
+      "emoji": "🌻",
+      "desc": "この色、オレンジじゃなくて向日葵色なんだって。",
+      "secret": false
+    },
+    "vrc-engineer": {
+      "title": "VRC Engineer",
+      "emoji": "🔧",
+      "desc": "これを入れるとは… 謎解きとか好きなんですか？",
+      "secret": false
+    },
+    "honester": {
+      "title": "Honester",
+      "emoji": "🫡",
+      "desc": "書いてあることをそのまま入れるのは正直でいいですね。",
+      "secret": false
+    },
+    "observer": {
+      "title": "Observer",
+      "emoji": "👁️",
+      "desc": "あなたは3分もここにいたみたいです。ありがたさと困惑が混じっています。",
+      "secret": true
+    },
+    "escape-from-friend": {
+      "title": "Escape From Friend",
+      "emoji": "🏃",
+      "desc": "臆病なので、そんなに接近されると逃げちゃいます。",
+      "secret": true
+    },
+    "your-friend-name": {
+      "title": "Your Friend Name",
+      "emoji": "🤝",
+      "desc": "実はこれ、僕の名前なんです。知ってましたか？",
+      "secret": true
+    },
+    "mirror-mirror": {
+      "title": "Mirror, Mirror",
+      "emoji": "🪞",
+      "desc": "鏡文字まで知っているとは、VRCにお詳しそうですね。これは逆さ言葉だけどね。倒語っていうらしい。",
+      "secret": true
+    },
+    "science-and-magic-intersect": {
+      "title": "Science And Magic",
+      "emoji": "🔮",
+      "desc": "科学と魔術が交差しなくても、ブラウザとVRCが交差すると物語は生まれるんだって。",
+      "secret": true
+    },
+    "help-me-dennnnnn": {
+      "title": "Help me, DENNNNNN!!",
+      "emoji": "🆘",
+      "desc": "(ﾟ∀ﾟ)o彡゜Den!Den!<br>誠心誠意 まごころ込めて 助けに行きます",
+      "secret": true
+    },
+    "full-signal": {
+      "title": "Full Signal",
+      "emoji": "✨",
+      "desc": "全解除したんですか？！<br>本当に、本当にありがとう 🙏<br>code: deep_diver",
+      "secret": true
+    },
+    "deep-diver": {
+      "title": "Deep Diver",
+      "emoji": "🤿",
+      "desc": "改めてこんにちは。僕のプロフィールをよく見てくれたということですね。君はもうDenマスターだ。",
+      "secret": true
+    },
+    "wafu": {
+      "title": "Wafu!",
+      "emoji": "🚀",
+      "desc": "おかしいです。ヒントとして用意していないのに、どうして判ったのかふしぎなのです(>ω<)",
+      "secret": true,
+      "ghost": true
+    }
+  }
+}

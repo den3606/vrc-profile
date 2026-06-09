@@ -1,11 +1,14 @@
 import {
-  ACHIEVEMENTS,
   COMPLETION_ID,
   GHOST_ACHIEVEMENT_IDS,
   POST_COMPLETION_IDS,
+  getAchievementDesc,
+  getAchievementMeta,
+  isAchievementId,
   type AchievementId,
 } from "../config/achievements";
 import { SESSION_KEY } from "../config/constants";
+import { getMessages } from "../i18n";
 import { saveState } from "../lib/state";
 import type { AppContext } from "../lib/app-context";
 import type { ToastApi } from "./toast";
@@ -19,7 +22,7 @@ export function createAchievementApi(ctx: AppContext, toast: ToastApi) {
     renderAchievements();
 
     if (!silent) {
-      toast.showAchievementToast(ACHIEVEMENTS[id]);
+      toast.showAchievementToast(getAchievementMeta(id));
     }
 
     checkAllAchievementsUnlocked();
@@ -28,25 +31,29 @@ export function createAchievementApi(ctx: AppContext, toast: ToastApi) {
   function checkAllAchievementsUnlocked() {
     if (ctx.state.achievements.includes(COMPLETION_ID)) return;
 
-    const required = (Object.keys(ACHIEVEMENTS) as AchievementId[]).filter(
-      (key) => key !== COMPLETION_ID && !POST_COMPLETION_IDS.includes(key)
-    );
+    const postCompletion = new Set<string>(POST_COMPLETION_IDS);
+    const required = getMessages().achievements.order.filter(
+      (key) => key !== COMPLETION_ID && !postCompletion.has(key)
+    ) as AchievementId[];
+
     if (!required.every((key) => ctx.state.achievements.includes(key))) return;
 
     unlockAchievement(COMPLETION_ID);
   }
 
   function renderAchievements() {
+    const concealed = getMessages().ui.achievements.concealed;
     let total = 0;
     let unlockedCount = 0;
 
     ctx.els.achievementList.querySelectorAll<HTMLElement>("[data-achievement]").forEach((card) => {
       const id = card.dataset.achievement;
-      if (!id || !(id in ACHIEVEMENTS)) return;
+      if (!id || !isAchievementId(id)) return;
 
-      const achievementId = id as AchievementId;
+      const achievementId = id;
+      const entry = getMessages().achievements.entries[achievementId];
       const unlocked = ctx.state.achievements.includes(achievementId);
-      const isGhost = GHOST_ACHIEVEMENT_IDS.includes(achievementId);
+      const isGhost = (GHOST_ACHIEVEMENT_IDS as readonly AchievementId[]).includes(achievementId);
 
       if (isGhost && !unlocked) {
         card.hidden = true;
@@ -58,23 +65,23 @@ export function createAchievementApi(ctx: AppContext, toast: ToastApi) {
       card.classList.toggle("unlocked", unlocked);
       if (unlocked) unlockedCount += 1;
 
-      if (card.dataset.secret === "true") {
-        const concealed = !unlocked;
-        card.classList.toggle("concealed", concealed);
+      if (entry.secret) {
+        const concealedState = !unlocked;
+        card.classList.toggle("concealed", concealedState);
 
         const emojiEl = card.querySelector(".achievement-emoji");
         const titleEl = card.querySelector(".achievement-title");
         const descEl = card.querySelector(".achievement-desc");
 
         if (emojiEl && titleEl && descEl) {
-          if (concealed) {
-            emojiEl.textContent = "❓";
-            titleEl.textContent = "???";
-            descEl.textContent = "条件は隠されている";
+          if (concealedState) {
+            emojiEl.textContent = concealed.emoji;
+            titleEl.textContent = concealed.title;
+            descEl.textContent = concealed.desc;
           } else {
-            emojiEl.textContent = card.dataset.emoji ?? "";
-            titleEl.textContent = ACHIEVEMENTS[achievementId].title;
-            descEl.innerHTML = card.dataset.desc ?? "";
+            emojiEl.textContent = entry.emoji;
+            titleEl.textContent = entry.title;
+            descEl.innerHTML = getAchievementDesc(achievementId);
           }
         }
       }
