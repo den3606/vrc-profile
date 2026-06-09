@@ -6,7 +6,8 @@ const path = require("path");
 const PROFILE_URL = "https://steamcommunity.com/id/dedendendedenpunn";
 const XML_URL = `${PROFILE_URL}/?xml=1`;
 const HTML_URL = `${PROFILE_URL}/`;
-const OUTPUT = path.join(__dirname, "..", "steam.json");
+const OUTPUT = path.join(__dirname, "..", "public", "steam.json");
+const LEGACY_OUTPUT = path.join(__dirname, "..", "steam.json");
 const UA = "Mozilla/5.0 (vrc-profile steam sync)";
 
 function extract(block, tag) {
@@ -83,8 +84,11 @@ async function main() {
     games,
   };
 
-  fs.writeFileSync(OUTPUT, JSON.stringify(data, null, 2) + "\n");
-  console.log(`Wrote ${games.length} games, ${featured.length} featured to steam.json`);
+  const json = JSON.stringify(data, null, 2) + "\n";
+  fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
+  fs.writeFileSync(OUTPUT, json);
+  fs.writeFileSync(LEGACY_OUTPUT, json);
+  console.log(`Wrote ${games.length} games, ${featured.length} featured to public/steam.json`);
 }
 
 main().catch((err) => {
