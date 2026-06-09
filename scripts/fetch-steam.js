@@ -1,13 +1,14 @@
-"use strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const fs = require("fs");
-const path = require("path");
+const rootDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const PROFILE_URL = "https://steamcommunity.com/id/dedendendedenpunn";
 const XML_URL = `${PROFILE_URL}/?xml=1`;
 const HTML_URL = `${PROFILE_URL}/`;
-const OUTPUT = path.join(__dirname, "..", "public", "steam.json");
-const LEGACY_OUTPUT = path.join(__dirname, "..", "steam.json");
+const OUTPUT = path.join(rootDir, "public", "steam.json");
+const LEGACY_OUTPUT = path.join(rootDir, "steam.json");
 const UA = "Mozilla/5.0 (vrc-profile steam sync)";
 
 function extract(block, tag) {
