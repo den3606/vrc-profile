@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-07T17:06:33.851Z",
+  "updatedAt": "2026-06-09T00:12:28.799Z",
   "profileUrl": "https://steamcommunity.com/id/dedendendedenpunn/",
   "featured": [
     {
@@ -69,7 +69,7 @@
       "name": "SteamVR",
       "storeUrl": "https://store.steampowered.com/app/250820/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg?t=1574723957",
-      "hoursTwoWeeks": 115.6,
+      "hoursTwoWeeks": 101.6,
       "hoursTotal": 3276
     },
     {
@@ -77,7 +77,7 @@
       "name": "VRChat",
       "storeUrl": "https://store.steampowered.com/app/438100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg?t=1762366454",
-      "hoursTwoWeeks": 110.6,
+      "hoursTwoWeeks": 96.6,
       "hoursTotal": 2742
     },
     {
@@ -85,7 +85,7 @@
       "name": "OyasumiVR",
       "storeUrl": "https://store.steampowered.com/app/2538150/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538150/capsule_184x69.jpg?t=1751131309",
-      "hoursTwoWeeks": 94.7,
+      "hoursTwoWeeks": 80.2,
       "hoursTotal": 499
     },
     {
@@ -93,7 +93,7 @@
       "name": "NieR Replicant ver.1.22474487139...",
       "storeUrl": "https://store.steampowered.com/app/1113560/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1113560/capsule_184x69.jpg?t=1773365156",
-      "hoursTwoWeeks": 31.6,
+      "hoursTwoWeeks": 28.9,
       "hoursTotal": 49
     },
     {
