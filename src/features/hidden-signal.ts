@@ -23,10 +23,8 @@ function getSignalElements(): SignalElements | null {
   return { form, nameInput, messageInput, submitBtn, status };
 }
 
-function markSent(els: SignalElements, message: string) {
-  localStorage.setItem(STORAGE_KEY, "1");
-  els.nameInput.disabled = true;
-  els.messageInput.disabled = true;
+function lockSend(els: SignalElements, message: string, { persist = false } = {}) {
+  if (persist) localStorage.setItem(STORAGE_KEY, "1");
   els.submitBtn.disabled = true;
   els.status.textContent = message;
   els.status.hidden = false;
@@ -45,13 +43,14 @@ export function setupHiddenSignal(_els: Elements) {
   const signalEls = getSignalElements();
   if (!signalEls) return;
 
-  if (localStorage.getItem(STORAGE_KEY) === "1") {
-    markSent(signalEls, "SIGNAL RECEIVED.");
-    return;
+  let sendLocked = localStorage.getItem(STORAGE_KEY) === "1";
+  if (sendLocked) {
+    lockSend(signalEls, "SIGNAL RECEIVED.", { persist: true });
   }
 
   signalEls.form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (sendLocked) return;
 
     const name = signalEls.nameInput.value.trim();
     const message = signalEls.messageInput.value.trim();
@@ -77,12 +76,14 @@ export function setupHiddenSignal(_els: Elements) {
       });
 
       if (response.ok) {
-        markSent(signalEls, "SIGNAL RECEIVED.");
+        sendLocked = true;
+        lockSend(signalEls, "SIGNAL RECEIVED.", { persist: true });
         return;
       }
 
       if (response.status === 429) {
-        markSent(signalEls, "送信回数の上限に達しました。");
+        sendLocked = true;
+        lockSend(signalEls, "Rate limit reached.");
         return;
       }
 

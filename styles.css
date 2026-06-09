@@ -277,12 +277,6 @@ a:hover {
   margin-inline: auto;
 }
 
-.hidden-signal-intro {
-  margin: 0 0 1rem;
-  font-size: 0.95rem;
-  color: var(--color-muted);
-}
-
 .hidden-signal-form {
   display: flex;
   flex-direction: column;
