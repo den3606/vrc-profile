@@ -46,37 +46,59 @@ function readInlineSteam(): SteamData | null {
 
 function renderSteamData(data: SteamData) {
   const list = document.getElementById("steam-games");
-  const updated = document.getElementById("steam-updated");
   if (!list) return;
 
-  renderFeatured(Array.isArray(data.featured) ? data.featured : []);
-  renderTopGames(Array.isArray(data.topGames) ? data.topGames : []);
-
+  const featured = Array.isArray(data.featured) ? data.featured : [];
+  const topGames = Array.isArray(data.topGames) ? data.topGames : [];
   const games = Array.isArray(data.games) ? data.games : [];
+
+  renderFeatured(featured, data.updatedAt);
+  renderTopGames(topGames, data.updatedAt);
+
   if (games.length === 0) {
     renderSteamFallback();
+    applyUpdatedLabel("steam-updated", data.updatedAt, false);
     return;
   }
 
   list.innerHTML = "";
   games.forEach((g) => list.appendChild(renderSteamGame(g)));
-
-  if (updated && data.updatedAt) {
-    const d = new Date(data.updatedAt);
-    if (!Number.isNaN(d.getTime())) {
-      updated.textContent =
-        "Updated " +
-        d.getFullYear() +
-        "/" +
-        String(d.getMonth() + 1).padStart(2, "0") +
-        "/" +
-        String(d.getDate()).padStart(2, "0");
-      updated.hidden = false;
-    }
-  }
+  applyUpdatedLabel("steam-updated", data.updatedAt, true);
 }
 
-function renderTopGames(games: SteamGame[]) {
+function formatUpdatedAt(updatedAt: string) {
+  const d = new Date(updatedAt);
+  if (Number.isNaN(d.getTime())) return null;
+  return (
+    "Updated " +
+    d.getFullYear() +
+    "/" +
+    String(d.getMonth() + 1).padStart(2, "0") +
+    "/" +
+    String(d.getDate()).padStart(2, "0")
+  );
+}
+
+function applyUpdatedLabel(elementId: string, updatedAt: string | undefined, show: boolean) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+
+  if (!show || !updatedAt) {
+    el.hidden = true;
+    return;
+  }
+
+  const text = formatUpdatedAt(updatedAt);
+  if (!text) {
+    el.hidden = true;
+    return;
+  }
+
+  el.textContent = text;
+  el.hidden = false;
+}
+
+function renderTopGames(games: SteamGame[], updatedAt?: string) {
   const list = document.getElementById("steam-top-games");
   if (!list) return;
   const section = list.closest(".profile-section");
@@ -84,6 +106,7 @@ function renderTopGames(games: SteamGame[]) {
   if (!games.length) {
     list.hidden = true;
     if (section instanceof HTMLElement) section.hidden = true;
+    applyUpdatedLabel("steam-top-updated", updatedAt, false);
     return;
   }
 
@@ -91,9 +114,10 @@ function renderTopGames(games: SteamGame[]) {
   games.forEach((g) => list.appendChild(renderSteamGame(g, { totalOnly: true })));
   list.hidden = false;
   if (section instanceof HTMLElement) section.hidden = false;
+  applyUpdatedLabel("steam-top-updated", updatedAt, true);
 }
 
-function renderFeatured(games: SteamGame[]) {
+function renderFeatured(games: SteamGame[], updatedAt?: string) {
   const el = document.getElementById("steam-featured");
   if (!el) return;
   const section = el.closest(".profile-section");
@@ -101,6 +125,7 @@ function renderFeatured(games: SteamGame[]) {
   if (!games.length) {
     el.hidden = true;
     if (section instanceof HTMLElement) section.hidden = true;
+    applyUpdatedLabel("steam-featured-updated", updatedAt, false);
     return;
   }
 
@@ -126,6 +151,7 @@ function renderFeatured(games: SteamGame[]) {
   });
   el.hidden = false;
   if (section instanceof HTMLElement) section.hidden = false;
+  applyUpdatedLabel("steam-featured-updated", updatedAt, true);
 }
 
 function renderSteamFallback() {
