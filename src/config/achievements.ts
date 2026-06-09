@@ -1,6 +1,6 @@
 export const ACHIEVEMENTS = {
   "first-contact": { title: "First Contact", emoji: "👋" },
-  observer: { title: "Observer", emoji: "👁️" },
+  explorer: { title: "Explorer", emoji: "👁️" },
   observed: { title: "Observed", emoji: "⏱️" },
   "pet-pet-pet": { title: "Pet, Pet, Pet", emoji: "🐕" },
   himawari: { title: "Himawari", emoji: "🌻" },

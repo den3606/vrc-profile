@@ -37,8 +37,8 @@ export function setupEndReaderButton(ctx: AppContext, achievements: AchievementA
   ctx.els.endReaderBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    if (!ctx.state.achievements.includes("observer")) {
-      achievements.unlockAchievement("observer");
+    if (!ctx.state.achievements.includes("explorer")) {
+      achievements.unlockAchievement("explorer");
     }
   });
 }

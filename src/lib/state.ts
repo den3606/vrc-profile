@@ -25,7 +25,12 @@ export function migrateState(data: {
 
   if (Array.isArray(data.achievements)) {
     state.achievements = data.achievements
-      .map((id) => (typeof id === "string" && id === "mirror-character" ? "mirror-mirror" : id))
+      .map((id) => {
+        if (typeof id !== "string") return id;
+        if (id === "mirror-character") return "mirror-mirror";
+        if (id === "observer") return "explorer";
+        return id;
+      })
       .filter((id): id is AchievementId => typeof id === "string" && isAchievementId(id));
     state.achievements = [...new Set(state.achievements)];
   }

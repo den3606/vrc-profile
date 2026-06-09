@@ -2,7 +2,7 @@ import type { AchievementId } from "./achievements";
 
 export const HINT_ACHIEVEMENT_IDS: AchievementId[] = [
   "first-contact",
-  "observer",
+  "explorer",
   "pet-pet-pet",
   "himawari",
   "vrc-engineer",
