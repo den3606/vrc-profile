@@ -25,6 +25,53 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function parseSteamId(xml) {
+  return (xml.match(/<steamID64>(\d+)<\/steamID64>/) || [])[1] || "";
+}
+
+function capsuleUrl(appId) {
+  return `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/capsule_184x69.jpg`;
+}
+
+async function fetchTopGames(steamId) {
+  const key = process.env.STEAM_API_KEY;
+  if (!key) {
+    const message =
+      "STEAM_API_KEY is not set; topGames will be empty. Add a key from https://steamcommunity.com/dev/apikey";
+    if (process.env.CI) throw new Error(message);
+    console.warn(message);
+    return [];
+  }
+
+  const url = new URL("https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/");
+  url.searchParams.set("key", key);
+  url.searchParams.set("steamid", steamId);
+  url.searchParams.set("include_appinfo", "1");
+  url.searchParams.set("include_played_free_games", "1");
+  url.searchParams.set("format", "json");
+
+  const res = await fetch(url, { headers: { "User-Agent": UA } });
+  if (!res.ok) throw new Error(`Steam API GetOwnedGames: HTTP ${res.status}`);
+
+  const body = await res.json();
+  const games = body?.response?.games;
+  if (!Array.isArray(games) || games.length === 0) {
+    throw new Error("GetOwnedGames returned no games (check API key and game details privacy)");
+  }
+
+  return games
+    .filter((g) => g.playtime_forever > 0)
+    .sort((a, b) => b.playtime_forever - a.playtime_forever)
+    .slice(0, 12)
+    .map((g) => ({
+      appId: String(g.appid),
+      name: g.name || "Unknown",
+      storeUrl: `https://store.steampowered.com/app/${g.appid}/`,
+      capsule: capsuleUrl(g.appid),
+      hoursTotal: Math.round((g.playtime_forever / 60) * 10) / 10,
+    }));
+}
+
 function parseFeatured(html) {
   const block =
     (html.match(
@@ -49,6 +96,7 @@ async function main() {
   const xmlRes = await fetch(XML_URL, { headers: { "User-Agent": UA } });
   if (!xmlRes.ok) throw new Error(`Failed to fetch Steam XML: HTTP ${xmlRes.status}`);
   const xml = await xmlRes.text();
+  const steamId = parseSteamId(xml);
 
   const blocks = xml.match(/<mostPlayedGame>[\s\S]*?<\/mostPlayedGame>/g) || [];
   const games = blocks.map((block) => {
@@ -78,18 +126,26 @@ async function main() {
     console.warn("Could not fetch Featured Games:", e.message);
   }
 
+  let topGames = [];
+  if (steamId) {
+    topGames = await fetchTopGames(steamId);
+  }
+
   const data = {
     updatedAt: new Date().toISOString(),
     profileUrl: `${PROFILE_URL}/`,
     featured,
     games,
+    topGames,
   };
 
   const json = JSON.stringify(data, null, 2) + "\n";
   fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
   fs.writeFileSync(OUTPUT, json);
   fs.writeFileSync(LEGACY_OUTPUT, json);
-  console.log(`Wrote ${games.length} games, ${featured.length} featured to public/steam.json`);
+  console.log(
+    `Wrote ${games.length} recent, ${topGames.length} top, ${featured.length} featured to public/steam.json`
+  );
 }
 
 main().catch((err) => {

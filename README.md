@@ -54,4 +54,6 @@ npm run fetch-steam   # public/steam.json を更新
 npm run deploy        # ビルド + Cloudflare へデプロイ
 ```
 
+`fetch-steam` は「最近プレイしたゲーム」をプロフィール XML から、「プレイ時間の長いゲーム」12 件を [Steam Web API](https://steamcommunity.com/dev/apikey) の `GetOwnedGames` から取得する。後者には環境変数 `STEAM_API_KEY` が必要。GitHub Actions ではリポジトリの Secrets に `STEAM_API_KEY` を登録する（ゲーム詳細が公開のプロフィール向け）。
+
 本番の Webhook URL は `npx wrangler secret put DISCORD_WEBHOOK_URL` で設定する。

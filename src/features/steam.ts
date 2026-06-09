@@ -12,6 +12,7 @@ export interface SteamData {
   profileUrl?: string;
   featured?: SteamGame[];
   games?: SteamGame[];
+  topGames?: SteamGame[];
 }
 
 export function loadSteamGames() {
@@ -49,6 +50,7 @@ function renderSteamData(data: SteamData) {
   if (!list) return;
 
   renderFeatured(Array.isArray(data.featured) ? data.featured : []);
+  renderTopGames(Array.isArray(data.topGames) ? data.topGames : []);
 
   const games = Array.isArray(data.games) ? data.games : [];
   if (games.length === 0) {
@@ -72,6 +74,23 @@ function renderSteamData(data: SteamData) {
       updated.hidden = false;
     }
   }
+}
+
+function renderTopGames(games: SteamGame[]) {
+  const list = document.getElementById("steam-top-games");
+  if (!list) return;
+  const section = list.closest(".profile-section");
+
+  if (!games.length) {
+    list.hidden = true;
+    if (section instanceof HTMLElement) section.hidden = true;
+    return;
+  }
+
+  list.innerHTML = "";
+  games.forEach((g) => list.appendChild(renderSteamGame(g, { totalOnly: true })));
+  list.hidden = false;
+  if (section instanceof HTMLElement) section.hidden = false;
 }
 
 function renderFeatured(games: SteamGame[]) {
@@ -116,7 +135,7 @@ function renderSteamFallback() {
     '<li class="steam-state"><a href="https://steamcommunity.com/id/dedendendedenpunn/" target="_blank" rel="noopener noreferrer">Steam で見る</a></li>';
 }
 
-function renderSteamGame(g: SteamGame) {
+function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
   const li = document.createElement("li");
   li.className = "steam-game";
 
@@ -145,12 +164,19 @@ function renderSteamGame(g: SteamGame) {
 
   const hours = document.createElement("span");
   hours.className = "steam-game-hours";
-  hours.textContent = formatHours(g);
+  hours.textContent = options?.totalOnly ? formatTotalHours(g) : formatHours(g);
   info.appendChild(hours);
 
   a.appendChild(info);
   li.appendChild(a);
   return li;
+}
+
+function formatTotalHours(g: SteamGame) {
+  if (typeof g.hoursTotal === "number" && g.hoursTotal > 0) {
+    return "累計 " + g.hoursTotal.toLocaleString() + "h";
+  }
+  return "";
 }
 
 function formatHours(g: SteamGame) {
