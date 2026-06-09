@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "featured": "推荐游戏",
+    "recent": "最近游玩的游戏",
+    "top": "游玩时长最长的游戏"
+  },
+  "loading": "Loading...",
+  "updatedPrefix": "Updated ",
+  "fallbackLink": "在 Steam 上查看",
+  "unknownGame": "Unknown",
+  "hours": {
+    "recentPrefix": "近两周 ",
+    "totalPrefix": "累计 ",
+    "separator": " ・ ",
+    "suffix": "h"
+  }
+}

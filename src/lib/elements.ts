@@ -18,8 +18,8 @@ export interface Elements {
   terminalToggle: HTMLButtonElement;
   accessTerminal: HTMLElement;
   terminalClose: HTMLButtonElement;
-  passwordInput: HTMLInputElement;
-  passwordSubmit: HTMLButtonElement;
+  codeInput: HTMLInputElement;
+  codeSubmit: HTMLButtonElement;
   terminalOutput: HTMLElement;
   closeHidden: HTMLButtonElement;
   endReaderBtn: HTMLButtonElement | null;
@@ -58,8 +58,8 @@ export function getElements(): Elements {
     terminalToggle: required<HTMLButtonElement>("terminal-toggle"),
     accessTerminal: required("access-terminal"),
     terminalClose: required<HTMLButtonElement>("terminal-close"),
-    passwordInput: required<HTMLInputElement>("password-input"),
-    passwordSubmit: required<HTMLButtonElement>("password-submit"),
+    codeInput: required<HTMLInputElement>("terminal-code-input"),
+    codeSubmit: required<HTMLButtonElement>("terminal-code-submit"),
     terminalOutput: required("terminal-output"),
     closeHidden: required<HTMLButtonElement>("close-hidden"),
     endReaderBtn: document.getElementById("end-reader-btn") as HTMLButtonElement | null,

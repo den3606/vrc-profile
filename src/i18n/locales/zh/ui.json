@@ -14,15 +14,15 @@
   "about": {
     "title": "About Me",
     "localeHint": "lang help",
-    "localeHintTitle": "lang help を実行"
+    "localeHintTitle": "执行 lang help"
   },
   "achievements": {
-    "header": "Achievements(PC推奨)",
+    "header": "Achievements(PC推荐)",
     "progressUnlocked": "unlocked",
     "concealed": {
       "emoji": "❓",
       "title": "???",
-      "desc": "条件は隠されている"
+      "desc": "条件已隐藏"
     }
   },
   "toast": {
@@ -47,11 +47,11 @@
     "message": "Have Fun VRC!"
   },
   "localeSwitcher": {
-    "label": "Language",
-    "ja": "日本語",
-    "en": "English",
+    "label": "语言",
+    "ja": "日语",
+    "en": "英语",
     "zh": "简体中文",
     "zh-TW": "繁體中文（台灣）",
-    "kr": "한국어"
+    "kr": "韩语"
   }
 }

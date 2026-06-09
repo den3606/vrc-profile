@@ -1,0 +1,112 @@
+{
+  "order": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "full-signal",
+    "deep-diver",
+    "wafu"
+  ],
+  "entries": {
+    "first-contact": {
+      "title": "First Contact",
+      "emoji": "👋",
+      "desc": "先從打招呼開始。打招呼很重要呢。",
+      "secret": false
+    },
+    "explorer": {
+      "title": "Explorer",
+      "emoji": "🧭",
+      "desc": "事情要從頭到尾好好看完，再來思考喔。",
+      "secret": false
+    },
+    "pet-pet-pet": {
+      "title": "Pet, Pet, Pet",
+      "emoji": "🐕",
+      "desc": "你很會摸摸呢。該不會平常就很常摸吧？",
+      "secret": false
+    },
+    "himawari": {
+      "title": "Himawari",
+      "emoji": "🌻",
+      "desc": "這個顏色不是橘色，而是向日葵色喔。",
+      "secret": false
+    },
+    "vrc-engineer": {
+      "title": "VRC Engineer",
+      "emoji": "🔧",
+      "desc": "居然輸入了這個……你是不是很喜歡解謎？",
+      "secret": false
+    },
+    "honester": {
+      "title": "Honester",
+      "emoji": "🫡",
+      "desc": "照著寫的內容原封不動輸入，這樣的誠實很不錯。",
+      "secret": false
+    },
+    "observer": {
+      "title": "Observer",
+      "emoji": "👁️",
+      "desc": "看起來你在這裡待了 3 分鐘。感謝和困惑交織在一起。",
+      "secret": true
+    },
+    "escape-from-friend": {
+      "title": "Escape From Friend",
+      "emoji": "🏃",
+      "desc": "我有點膽小，被靠太近就會想逃跑。",
+      "secret": true
+    },
+    "your-friend-name": {
+      "title": "Your Friend Name",
+      "emoji": "🤝",
+      "desc": "其實這是我的名字喔。你知道嗎？",
+      "secret": true
+    },
+    "mirror-mirror": {
+      "title": "Mirror, Mirror",
+      "emoji": "🪞",
+      "desc": "連鏡像文字都知道，看來你很熟 VRC 呢。雖然這個是倒語就是了，聽說叫做顛倒語。",
+      "secret": true
+    },
+    "science-and-magic-intersect": {
+      "title": "Science And Magic",
+      "emoji": "🔮",
+      "desc": "即使科學和魔法沒有交會，當瀏覽器與 VRC 交會時，故事也會誕生。",
+      "secret": true
+    },
+    "help-me-dennnnnn": {
+      "title": "Help me, DENNNNNN!!",
+      "emoji": "🆘",
+      "desc": "(ﾟ∀ﾟ)o彡゜Den!Den!<br>我會全心全意、誠心誠意地去幫你",
+      "secret": true
+    },
+    "full-signal": {
+      "title": "Full Signal",
+      "emoji": "✨",
+      "desc": "你全部解鎖了嗎？！<br>真的、真的非常感謝你 🙏<br>code: deep_diver",
+      "secret": true
+    },
+    "deep-diver": {
+      "title": "Deep Diver",
+      "emoji": "🤿",
+      "desc": "再次打聲招呼。代表你真的有仔細看我的個人檔案。你已經是 Den 大師了。",
+      "secret": true
+    },
+    "wafu": {
+      "title": "Wafu!",
+      "emoji": "🚀",
+      "desc": "太奇怪了。明明我沒有把這個當作提示準備，為什麼你會知道呢，真不可思議(>ω<)",
+      "secret": true,
+      "ghost": true
+    }
+  }
+}

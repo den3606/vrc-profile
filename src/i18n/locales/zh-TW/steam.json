@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "featured": "精選遊戲",
+    "recent": "最近遊玩的遊戲",
+    "top": "遊玩時數最高的遊戲"
+  },
+  "loading": "Loading...",
+  "updatedPrefix": "Updated ",
+  "fallbackLink": "在 Steam 上查看",
+  "unknownGame": "Unknown",
+  "hours": {
+    "recentPrefix": "近兩週 ",
+    "totalPrefix": "累計 ",
+    "separator": " ・ ",
+    "suffix": "h"
+  }
+}

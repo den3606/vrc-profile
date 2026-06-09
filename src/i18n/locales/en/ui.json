@@ -12,7 +12,9 @@
     "vrchatButton": "View on VRChat"
   },
   "about": {
-    "title": "About Me"
+    "title": "About Me",
+    "localeHint": "lang help",
+    "localeHintTitle": "Run lang help"
   },
   "achievements": {
     "header": "Achievements (PC recommended)",
@@ -47,6 +49,9 @@
   "localeSwitcher": {
     "label": "Language",
     "ja": "日本語",
-    "en": "English"
+    "en": "English",
+    "zh": "简体中文",
+    "zh-TW": "繁體中文（台灣）",
+    "kr": "한국어"
   }
 }

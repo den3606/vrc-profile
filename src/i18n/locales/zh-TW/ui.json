@@ -1,28 +1,28 @@
 {
   "tabs": {
-    "navLabel": "Profile sections",
-    "profile": "Profile",
-    "achievements": "Achievements"
+    "navLabel": "個人檔案區塊",
+    "profile": "個人檔案",
+    "achievements": "成就"
   },
   "profile": {
     "name": "Den",
     "displayName": "den3606",
     "avatarAlt": "Den",
-    "avatarPetLabel": "Pet avatar",
-    "vrchatButton": "View on VRChat"
+    "avatarPetLabel": "摸摸頭像",
+    "vrchatButton": "在 VRChat 上查看"
   },
   "about": {
-    "title": "About Me",
+    "title": "關於我",
     "localeHint": "lang help",
-    "localeHintTitle": "lang help を実行"
+    "localeHintTitle": "執行 lang help"
   },
   "achievements": {
-    "header": "Achievements(PC推奨)",
+    "header": "Achievements（建議使用 PC）",
     "progressUnlocked": "unlocked",
     "concealed": {
       "emoji": "❓",
       "title": "???",
-      "desc": "条件は隠されている"
+      "desc": "條件已被隱藏"
     }
   },
   "toast": {
@@ -36,10 +36,10 @@
     "thankYouAlt": "Thank you"
   },
   "terminal": {
-    "toggleLabel": "Open access terminal",
-    "toggleTitle": "Terminal",
+    "toggleLabel": "開啟存取終端機",
+    "toggleTitle": "終端機",
     "header": "ACCESS TERMINAL",
-    "closeLabel": "Close",
+    "closeLabel": "關閉",
     "codeLabel": "Code:",
     "submit": "ENTER"
   },
@@ -47,11 +47,11 @@
     "message": "Have Fun VRC!"
   },
   "localeSwitcher": {
-    "label": "Language",
-    "ja": "日本語",
-    "en": "English",
-    "zh": "简体中文",
+    "label": "語言",
+    "ja": "日語",
+    "en": "英語",
+    "zh": "簡體中文",
     "zh-TW": "繁體中文（台灣）",
-    "kr": "한국어"
+    "kr": "韓語"
   }
 }

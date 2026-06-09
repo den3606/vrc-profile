@@ -1,0 +1,35 @@
+{
+  "achievementIds": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "deep-diver"
+  ],
+  "details": [
+    "이 페이지를 보고 있다는 건, 이미 저와 인사하신 거겠죠?",
+    "프로필은 끝까지 봐 주세요. 그리고 완료했다는 말도!",
+    "마우스 커서도 손 역할을 할 수 있어요.",
+    "컬러 코드도 코드죠.",
+    "VRC에는 개인 프로필을 식별하는 ID가 있다는 거, 알고 계셨나요?",
+    "정직한 분이시네요.",
+    "무스카 대좌도 그 정도는 기다려 줬어요.",
+    "갑자기 너무 많이 쓰다듬으면 무섭죠.",
+    "당신 친구의 이름은...?",
+    "VRC에서는 무언 유저가 거울 글자를 자주 쓰죠.",
+    "프로필은 하나만 있는 게 아니에요.",
+    "hint 말고도 곤란할 때 쓰는 말이 있죠. 맞아요, h??? me!",
+    "뒷면 세계는 뭔가 좀 좋죠."
+  ],
+  "trigger": "어쩔 수 없네..",
+  "itemLabelUnlocked": "{title}의 힌트",
+  "itemLabelLocked": "업적{n}의 힌트"
+}

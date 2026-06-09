@@ -10,15 +10,19 @@ import {
   CODE_MAGIC,
   CODE_HELP,
   CODE_DEEP_DIVER,
+  CODE_LANG_HELP,
   CODES_HIMAWARI,
   CODES_KUD,
 } from "../config/codes";
 import { getAchievementMeta, type AchievementId } from "../config/achievements";
 import { getHintAchievementIds, getHintDetails } from "../config/hints";
-import { getMessages } from "../i18n";
+import { getLocale, getMessages, setLocale } from "../i18n";
+import type { Locale } from "../i18n";
+import { resolveLocaleFromInput } from "../lib/locale-codes";
 import { includesNormalizedCode, matchesAnyCode, normalizeCode } from "../lib/normalize-code";
 import type { AppContext } from "../lib/app-context";
 import type { AchievementApi } from "./achievements";
+import { openAccessTerminal } from "../lib/access-terminal";
 import type { OverlayApi } from "./overlays";
 
 export function setupTerminal(
@@ -27,21 +31,20 @@ export function setupTerminal(
   overlays: OverlayApi
 ) {
   ctx.els.terminalToggle.addEventListener("click", () => {
-    const open = !ctx.els.accessTerminal.hidden;
-    ctx.els.accessTerminal.hidden = open;
-    if (!open) {
-      ctx.els.passwordInput.focus();
-      ctx.els.terminalOutput.textContent = "";
-      ctx.els.terminalOutput.classList.remove("error");
+    const closing = !ctx.els.accessTerminal.hidden;
+    if (closing) {
+      ctx.els.accessTerminal.hidden = true;
+      return;
     }
+    openAccessTerminal(ctx.els);
   });
 
   ctx.els.terminalClose.addEventListener("click", () => {
     ctx.els.accessTerminal.hidden = true;
   });
 
-  ctx.els.passwordSubmit.addEventListener("click", () => tryCode(ctx, achievements, overlays));
-  ctx.els.passwordInput.addEventListener("keydown", (e) => {
+  ctx.els.codeSubmit.addEventListener("click", () => tryCode(ctx, achievements, overlays));
+  ctx.els.codeInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") tryCode(ctx, achievements, overlays);
   });
 }
@@ -139,9 +142,39 @@ function showHintTerminal(ctx: AppContext, verifiedLine?: string) {
   ctx.els.terminalOutput.appendChild(wrap);
 }
 
+export function runLangHelp(ctx: AppContext): void {
+  const { terminal } = getMessages();
+  writeTerminal(ctx, [terminal.lang.helpPrompt, "", ...terminal.lang.help]);
+  ctx.els.codeInput.value = "";
+}
+
+function tryLocaleSwitch(ctx: AppContext, locale: Locale, value: string) {
+  const verified = codeVerified(value);
+  const { terminal } = getMessages();
+
+  if (getLocale() === locale) {
+    writeTerminal(ctx, [verified, "", terminal.lang.already[locale]]);
+    ctx.els.codeInput.value = "";
+    return true;
+  }
+
+  setLocale(locale);
+  writeTerminal(ctx, [verified, "", terminal.lang.set[locale]]);
+  ctx.els.codeInput.value = "";
+  return true;
+}
+
 function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: OverlayApi) {
   const { terminal, ui } = getMessages();
-  const value = normalizeCode(ctx.els.passwordInput.value);
+  const value = normalizeCode(ctx.els.codeInput.value);
+
+  if (value === CODE_LANG_HELP) {
+    runLangHelp(ctx);
+    return;
+  }
+
+  const localeFromCode = resolveLocaleFromInput(value);
+  if (localeFromCode && tryLocaleSwitch(ctx, localeFromCode, value)) return;
 
   if (value === CODE_RESET) {
     achievements.resetAchievements();
@@ -158,7 +191,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
 
   if (value === CODE_HINT) {
     showHintTerminal(ctx, codeVerified(value));
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
@@ -168,7 +201,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
       ctx,
       terminalUnlockMessage("vrc-engineer", value, [], terminal.vrcEngineerVerified)
     );
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
@@ -181,7 +214,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
         ...terminal.codeResponses.honester,
       ])
     );
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
@@ -194,20 +227,20 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
         ...terminal.codeResponses["your-friend-name"],
       ])
     );
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
   if (value === CODE_MIRROR_HINT) {
     writeTerminal(ctx, [codeVerified(value), "", terminal.mirrorHint]);
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
   if (CODES_MIRROR.includes(value as (typeof CODES_MIRROR)[number])) {
     achievements.unlockAchievement("mirror-mirror");
     writeTerminal(ctx, terminalUnlockMessage("mirror-mirror", value));
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
@@ -219,7 +252,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
       "",
       terminal.deepDiver.redirect,
     ]);
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     window.setTimeout(() => {
       ctx.els.accessTerminal.hidden = true;
       overlays.showHiddenProfile();
@@ -230,7 +263,7 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
   if (value === CODE_MAGIC) {
     achievements.unlockAchievement("science-and-magic-intersect");
     writeTerminal(ctx, terminalUnlockMessage("science-and-magic-intersect", value));
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
@@ -243,30 +276,30 @@ function tryCode(ctx: AppContext, achievements: AchievementApi, overlays: Overla
         ...terminal.codeResponses["help-me-dennnnnn"],
       ])
     );
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
-  if (matchesAnyCode(ctx.els.passwordInput.value, CODES_HIMAWARI)) {
+  if (matchesAnyCode(ctx.els.codeInput.value, CODES_HIMAWARI)) {
     achievements.unlockAchievement("himawari");
     writeTerminal(ctx, terminalUnlockMessage("himawari", value));
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
-  if (matchesAnyCode(ctx.els.passwordInput.value, CODES_KUD)) {
+  if (matchesAnyCode(ctx.els.codeInput.value, CODES_KUD)) {
     achievements.unlockAchievement("wafu");
     writeTerminal(
       ctx,
       terminalUnlockMessage("wafu", value, [...terminal.codeResponses.wafu])
     );
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     return;
   }
 
   if (value === CODE_THANK_YOU_VRC) {
     writeTerminal(ctx, [codeVerified(value), "", ui.thankYouVrc.message]);
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
     window.setTimeout(() => {
       ctx.els.accessTerminal.hidden = true;
       overlays.showThankYouVrc();

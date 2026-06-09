@@ -14,6 +14,32 @@
   "deepDiver": {
     "redirect": "Redirecting to the hidden profile."
   },
+  "lang": {
+    "set": {
+      "ja": "LANG SET: JA",
+      "en": "LANG SET: EN",
+      "zh": "LANG SET: ZH",
+      "zh-TW": "LANG SET: ZH-TW",
+      "kr": "LANG SET: KR"
+    },
+    "already": {
+      "ja": "Already set to Japanese.",
+      "en": "Already set to English.",
+      "zh": "Already set to Simplified Chinese.",
+      "zh-TW": "Already set to Traditional Chinese (Taiwan).",
+      "kr": "Already set to Korean."
+    },
+    "helpPrompt": "> lang help",
+    "help": [
+      "You can change language at the terminal in the bottom right.",
+      "",
+      "  ja     — Japanese",
+      "  en     — English",
+      "  zh     — Simplified Chinese",
+      "  zh-tw  — Traditional Chinese (Taiwan)",
+      "  kr     — Korean"
+    ]
+  },
   "codeResponses": {
     "honester": [
       "It works as text too—because you already know the other codes.",

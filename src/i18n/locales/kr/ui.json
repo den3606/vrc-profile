@@ -1,0 +1,57 @@
+{
+  "tabs": {
+    "navLabel": "프로필 섹션",
+    "profile": "프로필",
+    "achievements": "업적"
+  },
+  "profile": {
+    "name": "Den",
+    "displayName": "den3606",
+    "avatarAlt": "Den",
+    "avatarPetLabel": "아바타 쓰다듬기",
+    "vrchatButton": "VRChat에서 보기"
+  },
+  "about": {
+    "title": "About Me",
+    "localeHint": "lang help",
+    "localeHintTitle": "lang help 실행"
+  },
+  "achievements": {
+    "header": "Achievements(PC 권장)",
+    "progressUnlocked": "해금",
+    "concealed": {
+      "emoji": "❓",
+      "title": "???",
+      "desc": "조건이 숨겨져 있습니다"
+    }
+  },
+  "toast": {
+    "label": "Achievement Unlocked"
+  },
+  "footer": {
+    "endMarker": "프로필 끝."
+  },
+  "hidden": {
+    "returnButton": "< 프로필로 돌아가기",
+    "thankYouAlt": "Thank you"
+  },
+  "terminal": {
+    "toggleLabel": "접속 터미널 열기",
+    "toggleTitle": "Terminal",
+    "header": "ACCESS TERMINAL",
+    "closeLabel": "닫기",
+    "codeLabel": "Code:",
+    "submit": "ENTER"
+  },
+  "thankYouVrc": {
+    "message": "Have Fun VRC!"
+  },
+  "localeSwitcher": {
+    "label": "언어",
+    "ja": "일본어",
+    "en": "영어",
+    "zh": "간체 중국어",
+    "zh-TW": "번체 중국어(대만)",
+    "kr": "한국어"
+  }
+}

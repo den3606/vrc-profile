@@ -37,6 +37,13 @@ function applyUi(els: Elements, messages: MessageBundle) {
   if (vrchatBtn) vrchatBtn.textContent = ui.profile.vrchatButton;
 
   setText("about-title", ui.about.title);
+
+  const localeHint = document.getElementById("locale-hint");
+  if (localeHint) {
+    setText("locale-hint-text", ui.about.localeHint);
+    localeHint.title = ui.about.localeHintTitle;
+    localeHint.hidden = false;
+  }
   setText("steam-featured-title", steam.sections.featured);
   setText("steam-recent-title", steam.sections.recent);
   setText("steam-top-title", steam.sections.top);
@@ -52,7 +59,7 @@ function applyUi(els: Elements, messages: MessageBundle) {
   els.terminalClose.setAttribute("aria-label", ui.terminal.closeLabel);
   els.terminalClose.textContent = "×";
   setText("terminal-code-label", ui.terminal.codeLabel);
-  els.passwordSubmit.textContent = ui.terminal.submit;
+  els.codeSubmit.textContent = ui.terminal.submit;
 
   els.closeHidden.textContent = ui.hidden.returnButton;
   if (els.closeThankYouVrc) els.closeThankYouVrc.textContent = ui.hidden.returnButton;
@@ -73,9 +80,6 @@ function applyUi(els: Elements, messages: MessageBundle) {
 
   const loading = document.querySelector<HTMLElement>("#steam-games .steam-state");
   if (loading) loading.textContent = steam.loading;
-
-  const localeSwitcher = document.getElementById("locale-switcher");
-  if (localeSwitcher) localeSwitcher.setAttribute("aria-label", ui.localeSwitcher.label);
 }
 
 function renderAbout(messages: MessageBundle) {
@@ -99,6 +103,7 @@ function renderAbout(messages: MessageBundle) {
     span.textContent = label;
     tags.appendChild(span);
   });
+
 }
 
 export function renderAchievementCards(els: Elements) {

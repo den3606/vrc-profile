@@ -553,12 +553,12 @@ a:hover {
   color: var(--color-muted);
 }
 
-.password-row {
+.terminal-code-row {
   display: flex;
   gap: 0.4rem;
 }
 
-.password-input {
+.terminal-code-input {
   flex: 1;
   padding: 0.4rem 0.5rem;
   font-family: inherit;
@@ -570,11 +570,11 @@ a:hover {
   outline: none;
 }
 
-.password-input:focus {
+.terminal-code-input:focus {
   border-color: var(--color-accent);
 }
 
-.password-submit {
+.terminal-code-submit {
   padding: 0.4rem 0.6rem;
   font-family: inherit;
   font-size: inherit;
@@ -585,7 +585,7 @@ a:hover {
   cursor: pointer;
 }
 
-.password-submit:hover {
+.terminal-code-submit:hover {
   opacity: 0.9;
 }
 
@@ -895,8 +895,75 @@ a:hover {
 }
 
 [data-theme="vrc"] .vrc-banner {
+  position: relative;
   height: 7rem;
   background: linear-gradient(135deg, var(--color-banner) 0%, var(--color-banner-end) 100%);
+}
+
+[data-theme="vrc"] .vrc-locale-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.55rem 1.5rem;
+  background: rgba(12, 14, 18, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+[data-theme="vrc"] .vrc-locale-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-banner) 0%, var(--color-banner-end) 100%);
+}
+
+[data-theme="vrc"] .vrc-locale-cmd {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  min-height: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.88;
+  transition: opacity 0.15s;
+}
+
+[data-theme="vrc"] .vrc-locale-cmd:hover {
+  opacity: 1;
+}
+
+[data-theme="vrc"] .vrc-locale-cmd:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+[data-theme="vrc"] .vrc-locale-prompt {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+[data-theme="vrc"] .vrc-locale-text {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="vrc"] .vrc-locale-cursor {
+  color: var(--color-accent);
+  animation: blink 1s step-end infinite;
+  flex-shrink: 0;
 }
 
 [data-theme="vrc"] .vrc-profile-head {
@@ -1284,12 +1351,15 @@ a:hover {
 }
 
 [data-theme="vrc"] .vrc-lang-tags {
-  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
 }
 
 [data-theme="vrc"] .vrc-lang-tag {
   display: inline-block;
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
@@ -1454,38 +1524,6 @@ a:hover {
   color: var(--bs-primary);
 }
 
-.locale-switcher {
-  display: inline-flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-button);
-  overflow: hidden;
-}
-
-.locale-btn {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  background: transparent;
-  border: none;
-  color: var(--color-muted);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.locale-btn + .locale-btn {
-  border-left: 1px solid var(--color-border);
-}
-
-.locale-btn:hover {
-  color: var(--color-text);
-  background: var(--color-surface-raised);
-}
-
-.locale-btn-active {
-  color: var(--color-accent);
-  background: rgba(var(--bs-primary-rgb), 0.1);
-}
-
 [data-theme="vrc"] .close-hidden-btn {
   font-family: var(--font-body);
   margin-top: 1rem;
@@ -1526,7 +1564,7 @@ a:hover {
   border-radius: var(--radius-panel);
 }
 
-[data-theme="vrc"] .password-submit {
+[data-theme="vrc"] .terminal-code-submit {
   color: var(--bs-body-bg);
   font-weight: 600;
 }

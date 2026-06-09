@@ -1,0 +1,53 @@
+{
+  "intro": [
+    "你竟然走到了这里。",
+    "看来你非常喜欢看个人资料。",
+    "如果你能玩得开心，我就很高兴了。",
+    "如果你看到了这里，告诉我一声我会很开心。"
+  ],
+  "sections": [
+    {
+      "title": "Why VRChat",
+      "paragraphs": [
+        "其实我在 2018 年左右就登录过一次 VRC。结果刚进默认的 Home 世界就害怕得关掉了。其实我是个胆小鬼。",
+        "我当时也有 Oculus Rift，不过那时候只玩 Beat Saber。那会儿 PUBG 还很火，差不多也是 Fall Guys 刚出来的时候。现在想想很怀念。",
+        "后来过了几年，大概在 2024 年，朋友叫我一起玩，这才真正重新开始。之后就一直断断续续地玩着。",
+        "刚回来的前半年基本都在游戏世界里玩。最近感觉更多是来聊天的。",
+        "其实我也有怕寂寞的一面，所以如果你留了字条或来我的世界里，我心里会很开心。只是我不会说出来。",
+        "写到这里有点害羞了，就先到这吧。大概就是这样。"
+      ]
+    },
+    {
+      "title": "Travel & Onsen",
+      "paragraphs": [
+        "兴趣是游戏、温泉和喝酒。温泉去过很多地方，不过名字基本记不太住……",
+        "我最喜欢的是沙浴，既舒服又有趣，在鹿儿岛的指宿可以体验。虽然有点贵，但推荐指宿白水馆。有机会可以去试试。",
+        "如果在关西，推荐酒店浦岛的洞窟温泉。绝对是独一无二的体验。价格也还行，还能当天往返，值得一去。",
+        "普通温泉的话，我推荐大川庄。它曾一度被说很像《鬼灭之刃》的无限城。秋天去的话可以一览红叶、桥和河景，非常漂亮。"
+      ]
+    },
+    {
+      "title": "Drinks",
+      "paragraphs": [
+        "有一段时间我几乎每周 5 天都会一个人去酒吧。",
+        "当时玩过从酒单左上角开始按顺序点鸡尾酒的游戏，但现在记不太清了……只记得后来最喜欢的是百香果利口酒兑菠萝。",
+        "最近偶尔才去，平时在家喝啤酒、梅酒或者高球。"
+      ]
+    }
+  ],
+  "favoriteSongs": {
+    "title": "Favorite Songs",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/5q5YsbPTfLy7rUPgv8nBk2?utm_source=generator",
+    "items": [
+      { "label": "RAINBOW GIRL", "url": "https://www.nicovideo.jp/watch/sm1714828" },
+      { "label": "Artemis Blue", "url": "https://www.nicovideo.jp/watch/sm13352001" },
+      { "label": "Call to me, Call for you", "url": "https://www.youtube.com/watch?v=9kuqtGfKQz4" },
+      { "label": "Harenohi Step", "url": "https://www.youtube.com/watch?v=YzW8OCXiS6U" },
+      { "label": "Everlasting Blue", "url": "https://www.youtube.com/watch?v=udEYmO-wFXA" },
+      { "label": "Sign", "url": "https://www.youtube.com/watch?v=JhoxcSJosb0" },
+      { "label": "IMMORAL", "url": "https://www.youtube.com/watch?v=NVeS4MBE1uM" }
+    ],
+    "footer": "之类之类……几乎全是宅歌＾＾ 很多在 Spotify 上都没有，有点难过。"
+  },
+  "outro": "辛苦了！Have Fun VRC！"
+}

@@ -1,0 +1,53 @@
+{
+  "intro": [
+    "여기까지 잘 찾아오셨네요.",
+    "당신은 프로필 보는 걸 정말 좋아하시는군요.",
+    "재미있게 즐기셨다면 기쁠 것 같아요.",
+    "여기까지 봤다면 알려주시면 더 기쁠 거예요."
+  ],
+  "sections": [
+    {
+      "title": "Why VRChat",
+      "paragraphs": [
+        "사실 VRC 자체는 2018년쯤 로그인만 해본 적이 있어요. 로그인해서 기본 홈 월드를 열자마자 무서워서 바로 꺼버렸죠. 사실 겁이 많거든요.",
+        "Oculus rift도 가지고 있었지만 그때는 비트세이버만 했어요. 당시에는 PUBG가 아직 유행이었고 FallGuys가 나오던 즈음이었을 거예요. 그립네요.",
+        "그 후 몇 년이 지나 2024년쯤 친구가 불러준 게 첫 계기였고, 다시 시작한 뒤로는 느긋하게 즐기고 있어요.",
+        "처음 반년 정도는 계속 게임 월드에서만 놀았어요. 요즘은 이야기를 나누러 오는 느낌이에요.",
+        "사실 외로움을 타는 면도 있어서, 메모를 남기거나 월드에 들어와 주면 속으로 엄청 기뻐해요. 말은 안 하지만요.",
+        "조금 부끄러워져서 이쯤에서 끝낼게요. 대충 이런 느낌입니다."
+      ]
+    },
+    {
+      "title": "Travel & Onsen",
+      "paragraphs": [
+        "취미는 게임, 온천, 그리고 술이에요. 온천은 여러 군데 가봤지만 이름은 잘 기억 못 해요....",
+        "재미도 있고 기분도 좋은 모래찜질을 가장 좋아하고, 가고시마 이부스키에서 할 수 있어요. 조금 비싸지만 이부스키 하쿠스이칸을 추천해요. 괜찮다면 한 번 가보세요.",
+        "간사이 쪽이라면 호텔 우라시마의 동굴탕을 추천해요. 분명히 유일무이한 경험을 할 수 있어요. 가격도 적당하고 당일치기도 가능해서 꼭 한 번.",
+        "일반 온천으로는 오카와소를 추천해요. 한때 '귀멸의 칼날' 무한성 느낌과 닮았다고 하던 곳이에요. 가을에 가면 산의 단풍과 다리, 강이 한눈에 보여서 정말 예뻐요."
+      ]
+    },
+    {
+      "title": "Drinks",
+      "paragraphs": [
+        "술은 한동안 주 5일 정도 혼자 바로 다녔어요.",
+        "칵테일을 메뉴 왼쪽 위부터 순서대로 시키는 놀이를 했는데, 거의 기억이 안 나요.... 파소아라는 리큐어의 파인애플 믹스를 가장 좋아하게 된 것만 기억해요.",
+        "요즘은 가끔 가는 정도고, 집에서는 맥주나 매실주나 하이볼을 마셔요."
+      ]
+    }
+  ],
+  "favoriteSongs": {
+    "title": "Favorite Songs",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/5q5YsbPTfLy7rUPgv8nBk2?utm_source=generator",
+    "items": [
+      { "label": "RAINBOW GIRL", "url": "https://www.nicovideo.jp/watch/sm1714828" },
+      { "label": "Artemis Blue", "url": "https://www.nicovideo.jp/watch/sm13352001" },
+      { "label": "Call to me, Call for you", "url": "https://www.youtube.com/watch?v=9kuqtGfKQz4" },
+      { "label": "Harenohi Step", "url": "https://www.youtube.com/watch?v=YzW8OCXiS6U" },
+      { "label": "Everlasting Blue", "url": "https://www.youtube.com/watch?v=udEYmO-wFXA" },
+      { "label": "Sign", "url": "https://www.youtube.com/watch?v=JhoxcSJosb0" },
+      { "label": "IMMORAL", "url": "https://www.youtube.com/watch?v=NVeS4MBE1uM" }
+    ],
+    "footer": "등등... 오타쿠 곡뿐이네요 ^^ 기본적으로 Spotify에 없는 곡이 많아서 슬퍼요."
+  },
+  "outro": "수고하셨습니다! Have Fun VRC!"
+}

@@ -4,6 +4,7 @@ import { runBootSequence, setupTabs } from "./features/boot";
 import { setupHiddenSignal } from "./features/hidden-signal";
 import { setupOverlays } from "./features/overlays";
 import { loadSteamGames } from "./features/steam";
+import { setupLocaleHint } from "./features/locale-hint";
 import { setupTerminal } from "./features/terminal";
 import { setupToast } from "./features/toast";
 import {
@@ -13,7 +14,6 @@ import {
 } from "./features/visitor";
 import { applyI18n } from "./i18n/apply";
 import { initLocale, onLocaleChange } from "./i18n";
-import { setupLocaleSwitcher } from "./i18n/locale-switcher";
 import { createAppContext } from "./lib/app-context";
 import { getElements } from "./lib/elements";
 import { loadState } from "./lib/state";
@@ -22,7 +22,6 @@ export function initApp() {
   initLocale();
   const els = getElements();
   applyI18n(els);
-  setupLocaleSwitcher();
 
   const state = loadState();
   const ctx = createAppContext(els, state);
@@ -41,6 +40,7 @@ export function initApp() {
   setupAvatarPet(ctx, achievements);
   setupObserverTimer(ctx, achievements);
   setupTerminal(ctx, achievements, overlays);
+  setupLocaleHint(ctx);
   setupHiddenSignal(els);
   setupTabs(els);
   loadSteamGames();
