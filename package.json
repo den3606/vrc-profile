@@ -4,14 +4,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:worker": "wrangler dev",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "fetch-steam": "node scripts/fetch-steam.js",
+    "kv:create": "wrangler kv namespace create RATE_LIMIT",
     "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250628.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.4",

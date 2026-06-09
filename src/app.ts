@@ -1,6 +1,7 @@
 import { createAchievementApi } from "./features/achievements";
 import { setupAvatarPet } from "./features/avatar";
 import { runBootSequence, setupTabs } from "./features/boot";
+import { setupHiddenSignal } from "./features/hidden-signal";
 import { setupOverlays } from "./features/overlays";
 import { loadSteamGames } from "./features/steam";
 import { setupTerminal } from "./features/terminal";
@@ -27,6 +28,7 @@ export function initApp() {
   setupAvatarPet(ctx, achievements);
   setupObservedTimer(ctx, achievements);
   setupTerminal(ctx, achievements, overlays);
+  setupHiddenSignal(els);
   setupTabs(els);
   loadSteamGames();
   achievements.renderAchievements();

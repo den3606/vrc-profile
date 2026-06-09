@@ -277,6 +277,58 @@ a:hover {
   margin-inline: auto;
 }
 
+.hidden-signal-form {
+  max-width: 28rem;
+  margin: 0 auto 1.5rem;
+  text-align: left;
+}
+
+.hidden-signal-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.hidden-signal-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hidden-signal-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0.65rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  outline: none;
+}
+
+.hidden-signal-input:focus {
+  border-color: var(--color-accent);
+}
+
+.hidden-signal-input:disabled,
+.hidden-signal-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hidden-signal-status {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-accent);
+}
+
+.hidden-signal-status.is-error {
+  color: var(--color-error);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

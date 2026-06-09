@@ -280,6 +280,24 @@
 
       <section class="vrc-card profile-section hidden-profile-outro">
         <p class="hidden-profile-outro-text">お疲れ様！ Have Fun VRC！</p>
+        <form id="hidden-signal-form" class="hidden-signal-form" autocomplete="off">
+          <label class="hidden-signal-label" for="hidden-signal-name">名前</label>
+          <div class="hidden-signal-row">
+            <input
+              type="text"
+              id="hidden-signal-name"
+              class="hidden-signal-input"
+              name="name"
+              maxlength="32"
+              placeholder="なんでもいいよ"
+              required
+            >
+            <button type="submit" id="hidden-signal-submit" class="hidden-signal-submit vrc-btn vrc-btn-primary">
+              送信
+            </button>
+          </div>
+          <p id="hidden-signal-status" class="hidden-signal-status" hidden></p>
+        </form>
         <img
           class="thank-you-vrc-image"
           src="images/thank_you_vrc.png"

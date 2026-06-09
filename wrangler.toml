@@ -1,5 +1,12 @@
 name = "vrc-profile"
 compatibility_date = "2026-06-09"
+main = "worker/index.ts"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "5a3701b2705347059d261d9e17115201"
+preview_id = "5a3701b2705347059d261d9e17115201"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
