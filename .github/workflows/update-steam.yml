@@ -4,7 +4,8 @@ on:
   schedule:
     # 毎週月曜 09:00 JST (00:00 UTC) に実行
     - cron: "0 0 * * 1"
-  workflow_dispatch: {}
+  # Actions タブ → Update Steam data → Run workflow
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -21,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Fetch Steam data
         run: node scripts/fetch-steam.js

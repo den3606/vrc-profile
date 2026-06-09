@@ -7,7 +7,7 @@
   const CODES_FRIEND_NAME = ["den3606", "den"];
   const CODES_MIRROR = ["6063ned", "ned"];
   const CODE_MIRROR_HINT = "mirror";
-  const CODE_VRC_USER = "usr_aac1b0fa-a840-4408-bea8-38a010120d03";
+  const CODE_VRC_USER = ["usr_aac1b0fa-a840-4408-bea8-38a010120d03", "aac1b0fa-a840-4408-bea8-38a010120d03"];
   const CODE_ALREADY_KNOW = "already_knows";
   const CODE_THANK_YOU_VRC = "thank_you_vrc";
   const CODE_MAGIC = "magic";
@@ -492,7 +492,7 @@
       return;
     }
 
-    if (value === CODE_VRC_USER) {
+    if (CODE_VRC_USER.includes(value)) {
       unlockAchievement("vrc-engineer");
       writeTerminal(terminalUnlockMessage("vrc-engineer", ["USER ID VERIFIED"]));
       els.passwordInput.value = "";
@@ -503,9 +503,9 @@
       unlockAchievement("honester");
       writeTerminal(
         terminalUnlockMessage("honester", [
-          "文章の意味としても機能しています。なぜならあなたがもう知っているワードなのだから。",
-          "",
-          "分からなかったら「????」もいいですよ。(英語)",
+          "[next code hint]",
+          "文章の意味としても機能しています。なぜならあなたはもう他のcodeも知っているのだから。",
+          "分からなかったら「h???」もあります。",
         ])
       );
       els.passwordInput.value = "";
@@ -516,9 +516,9 @@
       unlockAchievement("your-friend-name");
       writeTerminal(
         terminalUnlockMessage("your-friend-name", [
-          "SIGNAL IDENTIFIED",
-          "",
-          "VRCの住人ってどうして皆、あっちの世界を見てるのかな。",
+          "[next code hint]",
+          "自分は相手の方を向いて話すほうが好きなんですけど、",
+          "VRCの人はよく、別の世界の人を見て話しているよね",
         ])
       );
       els.passwordInput.value = "";
@@ -526,7 +526,7 @@
     }
 
     if (value === CODE_MIRROR_HINT) {
-      writeTerminal("鏡自体ではないよ！何かを反転させてね。");
+      writeTerminal("鏡自体ではないよ！何かの順番を変える感じ。");
       els.passwordInput.value = "";
       return;
     }
@@ -536,9 +536,6 @@
       writeTerminal(
         terminalUnlockMessage("mirror-mirror", [
           "SIGNAL IDENTIFIED",
-          "",
-          "鏡よ鏡、世界で一番可愛いのはだあれ...?",
-          "それ以上はいけない。戦争になるぞ。",
         ])
       );
       els.passwordInput.value = "";
@@ -570,8 +567,8 @@
       unlockAchievement("help-me-dennnnnn");
       writeTerminal(
         terminalUnlockMessage("help-me-dennnnnn", [
-          "なぞなぞで困ったときに使う言葉は help じゃなくない?",
-          "プログラマーなら知っている整数型が付いてるやつ。"
+          "[next code hint]",
+          "なぞなぞで困ったときは help よりもまず、 h??? だよね。",
         ])
       );
       els.passwordInput.value = "";
@@ -641,7 +638,7 @@
     "ムスカ大佐でも、そのぐらいは待ってくれたんですよ。",
     "急に撫でられすぎたりすると、怖いよね。",
     "あなたの友だちの名前は…？",
-    "VRCで鏡ですよ鏡。",
+    "VRCだと、無言勢がよく鏡文字を使って書きますよね",
     "プロフィールは1つではない",
     "hint以外にも困ったときに使う言葉ってありますよね。そう、h??? me!",
     "裏側の世界って、なんかちょっといいですよね。",
