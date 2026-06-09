@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-const PROFILE_URL = "https://steamcommunity.com/id/dedendendedenpunn";
+const PROFILE_URL = "https://steamcommunity.com/id/den3606";
 const XML_URL = `${PROFILE_URL}/?xml=1`;
 const HTML_URL = `${PROFILE_URL}/`;
 const OUTPUT = path.join(rootDir, "public", "steam.json");

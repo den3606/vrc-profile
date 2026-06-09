@@ -132,7 +132,7 @@ function renderSteamFallback() {
   const list = document.getElementById("steam-games");
   if (!list) return;
   list.innerHTML =
-    '<li class="steam-state"><a href="https://steamcommunity.com/id/dedendendedenpunn/" target="_blank" rel="noopener noreferrer">Steam で見る</a></li>';
+    '<li class="steam-state"><a href="https://steamcommunity.com/id/den3606/" target="_blank" rel="noopener noreferrer">Steam で見る</a></li>';
 }
 
 function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
@@ -141,7 +141,7 @@ function renderSteamGame(g: SteamGame, options?: { totalOnly?: boolean }) {
 
   const a = document.createElement("a");
   a.className = "steam-game-link";
-  a.href = g.storeUrl || "https://steamcommunity.com/id/dedendendedenpunn/";
+  a.href = g.storeUrl || "https://steamcommunity.com/id/den3606/";
   a.target = "_blank";
   a.rel = "noopener noreferrer";
 
