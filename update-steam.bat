@@ -18,6 +18,6 @@ if errorlevel 1 (
 )
 
 echo.
-echo steam.json を更新しました。
+echo public/steam.json を更新しました。
 echo 反映するには commit / push してください。
 endlocal

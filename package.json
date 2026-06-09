@@ -1,0 +1,20 @@
+{
+  "name": "vrc-profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "fetch-steam": "node scripts/fetch-steam.js",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.24.0"
+  }
+}
