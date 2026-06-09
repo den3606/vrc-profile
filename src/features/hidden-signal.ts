@@ -46,7 +46,7 @@ export function setupHiddenSignal(_els: Elements) {
   if (!signalEls) return;
 
   if (localStorage.getItem(STORAGE_KEY) === "1") {
-    markSent(signalEls, "送信しました。");
+    markSent(signalEls, "SIGNAL RECEIVED.");
     return;
   }
 
@@ -77,7 +77,7 @@ export function setupHiddenSignal(_els: Elements) {
       });
 
       if (response.ok) {
-        markSent(signalEls, "送信しました。SIGNAL RECEIVED.");
+        markSent(signalEls, "SIGNAL RECEIVED.");
         return;
       }
 

@@ -43,7 +43,10 @@ async function sendDiscordWebhook(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: name,
-      content: message,
+      content: `@here\n${message}`,
+      allowed_mentions: {
+        parse: ["everyone"],
+      },
     }),
   });
 
