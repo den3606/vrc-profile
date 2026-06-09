@@ -20,91 +20,91 @@
     "first-contact": {
       "title": "First Contact",
       "emoji": "👋",
-      "desc": "우선 인사부터. 인사는 중요하죠.",
+      "desc": "먼저 인사부터. 인사는 중요하죠.",
       "secret": false
     },
     "explorer": {
       "title": "Explorer",
       "emoji": "🧭",
-      "desc": "무엇이든 처음부터 끝까지 제대로 보고 생각해 봐요.",
+      "desc": "일은 처음부터 끝까지 제대로 보고 나서 생각해요.",
       "secret": false
     },
     "pet-pet-pet": {
       "title": "Pet, Pet, Pet",
       "emoji": "🐕",
-      "desc": "쓰다듬는 걸 정말 잘하시네요. 평소에도 자주 하시나요?",
+      "desc": "쓰다듬기를 잘하시네요. 혹시 평소에도 자주 쓰다듬으세요?",
       "secret": false
     },
     "himawari": {
       "title": "Himawari",
       "emoji": "🌻",
-      "desc": "이 색은 오렌지가 아니라 해바라기 색이래요.",
+      "desc": "이 색은 오렌지가 아니라 해바라기색이래요.",
       "secret": false
     },
     "vrc-engineer": {
       "title": "VRC Engineer",
       "emoji": "🔧",
-      "desc": "이걸 넣다니... 혹시 수수께끼 좋아하시나요?",
+      "desc": "이걸 입력하다니… 퍼즐 같은 걸 좋아하세요?",
       "secret": false
     },
     "honester": {
       "title": "Honester",
       "emoji": "🫡",
-      "desc": "적힌 내용을 그대로 넣는 건 솔직해서 좋아요.",
+      "desc": "적혀 있는 걸 그대로 입력하는 건 솔직해서 좋네요.",
       "secret": false
     },
     "observer": {
       "title": "Observer",
       "emoji": "👁️",
-      "desc": "여기 3분이나 계셨네요. 고마움과 당황스러움이 섞여 있어요.",
+      "desc": "당신은 3분이나 여기 있었던 것 같아요. 감사함과 당황이 섞여 있습니다.",
       "secret": true
     },
     "escape-from-friend": {
       "title": "Escape From Friend",
       "emoji": "🏃",
-      "desc": "소심해서 너무 가까이 오면 도망가 버려요.",
+      "desc": "겁이 많아서, 그렇게 가까이 다가오면 도망가 버려요.",
       "secret": true
     },
     "your-friend-name": {
       "title": "Your Friend Name",
       "emoji": "🤝",
-      "desc": "사실 이거 제 이름이에요. 알고 있었나요?",
+      "desc": "사실 이건 제 이름이에요. 알고 계셨나요?",
       "secret": true
     },
     "mirror-mirror": {
       "title": "Mirror, Mirror",
       "emoji": "🪞",
-      "desc": "거울 글자까지 아시다니 VRC에 꽤 익숙하시네요. 이건 거꾸로 말이지만요.",
+      "desc": "거울 글자까지 아시다니, VRC에 정통하신 것 같네요. 이건 거꾸로 쓴 글자예요. 도어(倒語)라고 하더라고요.",
       "secret": true
     },
     "science-and-magic-intersect": {
       "title": "Science And Magic",
       "emoji": "🔮",
-      "desc": "과학과 마술이 교차하지 않아도, 브라우저와 VRC가 교차하면 이야기가 생겨난대요.",
+      "desc": "과학과 마법이 교차하지 않아도, 브라우저와 VRC가 교차하면 이야기가 탄생한대요.",
       "secret": true
     },
     "help-me-dennnnnn": {
       "title": "Help me, DENNNNNN!!",
       "emoji": "🆘",
-      "desc": "(ﾟ∀ﾟ)o彡゜Den!Den!<br>성심성의껏 진심을 담아 도우러 갈게요",
+      "desc": "(ﾟ∀ﾟ)o彡゜Den!Den!<br>진심을 담아 도와드리러 갈게요",
       "secret": true
     },
     "full-signal": {
       "title": "Full Signal",
       "emoji": "✨",
-      "desc": "전부 해제하신 건가요?!<br>정말, 정말 고마워요 🙏<br>code: deep_diver",
+      "desc": "전부 해제하셨나요?!<br>정말, 정말 감사합니다 🙏<br>code: deep_diver",
       "secret": true
     },
     "deep-diver": {
       "title": "Deep Diver",
       "emoji": "🤿",
-      "desc": "다시 한 번 안녕하세요. 제 프로필을 정말 잘 봐주셨네요. 이제 당신은 Den 마스터예요.",
+      "desc": "다시 안녕하세요. 제 프로필을 잘 봐 주셨다는 뜻이네요. 당신은 이제 Den 마스터예요.",
       "secret": true
     },
     "wafu": {
       "title": "Wafu!",
       "emoji": "🚀",
-      "desc": "이상해요. 힌트로 준비하지 않았는데 어떻게 알아낸 건지 신기해요(>ω<)",
+      "desc": "이상해요. 힌트로 준비해 두지 않았는데, 어떻게 알았는지 신기해요 (>ω<)",
       "secret": true,
       "ghost": true
     }

@@ -901,13 +901,9 @@ a:hover {
 }
 
 [data-theme="vrc"] .vrc-locale-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   padding: 0.55rem 1.5rem;
-  background: rgba(12, 14, 18, 0.72);
-  backdrop-filter: blur(6px);
+  background: rgba(12, 14, 18, 0.92);
 }
 
 [data-theme="vrc"] .vrc-locale-bar::after {
@@ -970,11 +966,13 @@ a:hover {
   display: flex;
   gap: 1.25rem;
   padding: 0 1.5rem 1.5rem;
-  margin-top: -2.75rem;
+  margin-top: calc(-2.75rem - var(--vrc-locale-bar-height, 2.35rem));
   align-items: flex-end;
 }
 
 [data-theme="vrc"] .vrc-avatar-wrap {
+  position: relative;
+  z-index: 1;
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -1579,7 +1577,15 @@ a:hover {
   [data-theme="vrc"] .vrc-profile-head {
     flex-direction: column;
     align-items: flex-start;
-    margin-top: -3.5rem;
+    margin-top: 0;
+  }
+
+  [data-theme="vrc"] .vrc-locale-bar {
+    padding: 0.5rem 1rem;
+  }
+
+  [data-theme="vrc"] .vrc-locale-cmd {
+    font-size: 0.6875rem;
   }
 
   [data-theme="vrc"] .vrc-profile-meta {

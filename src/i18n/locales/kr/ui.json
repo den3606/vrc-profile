@@ -1,8 +1,8 @@
 {
   "tabs": {
     "navLabel": "프로필 섹션",
-    "profile": "프로필",
-    "achievements": "업적"
+    "profile": "Profile",
+    "achievements": "Achievements"
   },
   "profile": {
     "name": "Den",
@@ -17,8 +17,8 @@
     "localeHintTitle": "lang help 실행"
   },
   "achievements": {
-    "header": "Achievements(PC 권장)",
-    "progressUnlocked": "해금",
+    "header": "Achievements (PC 권장)",
+    "progressUnlocked": "해제됨",
     "concealed": {
       "emoji": "❓",
       "title": "???",
@@ -33,11 +33,11 @@
   },
   "hidden": {
     "returnButton": "< 프로필로 돌아가기",
-    "thankYouAlt": "Thank you"
+    "thankYouAlt": "감사합니다"
   },
   "terminal": {
-    "toggleLabel": "접속 터미널 열기",
-    "toggleTitle": "Terminal",
+    "toggleLabel": "액세스 터미널 열기",
+    "toggleTitle": "터미널",
     "header": "ACCESS TERMINAL",
     "closeLabel": "닫기",
     "codeLabel": "Code:",
