@@ -10,7 +10,7 @@ if errorlevel 1 (
 )
 
 echo Steam データを取得しています...
-node scripts/fetch-steam.js
+node fetch-steam.js
 if errorlevel 1 (
   echo.
   echo 更新に失敗しました。
