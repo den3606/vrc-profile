@@ -2,6 +2,7 @@ import type { Elements } from "../lib/elements";
 
 const STORAGE_KEY = "vrc-profile-signal-sent";
 const API_PATH = "/api/signal";
+const STATUS_HIDE_MS = 3500;
 
 type SignalElements = {
   form: HTMLFormElement;
@@ -10,6 +11,8 @@ type SignalElements = {
   submitBtn: HTMLButtonElement;
   status: HTMLElement;
 };
+
+let statusHideTimer = 0;
 
 function getSignalElements(): SignalElements | null {
   const form = document.getElementById("hidden-signal-form") as HTMLFormElement | null;
@@ -23,20 +26,38 @@ function getSignalElements(): SignalElements | null {
   return { form, nameInput, messageInput, submitBtn, status };
 }
 
-function lockSend(els: SignalElements, message: string, { persist = false } = {}) {
-  if (persist) localStorage.setItem(STORAGE_KEY, "1");
+function lockSendButton(els: SignalElements) {
   els.submitBtn.disabled = true;
+  els.submitBtn.classList.add("is-sent");
+  els.submitBtn.setAttribute("aria-disabled", "true");
+}
+
+function showStatus(els: SignalElements, message: string, { autoHide = false } = {}) {
   els.status.textContent = message;
   els.status.hidden = false;
   els.status.classList.remove("is-error");
   els.status.classList.add("is-success");
+
+  clearTimeout(statusHideTimer);
+  if (!autoHide) return;
+
+  statusHideTimer = window.setTimeout(() => {
+    els.status.hidden = true;
+  }, STATUS_HIDE_MS);
 }
 
 function showError(els: SignalElements, message: string) {
+  clearTimeout(statusHideTimer);
   els.status.textContent = message;
   els.status.hidden = false;
   els.status.classList.remove("is-success");
   els.status.classList.add("is-error");
+}
+
+function markSubmitted(els: SignalElements, message: string, { persist = false, autoHide = true } = {}) {
+  if (persist) localStorage.setItem(STORAGE_KEY, "1");
+  lockSendButton(els);
+  showStatus(els, message, { autoHide });
 }
 
 export function setupHiddenSignal(_els: Elements) {
@@ -45,7 +66,7 @@ export function setupHiddenSignal(_els: Elements) {
 
   let sendLocked = localStorage.getItem(STORAGE_KEY) === "1";
   if (sendLocked) {
-    lockSend(signalEls, "SIGNAL RECEIVED.", { persist: true });
+    lockSendButton(signalEls);
   }
 
   signalEls.form.addEventListener("submit", async (event) => {
@@ -56,16 +77,16 @@ export function setupHiddenSignal(_els: Elements) {
     const message = signalEls.messageInput.value.trim();
 
     if (!name) {
-      showError(signalEls, "名前を入力してください。");
+      showError(signalEls, "Enter a name.");
       return;
     }
 
     if (!message) {
-      showError(signalEls, "メッセージを入力してください。");
+      showError(signalEls, "Enter a message.");
       return;
     }
 
-    signalEls.submitBtn.disabled = true;
+    lockSendButton(signalEls);
     signalEls.status.hidden = true;
 
     try {
@@ -77,28 +98,33 @@ export function setupHiddenSignal(_els: Elements) {
 
       if (response.ok) {
         sendLocked = true;
-        lockSend(signalEls, "SIGNAL RECEIVED.", { persist: true });
+        markSubmitted(signalEls, "SIGNAL RECEIVED.", { persist: true, autoHide: true });
         return;
       }
 
       if (response.status === 429) {
         sendLocked = true;
-        lockSend(signalEls, "Rate limit reached.");
+        markSubmitted(signalEls, "Rate limit reached.", { autoHide: true });
         return;
       }
 
+      signalEls.submitBtn.disabled = false;
+      signalEls.submitBtn.classList.remove("is-sent");
+      signalEls.submitBtn.removeAttribute("aria-disabled");
+
       const data = (await response.json().catch(() => null)) as { error?: string } | null;
       if (data?.error === "invalid_name") {
-        showError(signalEls, "名前は1〜32文字で入力してください。");
+        showError(signalEls, "Name must be 1–32 characters.");
       } else if (data?.error === "invalid_message") {
-        showError(signalEls, "メッセージは1〜500文字で入力してください。");
+        showError(signalEls, "Message must be 1–500 characters.");
       } else {
-        showError(signalEls, "送信に失敗しました。あとでもう一度試してください。");
+        showError(signalEls, "Send failed. Try again later.");
       }
-      signalEls.submitBtn.disabled = false;
     } catch {
-      showError(signalEls, "送信に失敗しました。あとでもう一度試してください。");
       signalEls.submitBtn.disabled = false;
+      signalEls.submitBtn.classList.remove("is-sent");
+      signalEls.submitBtn.removeAttribute("aria-disabled");
+      showError(signalEls, "Send failed. Try again later.");
     }
   });
 }

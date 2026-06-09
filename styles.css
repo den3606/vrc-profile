@@ -315,15 +315,30 @@ a:hover {
   border-color: var(--color-accent);
 }
 
-.hidden-signal-input:disabled,
-.hidden-signal-textarea:disabled,
-.hidden-signal-submit:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .hidden-signal-submit {
   align-self: flex-start;
+}
+
+.hidden-signal-submit:disabled,
+.hidden-signal-submit.is-sent {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: var(--color-muted);
+  color: var(--color-muted);
+}
+
+[data-theme="vrc"] .hidden-signal-submit.vrc-btn-primary:disabled,
+[data-theme="vrc"] .hidden-signal-submit.vrc-btn-primary.is-sent {
+  background: transparent;
+  border-color: var(--color-muted);
+  color: var(--color-muted);
+}
+
+[data-theme="vrc"] .hidden-signal-submit.vrc-btn-primary:disabled:hover,
+[data-theme="vrc"] .hidden-signal-submit.vrc-btn-primary.is-sent:hover {
+  background: transparent;
+  opacity: 0.45;
 }
 
 .hidden-signal-status {
