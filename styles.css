@@ -367,22 +367,16 @@ a:hover {
   to { opacity: 1; }
 }
 
-.hidden-intro-en,
-.hidden-intro-ja {
+.hidden-intro {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.95em;
+  font-family: var(--font-body);
+  font-size: 0.9em;
   font-weight: 600;
   color: var(--color-accent);
 }
 
 .hidden-intro-last {
   margin-bottom: 0.5rem;
-}
-
-.hidden-intro-ja {
-  font-family: var(--font-body);
-  font-size: 0.9em;
 }
 
 .hidden-divider {
@@ -1454,11 +1448,42 @@ a:hover {
   box-sizing: border-box;
 }
 
-[data-theme="vrc"] .hidden-intro-en,
-[data-theme="vrc"] .hidden-intro-ja {
+[data-theme="vrc"] .hidden-intro {
   font-family: var(--font-body);
   font-weight: 600;
   color: var(--bs-primary);
+}
+
+.locale-switcher {
+  display: inline-flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  overflow: hidden;
+}
+
+.locale-btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.locale-btn + .locale-btn {
+  border-left: 1px solid var(--color-border);
+}
+
+.locale-btn:hover {
+  color: var(--color-text);
+  background: var(--color-surface-raised);
+}
+
+.locale-btn-active {
+  color: var(--color-accent);
+  background: rgba(var(--bs-primary-rgb), 0.1);
 }
 
 [data-theme="vrc"] .close-hidden-btn {

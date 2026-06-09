@@ -1,6 +1,6 @@
 import type { jaBundle } from "./bundles/ja";
 
-export const LOCALES = ["ja"] as const;
+export const LOCALES = ["ja", "en"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "ja";
 

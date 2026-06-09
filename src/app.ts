@@ -13,6 +13,7 @@ import {
 } from "./features/visitor";
 import { applyI18n } from "./i18n/apply";
 import { initLocale, onLocaleChange } from "./i18n";
+import { setupLocaleSwitcher } from "./i18n/locale-switcher";
 import { createAppContext } from "./lib/app-context";
 import { getElements } from "./lib/elements";
 import { loadState } from "./lib/state";
@@ -21,6 +22,7 @@ export function initApp() {
   initLocale();
   const els = getElements();
   applyI18n(els);
+  setupLocaleSwitcher();
 
   const state = loadState();
   const ctx = createAppContext(els, state);

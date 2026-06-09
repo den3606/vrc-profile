@@ -1,0 +1,31 @@
+{
+  "verifiedSuffix": "VERIFIED",
+  "vrcEngineerVerified": "USER ID VERIFIED",
+  "accessDenied": "ACCESS DENIED",
+  "accessGranted": "ACCESS GRANTED",
+  "achievementUnlocked": "Achievement Unlocked",
+  "nextCodeHint": "[next code hint]",
+  "reset": {
+    "complete": "RESET COMPLETE",
+    "cleared": "Achievements cleared.",
+    "reload": "Please reload the page."
+  },
+  "mirrorHint": "It's not the mirror itself! Think about changing the order of something.",
+  "deepDiver": {
+    "redirect": "Redirecting to the hidden profile."
+  },
+  "codeResponses": {
+    "honester": [
+      "It works as text too—because you already know the other codes.",
+      "If you're stuck, try \"h???\" as well."
+    ],
+    "your-friend-name": [
+      "I prefer facing someone when I talk,",
+      "but in VRC people often look at someone in another world when they speak, right?"
+    ],
+    "help-me-dennnnnn": [
+      "When you're stuck on a puzzle, it's h??? before help, right?"
+    ],
+    "wafu": ["Wafu! >ω<"]
+  }
+}

@@ -15,12 +15,12 @@
     "title": "About Me"
   },
   "achievements": {
-    "header": "Achievements(PC推奨)",
+    "header": "Achievements (PC recommended)",
     "progressUnlocked": "unlocked",
     "concealed": {
       "emoji": "❓",
       "title": "???",
-      "desc": "条件は隠されている"
+      "desc": "Conditions are hidden"
     }
   },
   "toast": {

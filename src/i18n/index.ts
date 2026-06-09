@@ -1,3 +1,4 @@
+import { enBundle } from "./bundles/en";
 import { jaBundle } from "./bundles/ja";
 import type { Locale, MessageBundle } from "./types";
 import { DEFAULT_LOCALE, LOCALES } from "./types";
@@ -9,6 +10,7 @@ const LOCALE_KEY = "vrc-profile-locale";
 
 const bundles: Record<Locale, MessageBundle> = {
   ja: jaBundle,
+  en: enBundle,
 };
 
 type LocaleListener = (locale: Locale) => void;

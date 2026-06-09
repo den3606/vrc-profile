@@ -73,6 +73,9 @@ function applyUi(els: Elements, messages: MessageBundle) {
 
   const loading = document.querySelector<HTMLElement>("#steam-games .steam-state");
   if (loading) loading.textContent = steam.loading;
+
+  const localeSwitcher = document.getElementById("locale-switcher");
+  if (localeSwitcher) localeSwitcher.setAttribute("aria-label", ui.localeSwitcher.label);
 }
 
 function renderAbout(messages: MessageBundle) {
@@ -133,18 +136,10 @@ function renderHiddenProfile(messages: MessageBundle) {
   const introCard = document.createElement("div");
   introCard.className = "vrc-card";
 
-  hp.intro.en.forEach((text, index) => {
+  hp.intro.forEach((text, index) => {
     const p = document.createElement("p");
-    p.className = "hidden-intro-en";
-    if (index === hp.intro.en.length - 1) p.classList.add("hidden-intro-last");
-    p.textContent = text;
-    introCard.appendChild(p);
-  });
-
-  hp.intro.ja.forEach((text, index) => {
-    const p = document.createElement("p");
-    p.className = "hidden-intro-ja";
-    if (index === hp.intro.ja.length - 1) p.classList.add("hidden-intro-last");
+    p.className = "hidden-intro";
+    if (index === hp.intro.length - 1) p.classList.add("hidden-intro-last");
     p.textContent = text;
     introCard.appendChild(p);
   });

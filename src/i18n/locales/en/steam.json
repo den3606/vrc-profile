@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "featured": "Featured Games",
+    "recent": "Recently Played",
+    "top": "Most Played"
+  },
+  "loading": "Loading...",
+  "updatedPrefix": "Updated ",
+  "fallbackLink": "View on Steam",
+  "unknownGame": "Unknown",
+  "hours": {
+    "recentPrefix": "Last 2 weeks ",
+    "totalPrefix": "Total ",
+    "separator": " · ",
+    "suffix": "h"
+  }
+}
