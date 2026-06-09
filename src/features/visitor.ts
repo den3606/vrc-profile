@@ -21,11 +21,11 @@ export function handleReturnVisitor(ctx: AppContext, toast: ToastApi) {
   }, 2800);
 }
 
-export function setupObservedTimer(ctx: AppContext, achievements: AchievementApi) {
-  if (ctx.state.achievements.includes("observed")) return;
+export function setupObserverTimer(ctx: AppContext, achievements: AchievementApi) {
+  if (ctx.state.achievements.includes("observer")) return;
 
   const timer = window.setTimeout(() => {
-    achievements.unlockAchievement("observed");
+    achievements.unlockAchievement("observer");
   }, OBSERVED_MS);
 
   window.addEventListener("beforeunload", () => clearTimeout(timer), { once: true });

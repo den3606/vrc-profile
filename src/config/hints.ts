@@ -7,7 +7,7 @@ export const HINT_ACHIEVEMENT_IDS: AchievementId[] = [
   "himawari",
   "vrc-engineer",
   "honester",
-  "observed",
+  "observer",
   "escape-from-friend",
   "your-friend-name",
   "mirror-mirror",

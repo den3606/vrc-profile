@@ -9,7 +9,7 @@ import { setupToast } from "./features/toast";
 import {
   handleReturnVisitor,
   setupEndReaderButton,
-  setupObservedTimer,
+  setupObserverTimer,
 } from "./features/visitor";
 import { createAppContext } from "./lib/app-context";
 import { getElements } from "./lib/elements";
@@ -26,7 +26,7 @@ export function initApp() {
   runBootSequence(els);
   setupEndReaderButton(ctx, achievements);
   setupAvatarPet(ctx, achievements);
-  setupObservedTimer(ctx, achievements);
+  setupObserverTimer(ctx, achievements);
   setupTerminal(ctx, achievements, overlays);
   setupHiddenSignal(els);
   setupTabs(els);
