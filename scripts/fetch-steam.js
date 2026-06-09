@@ -33,27 +33,101 @@ function capsuleUrl(appId) {
   return `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/capsule_184x69.jpg`;
 }
 
-async function fetchTopGames(steamId) {
+function minutesToHours(minutes) {
+  if (typeof minutes !== "number" || minutes <= 0) return null;
+  return Math.round((minutes / 60) * 10) / 10;
+}
+
+function getSteamApiKey() {
   const key = process.env.STEAM_API_KEY;
   if (!key) {
     const message =
-      "STEAM_API_KEY is not set; topGames will be empty. Add a key from https://steamcommunity.com/dev/apikey";
+      "STEAM_API_KEY is not set. Add a key from https://steamcommunity.com/dev/apikey";
     if (process.env.CI) throw new Error(message);
     console.warn(message);
-    return [];
+    return null;
+  }
+  return key;
+}
+
+async function steamApiGet(method, params) {
+  const key = getSteamApiKey();
+  if (!key) return null;
+
+  const url = new URL(`https://api.steampowered.com/IPlayerService/${method}/v0001/`);
+  url.searchParams.set("key", key);
+  url.searchParams.set("format", "json");
+  for (const [name, value] of Object.entries(params)) {
+    url.searchParams.set(name, String(value));
   }
 
-  const url = new URL("https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/");
-  url.searchParams.set("key", key);
-  url.searchParams.set("steamid", steamId);
-  url.searchParams.set("include_appinfo", "1");
-  url.searchParams.set("include_played_free_games", "1");
-  url.searchParams.set("format", "json");
-
   const res = await fetch(url, { headers: { "User-Agent": UA } });
-  if (!res.ok) throw new Error(`Steam API GetOwnedGames: HTTP ${res.status}`);
+  if (!res.ok) throw new Error(`Steam API ${method}: HTTP ${res.status}`);
+  return res.json();
+}
 
-  const body = await res.json();
+function parseRecentGamesFromXml(xml) {
+  const blocks = xml.match(/<mostPlayedGame>[\s\S]*?<\/mostPlayedGame>/g) || [];
+  return blocks.map((block) => {
+    const link = extract(block, "gameLink");
+    const appId = (link.match(/\/app\/(\d+)/) || [])[1] || "";
+    return {
+      appId,
+      name: extract(block, "gameName"),
+      storeUrl: appId
+        ? `https://store.steampowered.com/app/${appId}/`
+        : link,
+      capsule: extract(block, "gameLogo"),
+      hoursTwoWeeks: toNumber(extract(block, "hoursPlayed")),
+      hoursTotal: toNumber(extract(block, "hoursOnRecord")),
+    };
+  });
+}
+
+async function fetchRecentGames(steamId, xml) {
+  if (steamId && getSteamApiKey()) {
+    try {
+      const body = await steamApiGet("GetRecentlyPlayedGames", {
+        steamid: steamId,
+        count: 0,
+      });
+      const games = body?.response?.games;
+      if (Array.isArray(games) && games.length > 0) {
+        return games
+          .filter((g) => g.playtime_2weeks > 0)
+          .sort((a, b) => b.playtime_2weeks - a.playtime_2weeks)
+          .map((g) => ({
+            appId: String(g.appid),
+            name: g.name || "Unknown",
+            storeUrl: `https://store.steampowered.com/app/${g.appid}/`,
+            capsule: capsuleUrl(g.appid),
+            hoursTwoWeeks: minutesToHours(g.playtime_2weeks),
+            hoursTotal: minutesToHours(g.playtime_forever),
+          }));
+      }
+      console.warn("GetRecentlyPlayedGames returned no games, falling back to profile XML");
+    } catch (e) {
+      console.warn("GetRecentlyPlayedGames failed, falling back to profile XML:", e.message);
+    }
+  }
+
+  const games = parseRecentGamesFromXml(xml);
+  if (games.length > 0 && games.length <= 6) {
+    console.warn(
+      `Profile XML returned ${games.length} recent games (Steam caps this feed at 6). Set STEAM_API_KEY for the full list.`
+    );
+  }
+  return games;
+}
+
+async function fetchTopGames(steamId) {
+  const body = await steamApiGet("GetOwnedGames", {
+    steamid: steamId,
+    include_appinfo: 1,
+    include_played_free_games: 1,
+  });
+  if (!body) return [];
+
   const games = body?.response?.games;
   if (!Array.isArray(games) || games.length === 0) {
     throw new Error("GetOwnedGames returned no games (check API key and game details privacy)");
@@ -68,7 +142,7 @@ async function fetchTopGames(steamId) {
       name: g.name || "Unknown",
       storeUrl: `https://store.steampowered.com/app/${g.appid}/`,
       capsule: capsuleUrl(g.appid),
-      hoursTotal: Math.round((g.playtime_forever / 60) * 10) / 10,
+      hoursTotal: minutesToHours(g.playtime_forever),
     }));
 }
 
@@ -98,24 +172,10 @@ async function main() {
   const xml = await xmlRes.text();
   const steamId = parseSteamId(xml);
 
-  const blocks = xml.match(/<mostPlayedGame>[\s\S]*?<\/mostPlayedGame>/g) || [];
-  const games = blocks.map((block) => {
-    const link = extract(block, "gameLink");
-    const appId = (link.match(/\/app\/(\d+)/) || [])[1] || "";
-    return {
-      appId,
-      name: extract(block, "gameName"),
-      storeUrl: appId
-        ? `https://store.steampowered.com/app/${appId}/`
-        : link,
-      capsule: extract(block, "gameLogo"),
-      hoursTwoWeeks: toNumber(extract(block, "hoursPlayed")),
-      hoursTotal: toNumber(extract(block, "hoursOnRecord")),
-    };
-  });
+  const games = await fetchRecentGames(steamId, xml);
 
   if (games.length === 0) {
-    throw new Error("No games parsed from Steam XML (profile private or markup changed)");
+    throw new Error("No recent games found (check API key or profile privacy)");
   }
 
   let featured = [];
@@ -127,7 +187,7 @@ async function main() {
   }
 
   let topGames = [];
-  if (steamId) {
+  if (steamId && getSteamApiKey()) {
     topGames = await fetchTopGames(steamId);
   }
 
