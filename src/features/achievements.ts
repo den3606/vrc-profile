@@ -100,7 +100,7 @@ export function createAchievementApi(ctx: AppContext, toast: ToastApi) {
     saveState(ctx.state);
     sessionStorage.removeItem(SESSION_KEY);
     renderAchievements();
-    ctx.els.passwordInput.value = "";
+    ctx.els.codeInput.value = "";
 
     if (ctx.els.endReaderBtn) {
       ctx.els.endReaderBtn.disabled = false;

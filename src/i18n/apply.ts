@@ -37,6 +37,13 @@ function applyUi(els: Elements, messages: MessageBundle) {
   if (vrchatBtn) vrchatBtn.textContent = ui.profile.vrchatButton;
 
   setText("about-title", ui.about.title);
+
+  const localeHint = document.getElementById("locale-hint");
+  if (localeHint) {
+    setText("locale-hint-text", ui.about.localeHint);
+    localeHint.title = ui.about.localeHintTitle;
+    localeHint.hidden = false;
+  }
   setText("steam-featured-title", steam.sections.featured);
   setText("steam-recent-title", steam.sections.recent);
   setText("steam-top-title", steam.sections.top);
@@ -52,7 +59,7 @@ function applyUi(els: Elements, messages: MessageBundle) {
   els.terminalClose.setAttribute("aria-label", ui.terminal.closeLabel);
   els.terminalClose.textContent = "×";
   setText("terminal-code-label", ui.terminal.codeLabel);
-  els.passwordSubmit.textContent = ui.terminal.submit;
+  els.codeSubmit.textContent = ui.terminal.submit;
 
   els.closeHidden.textContent = ui.hidden.returnButton;
   if (els.closeThankYouVrc) els.closeThankYouVrc.textContent = ui.hidden.returnButton;
@@ -96,6 +103,7 @@ function renderAbout(messages: MessageBundle) {
     span.textContent = label;
     tags.appendChild(span);
   });
+
 }
 
 export function renderAchievementCards(els: Elements) {
@@ -133,18 +141,10 @@ function renderHiddenProfile(messages: MessageBundle) {
   const introCard = document.createElement("div");
   introCard.className = "vrc-card";
 
-  hp.intro.en.forEach((text, index) => {
+  hp.intro.forEach((text, index) => {
     const p = document.createElement("p");
-    p.className = "hidden-intro-en";
-    if (index === hp.intro.en.length - 1) p.classList.add("hidden-intro-last");
-    p.textContent = text;
-    introCard.appendChild(p);
-  });
-
-  hp.intro.ja.forEach((text, index) => {
-    const p = document.createElement("p");
-    p.className = "hidden-intro-ja";
-    if (index === hp.intro.ja.length - 1) p.classList.add("hidden-intro-last");
+    p.className = "hidden-intro";
+    if (index === hp.intro.length - 1) p.classList.add("hidden-intro-last");
     p.textContent = text;
     introCard.appendChild(p);
   });

@@ -1,5 +1,6 @@
 export const CODE_RESET = "reset";
 export const CODE_HINT = "hint";
+export const CODE_LANG_HELP = "lang_help";
 export const CODES_FRIEND_NAME = ["den3606", "den", "den967"] as const;
 export const CODES_MIRROR = ["6063ned", "769ned", "ned"] as const;
 export const CODE_MIRROR_HINT = "mirror";

@@ -1,0 +1,57 @@
+{
+  "verifiedSuffix": "VERIFIED",
+  "vrcEngineerVerified": "USER ID VERIFIED",
+  "accessDenied": "ACCESS DENIED",
+  "accessGranted": "ACCESS GRANTED",
+  "achievementUnlocked": "Achievement Unlocked",
+  "nextCodeHint": "[next code hint]",
+  "reset": {
+    "complete": "RESET COMPLETE",
+    "cleared": "成就已清除。",
+    "reload": "請重新開啟此頁面。"
+  },
+  "mirrorHint": "不是鏡子本體喔！比較像是把某種順序調換。",
+  "deepDiver": {
+    "redirect": "即將移動到幕後個人檔案。"
+  },
+  "lang": {
+    "set": {
+      "ja": "LANG SET: JA",
+      "en": "LANG SET: EN",
+      "zh": "LANG SET: ZH",
+      "zh-TW": "LANG SET: ZH-TW",
+      "kr": "LANG SET: KR"
+    },
+    "already": {
+      "ja": "已經是日語。",
+      "en": "已經是英語。",
+      "zh": "已經是簡體中文。",
+      "zh-TW": "已經是繁體中文（台灣）。",
+      "kr": "已經是韓語。"
+    },
+    "helpPrompt": "> lang help",
+    "help": [
+      "可在右下角終端機切換語言。",
+      "",
+      "  ja     — 日語",
+      "  en     — 英語",
+      "  zh     — 簡體中文",
+      "  zh-tw  — 繁體中文（台灣）",
+      "  kr     — 韓語"
+    ]
+  },
+  "codeResponses": {
+    "honester": [
+      "它在語意上也成立。因為你已經知道其他 code 了。",
+      "如果不知道的話，也有「h???」。"
+    ],
+    "your-friend-name": [
+      "我其實比較喜歡面向對方說話，",
+      "但在 VRC 裡，大家常常看著別的世界的人在說話呢"
+    ],
+    "help-me-dennnnnn": [
+      "玩猜謎遇到困難時，比起 help，第一個想到的果然是 h??? 吧。"
+    ],
+    "wafu": ["わふー >ω<"]
+  }
+}

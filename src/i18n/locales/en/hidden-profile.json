@@ -1,0 +1,53 @@
+{
+  "intro": [
+    "You made it all the way here.",
+    "You really seem to enjoy reading profiles.",
+    "I hope you enjoyed it.",
+    "If you made it this far, I'd be happy if you let me know."
+  ],
+  "sections": [
+    {
+      "title": "Why VRChat",
+      "paragraphs": [
+        "I actually logged into VRChat once around 2018. I opened the default home world, got scared, and closed it. I'm kind of a coward, honestly.",
+        "I had an Oculus Rift back then, but I only played Beat Saber. PUBG was still popular, and Fall Guys had just come out, I think. Nostalgic.",
+        "A few years later, around 2024, a friend invited me—that was how I started again. I've been playing on and off since.",
+        "For the first six months or so, I mostly hung out in game worlds. Lately I feel like I come here more to chat.",
+        "I'm actually a bit lonely at heart, so it secretly makes me happy when people leave messages or drop into my worlds. I won't say that out loud, though.",
+        "I'm getting embarrassed, so I'll wrap this up here. That's the gist of it."
+      ]
+    },
+    {
+      "title": "Travel & Onsen",
+      "paragraphs": [
+        "My hobbies are games, hot springs, and drinks. I've been to all kinds of onsen, but I barely remember the names...",
+        "Sand baths are my favorite—the fun and the feel. You can try one in Ibusuki, Kagoshima. It's a bit pricey, but I recommend Ibusuki Hakusuikan. Check it out if you can.",
+        "If you're in Kansai, I recommend the cave bath at Hotel Urashima. It's truly a one-of-a-kind experience. The price is reasonable and you can even visit for the day, so definitely check it out.",
+        "For regular hot springs, I recommend Ookawaso. For a while people said it looked like the Infinity Castle from Demon Slayer. In autumn you can see the mountain foliage, bridge, and river all at once—it's beautiful."
+      ]
+    },
+    {
+      "title": "Drinks",
+      "paragraphs": [
+        "There was a time I went to a bar alone about five times a week.",
+        "I had a game of ordering cocktails from the top-left of the menu in order, but I don't remember much... I ended up liking Passoa with pineapple juice best—that's the one thing I kept.",
+        "These days I only go occasionally; at home I drink beer, plum wine, or highballs."
+      ]
+    }
+  ],
+  "favoriteSongs": {
+    "title": "Favorite Songs",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/5q5YsbPTfLy7rUPgv8nBk2?utm_source=generator",
+    "items": [
+      { "label": "RAINBOW GIRL", "url": "https://www.nicovideo.jp/watch/sm1714828" },
+      { "label": "Artemis Blue", "url": "https://www.nicovideo.jp/watch/sm13352001" },
+      { "label": "Call to me, Call for you", "url": "https://www.youtube.com/watch?v=9kuqtGfKQz4" },
+      { "label": "Harenohi Step", "url": "https://www.youtube.com/watch?v=YzW8OCXiS6U" },
+      { "label": "Everlasting Blue", "url": "https://www.youtube.com/watch?v=udEYmO-wFXA" },
+      { "label": "Sign", "url": "https://www.youtube.com/watch?v=JhoxcSJosb0" },
+      { "label": "IMMORAL", "url": "https://www.youtube.com/watch?v=NVeS4MBE1uM" }
+    ],
+    "footer": "And so on... it's all otaku songs ^^ sadly most aren't on Spotify."
+  },
+  "outro": "Thanks for reading! Have fun in VRC!"
+}

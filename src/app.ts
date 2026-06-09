@@ -4,6 +4,7 @@ import { runBootSequence, setupTabs } from "./features/boot";
 import { setupHiddenSignal } from "./features/hidden-signal";
 import { setupOverlays } from "./features/overlays";
 import { loadSteamGames } from "./features/steam";
+import { setupLocaleHint } from "./features/locale-hint";
 import { setupTerminal } from "./features/terminal";
 import { setupToast } from "./features/toast";
 import {
@@ -39,6 +40,7 @@ export function initApp() {
   setupAvatarPet(ctx, achievements);
   setupObserverTimer(ctx, achievements);
   setupTerminal(ctx, achievements, overlays);
+  setupLocaleHint(ctx);
   setupHiddenSignal(els);
   setupTabs(els);
   loadSteamGames();

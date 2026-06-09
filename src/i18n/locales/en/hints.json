@@ -1,0 +1,35 @@
+{
+  "achievementIds": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "deep-diver"
+  ],
+  "details": [
+    "If you're reading this page, you've already greeted me, right?",
+    "Please read the profile all the way through—and report when you're done!",
+    "Your mouse cursor can act like a hand, you know.",
+    "A color code is still a code.",
+    "VRChat assigns each person a profile ID. Did you know that?",
+    "That makes you an honest one.",
+    "Even Colonel Muska waited at least that long.",
+    "It's scary when someone pets you out of nowhere.",
+    "What's your friend's name...?",
+    "In VRC, silent types often write in mirror text.",
+    "A profile isn't just one page.",
+    "There's a word you use when you're stuck besides hint—right, h??? me!",
+    "There's something nice about a world behind the scenes."
+  ],
+  "trigger": "Can't be helped, meow...",
+  "itemLabelUnlocked": "Hint: {title}",
+  "itemLabelLocked": "Achievement {n} hint"
+}

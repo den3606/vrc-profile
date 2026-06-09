@@ -1,0 +1,35 @@
+{
+  "achievementIds": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "deep-diver"
+  ],
+  "details": [
+    "你既然正在看這個頁面，代表你已經跟我打過招呼了吧？",
+    "個人檔案要看到最後喔。然後也別忘了回報完成！",
+    "滑鼠游標其實也能扮演手的角色喔。",
+    "色碼也算是程式碼，對吧。",
+    "VRC 其實有分配用來識別個人檔案的 ID，你知道嗎？",
+    "這表示你很誠實。",
+    "就連穆斯卡大佐都願意等到那個程度喔。",
+    "突然被摸太多次，會有點可怕呢。",
+    "你朋友的名字是……？",
+    "在 VRC 裡，無言勢很常用鏡像文字來寫字對吧。",
+    "個人檔案不只一個。",
+    "遇到困難時，除了 hint 之外也有會用的字吧。沒錯，就是 h??? me!",
+    "幕後的世界，總讓人有點喜歡呢。"
+  ],
+  "trigger": "真拿你沒辦法呢・・",
+  "itemLabelUnlocked": "{title} 的提示",
+  "itemLabelLocked": "成就 {n} 的提示"
+}

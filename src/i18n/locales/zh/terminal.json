@@ -1,0 +1,57 @@
+{
+  "verifiedSuffix": "VERIFIED",
+  "vrcEngineerVerified": "USER ID VERIFIED",
+  "accessDenied": "ACCESS DENIED",
+  "accessGranted": "ACCESS GRANTED",
+  "achievementUnlocked": "Achievement Unlocked",
+  "nextCodeHint": "[next code hint]",
+  "reset": {
+    "complete": "RESET COMPLETE",
+    "cleared": "Achievements cleared.",
+    "reload": "请重新打开页面。"
+  },
+  "mirrorHint": "不是镜子本身哦！像是改变某种顺序的感觉。",
+  "deepDiver": {
+    "redirect": "正在跳转到隐藏资料页。"
+  },
+  "lang": {
+    "set": {
+      "ja": "LANG SET: JA",
+      "en": "LANG SET: EN",
+      "zh": "LANG SET: ZH",
+      "zh-TW": "LANG SET: ZH-TW",
+      "kr": "LANG SET: KR"
+    },
+    "already": {
+      "ja": "已经是日语。",
+      "en": "已经是英语。",
+      "zh": "已经是简体中文。",
+      "zh-TW": "已经是繁體中文（台灣）。",
+      "kr": "已经是韩语。"
+    },
+    "helpPrompt": "> lang help",
+    "help": [
+      "可在右下角终端切换语言。",
+      "",
+      "  ja     — 日语",
+      "  en     — 英语",
+      "  zh     — 简体中文",
+      "  zh-tw  — 繁體中文（台灣）",
+      "  kr     — 韩语"
+    ]
+  },
+  "codeResponses": {
+    "honester": [
+      "这句话本身也说得通。因为你已经知道其他 code 了。",
+      "如果不知道的话，也有「h???」。"
+    ],
+    "your-friend-name": [
+      "我其实更喜欢朝着对方说话，",
+      "但在 VRC 里大家经常会看着另一个世界的人聊天呢。"
+    ],
+    "help-me-dennnnnn": [
+      "解谜遇到困难时，比起 help，先想到的果然是 h??? 吧。"
+    ],
+    "wafu": ["哇呼 >ω<"]
+  }
+}

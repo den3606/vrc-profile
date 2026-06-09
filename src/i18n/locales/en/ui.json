@@ -14,15 +14,15 @@
   "about": {
     "title": "About Me",
     "localeHint": "lang help",
-    "localeHintTitle": "lang help を実行"
+    "localeHintTitle": "Run lang help"
   },
   "achievements": {
-    "header": "Achievements(PC推奨)",
+    "header": "Achievements (PC recommended)",
     "progressUnlocked": "unlocked",
     "concealed": {
       "emoji": "❓",
       "title": "???",
-      "desc": "条件は隠されている"
+      "desc": "Conditions are hidden"
     }
   },
   "toast": {

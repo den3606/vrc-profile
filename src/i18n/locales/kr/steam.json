@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "featured": "추천 게임",
+    "recent": "최근 플레이한 게임",
+    "top": "플레이 시간이 긴 게임"
+  },
+  "loading": "Loading...",
+  "updatedPrefix": "Updated ",
+  "fallbackLink": "Steam에서 보기",
+  "unknownGame": "Unknown",
+  "hours": {
+    "recentPrefix": "최근 2주 ",
+    "totalPrefix": "누적 ",
+    "separator": " ・ ",
+    "suffix": "h"
+  }
+}

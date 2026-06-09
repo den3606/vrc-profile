@@ -1,4 +1,8 @@
+import { enBundle } from "./bundles/en";
 import { jaBundle } from "./bundles/ja";
+import { zhBundle } from "./bundles/zh";
+import { krBundle } from "./bundles/kr";
+import { zhTwBundle } from "./bundles/zh-tw";
 import type { Locale, MessageBundle } from "./types";
 import { DEFAULT_LOCALE, LOCALES } from "./types";
 
@@ -9,6 +13,10 @@ const LOCALE_KEY = "vrc-profile-locale";
 
 const bundles: Record<Locale, MessageBundle> = {
   ja: jaBundle,
+  en: enBundle,
+  zh: zhBundle,
+  "zh-TW": zhTwBundle,
+  kr: krBundle,
 };
 
 type LocaleListener = (locale: Locale) => void;

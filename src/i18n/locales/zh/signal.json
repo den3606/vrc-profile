@@ -1,0 +1,16 @@
+{
+  "title": "Send a Signal",
+  "nameLabel": "Name",
+  "messageLabel": "Message",
+  "messagePlaceholder": "随便写点什么都可以",
+  "submit": "Send",
+  "success": "SIGNAL RECEIVED.",
+  "errors": {
+    "nameRequired": "Enter a name.",
+    "messageRequired": "Enter a message.",
+    "rateLimit": "Send limit exceeded.",
+    "invalidName": "Name must be 1–32 characters.",
+    "invalidMessage": "Message must be 1–500 characters.",
+    "sendFailed": "Send failed. Try again later."
+  }
+}

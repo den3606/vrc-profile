@@ -1,0 +1,112 @@
+{
+  "order": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "full-signal",
+    "deep-diver",
+    "wafu"
+  ],
+  "entries": {
+    "first-contact": {
+      "title": "First Contact",
+      "emoji": "👋",
+      "desc": "Start with a greeting. Greetings matter.",
+      "secret": false
+    },
+    "explorer": {
+      "title": "Explorer",
+      "emoji": "🧭",
+      "desc": "Take things in from start to finish before you decide.",
+      "secret": false
+    },
+    "pet-pet-pet": {
+      "title": "Pet, Pet, Pet",
+      "emoji": "🐕",
+      "desc": "You're good at petting. Do you practice this often?",
+      "secret": false
+    },
+    "himawari": {
+      "title": "Himawari",
+      "emoji": "🌻",
+      "desc": "This color isn't orange—it's sunflower yellow, you know.",
+      "secret": false
+    },
+    "vrc-engineer": {
+      "title": "VRC Engineer",
+      "emoji": "🔧",
+      "desc": "You entered that... Do you like puzzles?",
+      "secret": false
+    },
+    "honester": {
+      "title": "Honester",
+      "emoji": "🫡",
+      "desc": "Typing exactly what's written—that's honest of you.",
+      "secret": false
+    },
+    "observer": {
+      "title": "Observer",
+      "emoji": "👁️",
+      "desc": "You've been here for three whole minutes. I'm grateful and confused.",
+      "secret": true
+    },
+    "escape-from-friend": {
+      "title": "Escape From Friend",
+      "emoji": "🏃",
+      "desc": "I'm timid, so I run when someone gets that close.",
+      "secret": true
+    },
+    "your-friend-name": {
+      "title": "Your Friend Name",
+      "emoji": "🤝",
+      "desc": "Actually, that's my name. Did you know?",
+      "secret": true
+    },
+    "mirror-mirror": {
+      "title": "Mirror, Mirror",
+      "emoji": "🪞",
+      "desc": "You even know mirror writing—you seem well versed in VRC. This is backwards text, by the way. They call it inversion.",
+      "secret": true
+    },
+    "science-and-magic-intersect": {
+      "title": "Science And Magic",
+      "emoji": "🔮",
+      "desc": "Even without science and magic crossing paths, when browser and VRC meet, stories are born.",
+      "secret": true
+    },
+    "help-me-dennnnnn": {
+      "title": "Help me, DENNNNNN!!",
+      "emoji": "🆘",
+      "desc": "(ﾟ∀ﾟ)o彡゜Den!Den!<br>I'll come help you with all my heart",
+      "secret": true
+    },
+    "full-signal": {
+      "title": "Full Signal",
+      "emoji": "✨",
+      "desc": "You unlocked everything?!<br>Thank you, truly, thank you 🙏<br>code: deep_diver",
+      "secret": true
+    },
+    "deep-diver": {
+      "title": "Deep Diver",
+      "emoji": "🤿",
+      "desc": "Hello again. You really read my profile closely. You're a Den master now.",
+      "secret": true
+    },
+    "wafu": {
+      "title": "Wafu!",
+      "emoji": "🚀",
+      "desc": "That's strange. There was no hint for this—how did you figure it out? (>ω<)",
+      "secret": true,
+      "ghost": true
+    }
+  }
+}

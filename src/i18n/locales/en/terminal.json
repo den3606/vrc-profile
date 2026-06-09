@@ -1,0 +1,57 @@
+{
+  "verifiedSuffix": "VERIFIED",
+  "vrcEngineerVerified": "USER ID VERIFIED",
+  "accessDenied": "ACCESS DENIED",
+  "accessGranted": "ACCESS GRANTED",
+  "achievementUnlocked": "Achievement Unlocked",
+  "nextCodeHint": "[next code hint]",
+  "reset": {
+    "complete": "RESET COMPLETE",
+    "cleared": "Achievements cleared.",
+    "reload": "Please reload the page."
+  },
+  "mirrorHint": "It's not the mirror itself! Think about changing the order of something.",
+  "deepDiver": {
+    "redirect": "Redirecting to the hidden profile."
+  },
+  "lang": {
+    "set": {
+      "ja": "LANG SET: JA",
+      "en": "LANG SET: EN",
+      "zh": "LANG SET: ZH",
+      "zh-TW": "LANG SET: ZH-TW",
+      "kr": "LANG SET: KR"
+    },
+    "already": {
+      "ja": "Already set to Japanese.",
+      "en": "Already set to English.",
+      "zh": "Already set to Simplified Chinese.",
+      "zh-TW": "Already set to Traditional Chinese (Taiwan).",
+      "kr": "Already set to Korean."
+    },
+    "helpPrompt": "> lang help",
+    "help": [
+      "You can change language at the terminal in the bottom right.",
+      "",
+      "  ja     — Japanese",
+      "  en     — English",
+      "  zh     — Simplified Chinese",
+      "  zh-tw  — Traditional Chinese (Taiwan)",
+      "  kr     — Korean"
+    ]
+  },
+  "codeResponses": {
+    "honester": [
+      "It works as text too—because you already know the other codes.",
+      "If you're stuck, try \"h???\" as well."
+    ],
+    "your-friend-name": [
+      "I prefer facing someone when I talk,",
+      "but in VRC people often look at someone in another world when they speak, right?"
+    ],
+    "help-me-dennnnnn": [
+      "When you're stuck on a puzzle, it's h??? before help, right?"
+    ],
+    "wafu": ["Wafu! >ω<"]
+  }
+}

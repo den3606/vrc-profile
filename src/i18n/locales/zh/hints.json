@@ -1,0 +1,35 @@
+{
+  "achievementIds": [
+    "first-contact",
+    "explorer",
+    "pet-pet-pet",
+    "himawari",
+    "vrc-engineer",
+    "honester",
+    "observer",
+    "escape-from-friend",
+    "your-friend-name",
+    "mirror-mirror",
+    "science-and-magic-intersect",
+    "help-me-dennnnnn",
+    "deep-diver"
+  ],
+  "details": [
+    "既然你在看这个页面，说明你已经和我打过招呼了吧？",
+    "请把个人资料看到最后。然后记得告诉我你完成了！",
+    "鼠标光标也可以当作手来用哦。",
+    "颜色代码也算代码，对吧。",
+    "你知道吗？VRC 会给每个人分配一个用于识别个人资料的 ID。",
+    "这说明你是个诚实的人。",
+    "就连穆斯卡大佐也至少等了那么久呢。",
+    "突然被摸太多次，还是会有点害怕吧。",
+    "你朋友的名字是……？",
+    "在 VRC 里，无言势经常会用镜像文字来打字吧。",
+    "个人资料并不只有一个。",
+    "除了 hint 之外，遇到困难时还有别的词吧。没错，就是 h??? me!",
+    "世界的背面，总感觉有种特别的魅力。"
+  ],
+  "trigger": "真拿你没办法喵・・",
+  "itemLabelUnlocked": "{title}的提示",
+  "itemLabelLocked": "成就{n}的提示"
+}

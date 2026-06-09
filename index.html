@@ -41,7 +41,15 @@
 
   <main class="vrc-main" id="main-content" hidden>
     <div class="vrc-profile-card">
-      <div class="vrc-banner"></div>
+      <div class="vrc-banner">
+        <div class="vrc-locale-bar">
+          <button type="button" class="vrc-locale-cmd" id="locale-hint" hidden>
+            <span class="vrc-locale-prompt" aria-hidden="true">&gt;_</span>
+            <span class="vrc-locale-text" id="locale-hint-text"></span>
+            <span class="vrc-locale-cursor" aria-hidden="true">_</span>
+          </button>
+        </div>
+      </div>
       <div class="vrc-profile-head">
         <div class="vrc-avatar-wrap">
           <button type="button" class="vrc-avatar-btn" id="avatar-pet-btn" aria-label="Pet avatar">
@@ -179,10 +187,23 @@
       <button type="button" id="terminal-close" class="terminal-close">&times;</button>
     </div>
     <div class="access-terminal-body">
-      <label id="terminal-code-label" for="password-input"></label>
-      <div class="password-row">
-        <input type="text" id="password-input" class="password-input" autocomplete="off" spellcheck="false" placeholder="">
-        <button type="button" id="password-submit" class="password-submit"></button>
+      <label id="terminal-code-label" for="terminal-code-input"></label>
+      <div class="terminal-code-row">
+        <input
+          type="text"
+          id="terminal-code-input"
+          class="terminal-code-input"
+          name="terminal-code"
+          autocomplete="off"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          data-lpignore="true"
+          data-1p-ignore
+          data-form-type="other"
+          placeholder=""
+        >
+        <button type="button" id="terminal-code-submit" class="terminal-code-submit"></button>
       </div>
       <div id="terminal-output" class="terminal-output"></div>
     </div>
