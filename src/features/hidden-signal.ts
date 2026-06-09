@@ -1,7 +1,6 @@
 import type { Elements } from "../lib/elements";
 
 const API_PATH = "/api/signal";
-const STATUS_HIDE_MS = 3500;
 
 type SignalElements = {
   form: HTMLFormElement;
@@ -10,8 +9,6 @@ type SignalElements = {
   submitBtn: HTMLButtonElement;
   status: HTMLElement;
 };
-
-let statusHideTimer = 0;
 
 function getSignalElements(): SignalElements | null {
   const form = document.getElementById("hidden-signal-form") as HTMLFormElement | null;
@@ -42,15 +39,9 @@ function showSuccess(els: SignalElements, message: string) {
   els.status.hidden = false;
   els.status.classList.remove("is-error");
   els.status.classList.add("is-success");
-
-  clearTimeout(statusHideTimer);
-  statusHideTimer = window.setTimeout(() => {
-    els.status.hidden = true;
-  }, STATUS_HIDE_MS);
 }
 
 function showError(els: SignalElements, message: string) {
-  clearTimeout(statusHideTimer);
   els.status.textContent = message;
   els.status.hidden = false;
   els.status.classList.remove("is-success");
