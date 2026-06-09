@@ -277,26 +277,28 @@ a:hover {
   margin-inline: auto;
 }
 
+.hidden-signal-intro {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+
 .hidden-signal-form {
-  max-width: 28rem;
-  margin: 0 auto 1.5rem;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .hidden-signal-label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: -0.35rem;
   font-size: 0.9rem;
   color: var(--color-muted);
 }
 
-.hidden-signal-row {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.hidden-signal-input {
-  flex: 1;
+.hidden-signal-input,
+.hidden-signal-textarea {
+  width: 100%;
   min-width: 0;
   padding: 0.5rem 0.65rem;
   font-family: inherit;
@@ -308,14 +310,26 @@ a:hover {
   outline: none;
 }
 
-.hidden-signal-input:focus {
+.hidden-signal-textarea {
+  resize: vertical;
+  min-height: 6rem;
+  line-height: 1.5;
+}
+
+.hidden-signal-input:focus,
+.hidden-signal-textarea:focus {
   border-color: var(--color-accent);
 }
 
 .hidden-signal-input:disabled,
+.hidden-signal-textarea:disabled,
 .hidden-signal-submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.hidden-signal-submit {
+  align-self: flex-start;
 }
 
 .hidden-signal-status {
