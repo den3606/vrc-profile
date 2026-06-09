@@ -1,6 +1,5 @@
 import type { Elements } from "../lib/elements";
 
-const STORAGE_KEY = "vrc-profile-signal-sent";
 const API_PATH = "/api/signal";
 const STATUS_HIDE_MS = 3500;
 
@@ -32,15 +31,19 @@ function lockSendButton(els: SignalElements) {
   els.submitBtn.setAttribute("aria-disabled", "true");
 }
 
-function showStatus(els: SignalElements, message: string, { autoHide = false } = {}) {
+function unlockSendButton(els: SignalElements) {
+  els.submitBtn.disabled = false;
+  els.submitBtn.classList.remove("is-sent");
+  els.submitBtn.removeAttribute("aria-disabled");
+}
+
+function showSuccess(els: SignalElements, message: string) {
   els.status.textContent = message;
   els.status.hidden = false;
   els.status.classList.remove("is-error");
   els.status.classList.add("is-success");
 
   clearTimeout(statusHideTimer);
-  if (!autoHide) return;
-
   statusHideTimer = window.setTimeout(() => {
     els.status.hidden = true;
   }, STATUS_HIDE_MS);
@@ -54,20 +57,11 @@ function showError(els: SignalElements, message: string) {
   els.status.classList.add("is-error");
 }
 
-function markSubmitted(els: SignalElements, message: string, { persist = false, autoHide = true } = {}) {
-  if (persist) localStorage.setItem(STORAGE_KEY, "1");
-  lockSendButton(els);
-  showStatus(els, message, { autoHide });
-}
-
 export function setupHiddenSignal(_els: Elements) {
   const signalEls = getSignalElements();
   if (!signalEls) return;
 
-  let sendLocked = localStorage.getItem(STORAGE_KEY) === "1";
-  if (sendLocked) {
-    lockSendButton(signalEls);
-  }
+  let sendLocked = false;
 
   signalEls.form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -98,19 +92,17 @@ export function setupHiddenSignal(_els: Elements) {
 
       if (response.ok) {
         sendLocked = true;
-        markSubmitted(signalEls, "SIGNAL RECEIVED.", { persist: true, autoHide: true });
+        showSuccess(signalEls, "SIGNAL RECEIVED.");
         return;
       }
 
       if (response.status === 429) {
         sendLocked = true;
-        markSubmitted(signalEls, "Rate limit reached.", { autoHide: true });
+        showError(signalEls, "Send limit exceeded.");
         return;
       }
 
-      signalEls.submitBtn.disabled = false;
-      signalEls.submitBtn.classList.remove("is-sent");
-      signalEls.submitBtn.removeAttribute("aria-disabled");
+      unlockSendButton(signalEls);
 
       const data = (await response.json().catch(() => null)) as { error?: string } | null;
       if (data?.error === "invalid_name") {
@@ -121,9 +113,7 @@ export function setupHiddenSignal(_els: Elements) {
         showError(signalEls, "Send failed. Try again later.");
       }
     } catch {
-      signalEls.submitBtn.disabled = false;
-      signalEls.submitBtn.classList.remove("is-sent");
-      signalEls.submitBtn.removeAttribute("aria-disabled");
+      unlockSendButton(signalEls);
       showError(signalEls, "Send failed. Try again later.");
     }
   });
