@@ -896,12 +896,14 @@ a:hover {
 
 [data-theme="vrc"] .vrc-banner {
   position: relative;
-  height: 7rem;
+  height: 8rem;
   background: linear-gradient(135deg, var(--color-banner) 0%, var(--color-banner-end) 100%);
 }
 
 [data-theme="vrc"] .vrc-locale-bar {
   position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--vrc-locale-bar-height, 2.35rem));
   padding: 0.55rem 1.5rem;
   background: rgba(12, 14, 18, 0.92);
 }
@@ -966,7 +968,7 @@ a:hover {
   display: flex;
   gap: 1.25rem;
   padding: 0 1.5rem 1.5rem;
-  margin-top: calc(-2.75rem - var(--vrc-locale-bar-height, 2.35rem));
+  margin-top: 0;
   align-items: flex-end;
 }
 
@@ -975,6 +977,7 @@ a:hover {
   z-index: 1;
   flex-shrink: 0;
   overflow: hidden;
+  margin-top: calc(-2.75rem - var(--vrc-locale-bar-height, 2.35rem));
 }
 
 [data-theme="vrc"] .vrc-avatar-btn {
@@ -1066,7 +1069,7 @@ a:hover {
 
 [data-theme="vrc"] .vrc-profile-meta {
   flex: 1;
-  padding-top: 3rem;
+  padding-top: 1.75rem;
   min-width: 0;
 }
 
@@ -1574,21 +1577,67 @@ a:hover {
     padding: 1rem 1rem 3rem;
   }
 
-  [data-theme="vrc"] .vrc-profile-head {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 0;
+  [data-theme="vrc"] .vrc-profile-card {
+    position: relative;
+  }
+
+  [data-theme="vrc"] .vrc-banner {
+    height: 7.25rem;
   }
 
   [data-theme="vrc"] .vrc-locale-bar {
-    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-top: 0;
+    padding: 0.45rem 1rem;
+    background: rgba(12, 14, 18, 0.62);
+    backdrop-filter: blur(4px);
   }
 
   [data-theme="vrc"] .vrc-locale-cmd {
     font-size: 0.6875rem;
   }
 
+  [data-theme="vrc"] .vrc-profile-head {
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2.75rem;
+    padding: 0 1.25rem 1.25rem;
+    gap: 0.5rem;
+  }
+
+  [data-theme="vrc"] .vrc-avatar-wrap {
+    margin-top: 0;
+  }
+
+  [data-theme="vrc"] .vrc-avatar {
+    width: 5.75rem;
+    height: 5.75rem;
+    border-width: 3px;
+  }
+
   [data-theme="vrc"] .vrc-profile-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     padding-top: 0;
+    text-align: center;
+  }
+
+  [data-theme="vrc"] .vrc-name-row {
+    justify-content: center;
+  }
+
+  [data-theme="vrc"] .vrc-display-name {
+    margin-bottom: 0.75rem;
+  }
+
+  [data-theme="vrc"] .vrc-actions {
+    justify-content: center;
+    width: 100%;
   }
 }
