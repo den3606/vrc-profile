@@ -1,83 +1,75 @@
 {
-  "updatedAt": "2026-07-13T03:40:58.744Z",
+  "updatedAt": "2026-07-20T03:49:44.304Z",
   "profileUrl": "https://steamcommunity.com/id/den3606/",
   "featured": [
     {
       "appId": "554290",
       "storeUrl": "https://store.steampowered.com/app/554290/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/554290/b85791b1c3f052b5263eb41c490d114b37b823c8/capsule_184x69.jpg?t=1779077201"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/554290/b85791b1c3f052b5263eb41c490d114b37b823c8/capsule_184x69.jpg?t=1779077201"
     },
     {
       "appId": "635940",
       "storeUrl": "https://store.steampowered.com/app/635940/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/635940/capsule_184x69.jpg?t=1732683318"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/635940/capsule_184x69.jpg?t=1732683318"
     },
     {
       "appId": "427520",
       "storeUrl": "https://store.steampowered.com/app/427520/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/capsule_184x69.jpg?t=1763986204"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427520/capsule_184x69.jpg?t=1763986204"
     },
     {
       "appId": "2868840",
       "storeUrl": "https://store.steampowered.com/app/2868840/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/fb0ad136e9eaa4297a1ab3440d88ecb7209f44a2/capsule_184x69.jpg?t=1776735385"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/fb0ad136e9eaa4297a1ab3440d88ecb7209f44a2/capsule_184x69.jpg?t=1776735385"
     },
     {
       "appId": "881100",
       "storeUrl": "https://store.steampowered.com/app/881100/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg?t=1675987871"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg?t=1675987871"
     },
     {
       "appId": "1522820",
       "storeUrl": "https://store.steampowered.com/app/1522820/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522820/35f51acb333df3d12e5115d4600d871c3e1f9e4d/capsule_184x69.jpg?t=1726499308"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1522820/35f51acb333df3d12e5115d4600d871c3e1f9e4d/capsule_184x69.jpg?t=1726499308"
     },
     {
       "appId": "242920",
       "storeUrl": "https://store.steampowered.com/app/242920/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/242920/capsule_184x69.jpg?t=1667584747"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/242920/capsule_184x69.jpg?t=1667584747"
     },
     {
       "appId": "1149550",
       "storeUrl": "https://store.steampowered.com/app/1149550/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1149550/capsule_184x69.jpg?t=1779885227"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1149550/capsule_184x69.jpg?t=1779885227"
     },
     {
       "appId": "1783360",
       "storeUrl": "https://store.steampowered.com/app/1783360/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1783360/capsule_184x69.jpg?t=1773849366"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1783360/capsule_184x69.jpg?t=1773849366"
     },
     {
       "appId": "688130",
       "storeUrl": "https://store.steampowered.com/app/688130/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/688130/capsule_184x69.jpg?t=1774307827"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/688130/capsule_184x69.jpg?t=1774307827"
     },
     {
       "appId": "504230",
       "storeUrl": "https://store.steampowered.com/app/504230/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/504230/capsule_184x69.jpg?t=1714089525"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/504230/capsule_184x69.jpg?t=1714089525"
     },
     {
       "appId": "1557740",
       "storeUrl": "https://store.steampowered.com/app/1557740/",
-      "capsule": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1557740/capsule_184x69.jpg?t=1759328419"
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1557740/capsule_184x69.jpg?t=1759328419"
     }
   ],
   "games": [
-    {
-      "appId": "438100",
-      "name": "VRChat",
-      "storeUrl": "https://store.steampowered.com/app/438100/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 45.6,
-      "hoursTotal": 2907
-    },
     {
       "appId": "250820",
       "name": "SteamVR",
       "storeUrl": "https://store.steampowered.com/app/250820/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg",
-      "hoursTwoWeeks": 40.2,
+      "hoursTwoWeeks": 29.9,
       "hoursTotal": 3420.2
     },
     {
@@ -85,24 +77,32 @@
       "name": "OyasumiVR",
       "storeUrl": "https://store.steampowered.com/app/2538150/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538150/capsule_184x69.jpg",
-      "hoursTwoWeeks": 40.2,
+      "hoursTwoWeeks": 29.9,
       "hoursTotal": 642
     },
     {
-      "appId": "2868840",
-      "name": "Slay the Spire 2",
-      "storeUrl": "https://store.steampowered.com/app/2868840/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/capsule_184x69.jpg",
-      "hoursTwoWeeks": 7.9,
-      "hoursTotal": 90.9
+      "appId": "438100",
+      "name": "VRChat",
+      "storeUrl": "https://store.steampowered.com/app/438100/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
+      "hoursTwoWeeks": 28.8,
+      "hoursTotal": 2908.3
     },
     {
       "appId": "881100",
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 6.7,
-      "hoursTotal": 3073.6
+      "hoursTwoWeeks": 9.9,
+      "hoursTotal": 3078.3
+    },
+    {
+      "appId": "2868840",
+      "name": "Slay the Spire 2",
+      "storeUrl": "https://store.steampowered.com/app/2868840/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/capsule_184x69.jpg",
+      "hoursTwoWeeks": 9.3,
+      "hoursTotal": 92.3
     },
     {
       "appId": "730",
@@ -134,14 +134,14 @@
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTotal": 3073.6
+      "hoursTotal": 3078.3
     },
     {
       "appId": "438100",
       "name": "VRChat",
       "storeUrl": "https://store.steampowered.com/app/438100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
-      "hoursTotal": 2907
+      "hoursTotal": 2908.3
     },
     {
       "appId": "730",
