@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T02:22:27.714Z",
+  "updatedAt": "2026-08-17T01:45:46.278Z",
   "profileUrl": "https://steamcommunity.com/id/den3606/",
   "featured": [
     {
@@ -65,68 +65,84 @@
   ],
   "games": [
     {
-      "appId": "438100",
-      "name": "VRChat",
-      "storeUrl": "https://store.steampowered.com/app/438100/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 34.3,
-      "hoursTotal": 2953.9
-    },
-    {
-      "appId": "250820",
-      "name": "SteamVR",
-      "storeUrl": "https://store.steampowered.com/app/250820/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg",
-      "hoursTwoWeeks": 27.6,
-      "hoursTotal": 3455.7
-    },
-    {
-      "appId": "2538150",
-      "name": "OyasumiVR",
-      "storeUrl": "https://store.steampowered.com/app/2538150/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538150/capsule_184x69.jpg",
-      "hoursTwoWeeks": 27.6,
-      "hoursTotal": 676.9
-    },
-    {
       "appId": "578080",
       "name": "PUBG: BATTLEGROUNDS",
       "storeUrl": "https://store.steampowered.com/app/578080/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/capsule_184x69.jpg",
-      "hoursTwoWeeks": 19.8,
-      "hoursTotal": 641.8
+      "hoursTwoWeeks": 17.8,
+      "hoursTotal": 652.4
     },
     {
-      "appId": "2868840",
-      "name": "Slay the Spire 2",
-      "storeUrl": "https://store.steampowered.com/app/2868840/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/capsule_184x69.jpg",
-      "hoursTwoWeeks": 7.2,
-      "hoursTotal": 103.3
+      "appId": "438100",
+      "name": "VRChat",
+      "storeUrl": "https://store.steampowered.com/app/438100/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
+      "hoursTwoWeeks": 4.4,
+      "hoursTotal": 2953.9
     },
     {
-      "appId": "730",
-      "name": "Counter-Strike 2",
-      "storeUrl": "https://store.steampowered.com/app/730/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_184x69.jpg",
-      "hoursTwoWeeks": 1.4,
-      "hoursTotal": 2261.7
+      "appId": "2807960",
+      "name": "Battlefield™ 6",
+      "storeUrl": "https://store.steampowered.com/app/2807960/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/capsule_184x69.jpg",
+      "hoursTwoWeeks": 3.4,
+      "hoursTotal": 59.8
+    },
+    {
+      "appId": "553850",
+      "name": "HELLDIVERS™ 2",
+      "storeUrl": "https://store.steampowered.com/app/553850/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/capsule_184x69.jpg",
+      "hoursTwoWeeks": 3,
+      "hoursTotal": 3
     },
     {
       "appId": "688130",
       "name": "Pogostuck: Rage With Your Friends",
       "storeUrl": "https://store.steampowered.com/app/688130/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/688130/capsule_184x69.jpg",
-      "hoursTwoWeeks": 0.4,
-      "hoursTotal": 746
+      "hoursTwoWeeks": 1.8,
+      "hoursTotal": 747.5
+    },
+    {
+      "appId": "1431300",
+      "name": "Sand",
+      "storeUrl": "https://store.steampowered.com/app/1431300/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1431300/capsule_184x69.jpg",
+      "hoursTwoWeeks": 1.3,
+      "hoursTotal": 1.3
+    },
+    {
+      "appId": "730",
+      "name": "Counter-Strike 2",
+      "storeUrl": "https://store.steampowered.com/app/730/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/capsule_184x69.jpg",
+      "hoursTwoWeeks": 0.8,
+      "hoursTotal": 2261.7
+    },
+    {
+      "appId": "2868840",
+      "name": "Slay the Spire 2",
+      "storeUrl": "https://store.steampowered.com/app/2868840/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/capsule_184x69.jpg",
+      "hoursTwoWeeks": 0.7,
+      "hoursTotal": 103.5
     },
     {
       "appId": "881100",
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 0.1,
-      "hoursTotal": 3080.8
+      "hoursTwoWeeks": 0.5,
+      "hoursTotal": 3081.2
+    },
+    {
+      "appId": "250820",
+      "name": "SteamVR",
+      "storeUrl": "https://store.steampowered.com/app/250820/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg",
+      "hoursTwoWeeks": 0,
+      "hoursTotal": 3455.7
     }
   ],
   "topGames": [
@@ -142,7 +158,7 @@
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTotal": 3080.8
+      "hoursTotal": 3081.2
     },
     {
       "appId": "438100",
@@ -170,14 +186,14 @@
       "name": "Pogostuck: Rage With Your Friends",
       "storeUrl": "https://store.steampowered.com/app/688130/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/688130/capsule_184x69.jpg",
-      "hoursTotal": 746
+      "hoursTotal": 747.5
     },
     {
       "appId": "578080",
       "name": "PUBG: BATTLEGROUNDS",
       "storeUrl": "https://store.steampowered.com/app/578080/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/capsule_184x69.jpg",
-      "hoursTotal": 641.8
+      "hoursTotal": 652.4
     },
     {
       "appId": "228200",
