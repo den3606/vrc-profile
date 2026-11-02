@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T04:23:32.025Z",
+  "updatedAt": "2026-11-02T05:40:05.056Z",
   "profileUrl": "https://steamcommunity.com/id/den3606/",
   "featured": [
     {
@@ -65,76 +65,60 @@
   ],
   "games": [
     {
-      "appId": "250820",
-      "name": "SteamVR",
-      "storeUrl": "https://store.steampowered.com/app/250820/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg",
-      "hoursTwoWeeks": 51.6,
-      "hoursTotal": 3895.7
+      "appId": "438100",
+      "name": "VRChat",
+      "storeUrl": "https://store.steampowered.com/app/438100/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
+      "hoursTwoWeeks": 56.6,
+      "hoursTotal": 3403.2
     },
     {
       "appId": "2538150",
       "name": "OyasumiVR",
       "storeUrl": "https://store.steampowered.com/app/2538150/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538150/capsule_184x69.jpg",
-      "hoursTwoWeeks": 51.6,
-      "hoursTotal": 1158.2
+      "hoursTwoWeeks": 53.6,
+      "hoursTotal": 1194
     },
     {
-      "appId": "438100",
-      "name": "VRChat",
-      "storeUrl": "https://store.steampowered.com/app/438100/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 49,
-      "hoursTotal": 3364.6
-    },
-    {
-      "appId": "3846120",
-      "name": "MineMogul",
-      "storeUrl": "https://store.steampowered.com/app/3846120/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3846120/capsule_184x69.jpg",
-      "hoursTwoWeeks": 35.6,
-      "hoursTotal": 35.6
+      "appId": "250820",
+      "name": "SteamVR",
+      "storeUrl": "https://store.steampowered.com/app/250820/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/250820/capsule_184x69.jpg",
+      "hoursTwoWeeks": 53.2,
+      "hoursTotal": 3931.1
     },
     {
       "appId": "2868840",
       "name": "Slay the Spire 2",
       "storeUrl": "https://store.steampowered.com/app/2868840/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/capsule_184x69.jpg",
-      "hoursTwoWeeks": 6.6,
-      "hoursTotal": 135.4
+      "hoursTwoWeeks": 17.6,
+      "hoursTotal": 146.6
     },
     {
       "appId": "881100",
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTwoWeeks": 6.2,
-      "hoursTotal": 3104.5
+      "hoursTwoWeeks": 8.4,
+      "hoursTotal": 3106.9
     },
     {
-      "appId": "570940",
-      "name": "DARK SOULS™: REMASTERED",
-      "storeUrl": "https://store.steampowered.com/app/570940/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570940/capsule_184x69.jpg",
-      "hoursTwoWeeks": 3,
-      "hoursTotal": 5.5
+      "appId": "286160",
+      "name": "Tabletop Simulator",
+      "storeUrl": "https://store.steampowered.com/app/286160/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/286160/capsule_184x69.jpg",
+      "hoursTwoWeeks": 6.6,
+      "hoursTotal": 42
     },
     {
       "appId": "1845250",
       "name": "Rubinite",
       "storeUrl": "https://store.steampowered.com/app/1845250/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1845250/capsule_184x69.jpg",
-      "hoursTwoWeeks": 2.3,
-      "hoursTotal": 2.3
-    },
-    {
-      "appId": "1808500",
-      "name": "ARC Raiders",
-      "storeUrl": "https://store.steampowered.com/app/1808500/",
-      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/capsule_184x69.jpg",
-      "hoursTwoWeeks": 1.7,
-      "hoursTotal": 167
+      "hoursTwoWeeks": 3.5,
+      "hoursTotal": 3.5
     },
     {
       "appId": "2807960",
@@ -167,6 +151,14 @@
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/960170/capsule_184x69.jpg",
       "hoursTwoWeeks": 0.5,
       "hoursTotal": 5.5
+    },
+    {
+      "appId": "813820",
+      "name": "Realm Royale Reforged",
+      "storeUrl": "https://store.steampowered.com/app/813820/",
+      "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/813820/capsule_184x69.jpg",
+      "hoursTwoWeeks": 0,
+      "hoursTotal": 39.8
     }
   ],
   "topGames": [
@@ -182,14 +174,14 @@
       "name": "VRChat",
       "storeUrl": "https://store.steampowered.com/app/438100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/438100/capsule_184x69.jpg",
-      "hoursTotal": 3364.6
+      "hoursTotal": 3403.2
     },
     {
       "appId": "881100",
       "name": "Noita",
       "storeUrl": "https://store.steampowered.com/app/881100/",
       "capsule": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/881100/capsule_184x69.jpg",
-      "hoursTotal": 3104.5
+      "hoursTotal": 3106.9
     },
     {
       "appId": "730",
